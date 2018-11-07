@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.5.0">
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="设计需求 统计在线列表，可以随时的踢下线，让客户端缓存的token失效 30天内无需重新登录，默认可无限期延续  Token生成方案">
+<meta name="keywords" content="算法,openapi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Access Token &amp; Refresh Token">
+<meta property="og:url" content="http://blog.fanfq.com/算法/AccessToken&RefreshToken.html">
+<meta property="og:site_name" content="Fred&#39;s Blog">
+<meta property="og:description" content="设计需求 统计在线列表，可以随时的踢下线，让客户端缓存的token失效 30天内无需重新登录，默认可无限期延续  Token生成方案">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.fanfq.com/uploads/WX20181030-160602.png">
+<meta property="og:updated_time" content="2018-11-06T15:08:26.900Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Access Token &amp; Refresh Token">
+<meta name="twitter:description" content="设计需求 统计在线列表，可以随时的踢下线，让客户端缓存的token失效 30天内无需重新登录，默认可无限期延续  Token生成方案">
+<meta name="twitter:image" content="http://blog.fanfq.com/uploads/WX20181030-160602.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fred's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.fanfq.com/算法/AccessToken&RefreshToken.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Access Token & Refresh Token | Fred's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?57e7a35ebd54d46287f12faca2698d67";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fred's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Quick notes</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.fanfq.com/算法/AccessToken&RefreshToken.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred Fan">
+      <meta itemprop="description" content="他是一只安静的猴子">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Access Token & Refresh Token
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-30 22:26:57" itemprop="dateCreated datePublished" datetime="2018-10-30T22:26:57+08:00">2018-10-30</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="设计需求"><a href="#设计需求" class="headerlink" title="设计需求"></a>设计需求</h2><ol>
+<li>统计在线列表，可以随时的踢下线，让客户端缓存的token失效</li>
+<li>30天内无需重新登录，默认可无限期延续</li>
+</ol>
+<h2 id="Token生成方案"><a href="#Token生成方案" class="headerlink" title="Token生成方案"></a>Token生成方案</h2><a id="more"></a>
+<h3 id="JWT（JSON-WEB-TOKEN）的构成"><a href="#JWT（JSON-WEB-TOKEN）的构成" class="headerlink" title="JWT（JSON WEB TOKEN）的构成"></a>JWT（JSON WEB TOKEN）的构成</h3><p>第一部分我们称它为头部（header),<br>第二部分我们称其为载荷（payload, 类似于飞机上承载的物品)，<br>第三部分是签名（signature确保数据的完整性).<br><code>JWT token = header.payload.signature</code><br>由于JWT是无状态的，也未能实现我们上述的需求，所以不得不放弃了JWT的方案，但是其有关token的加密算法还是值得参考的。</p>
+<h3 id="access-token生成方案"><a href="#access-token生成方案" class="headerlink" title="access_token生成方案"></a>access_token生成方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">payload = urlencode(base64(&#123;uid,ts&#125;))</span><br><span class="line">salt=TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ //盐值</span><br><span class="line">signature = HMACSHA256(payload,salt);</span><br><span class="line">access_token = payload.signature</span><br><span class="line"></span><br><span class="line">redis_key = access_token:uid:&#123;access_token&#125;//uid 是从token中payload解析出来的</span><br><span class="line">redis_value = userinfo</span><br><span class="line">redis_ttl = 2hr</span><br></pre></td></tr></table></figure>
+<h3 id="refresh-token生成方案"><a href="#refresh-token生成方案" class="headerlink" title="refresh_token生成方案"></a>refresh_token生成方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">payload = urlencode(base64(&#123;uid,ts&#125;))</span><br><span class="line">salt=TJVA95Or11.0cBab30RMHrHDcEfxjoYZgeFONFh7HgQ //盐值</span><br><span class="line">signature = HMACSHA256(payload,salt);</span><br><span class="line">refresh_token = payload.signature;</span><br><span class="line"></span><br><span class="line">redis_key = refresh_token:uid:&#123;refresh_token&#125;//uid 是从token中payload解析出来的</span><br><span class="line">redis_value = access_token</span><br><span class="line">redis_ttl = 30days</span><br></pre></td></tr></table></figure>
+<h3 id="算法实现："><a href="#算法实现：" class="headerlink" title="算法实现："></a>算法实现：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.codec.binary.Base64;</span><br><span class="line"><span class="keyword">import</span> com.fanfq.util.commons.encrypt.HMACSHA256;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\n#####token生成算法"</span>);</span><br><span class="line">    </span><br><span class="line">Long uid = <span class="number">10010l</span>;</span><br><span class="line"></span><br><span class="line">Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;String,Object&gt;();</span><br><span class="line">    map.put(<span class="string">"uid"</span>, uid);</span><br><span class="line">    map.put(<span class="string">"ts"</span>, System.currentTimeMillis());</span><br><span class="line">    </span><br><span class="line">    String str = JSONObject.toJSONString(map);</span><br><span class="line">    </span><br><span class="line">    String base64 = Base64.encodeBase64String(str.getBytes());</span><br><span class="line">    String payload = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        payload = URLEncoder.encode(base64,<span class="string">"UTF-8"</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">    <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">String salt = <span class="string">"TJVA95Or11.0cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"</span>;</span><br><span class="line">String signature = HMACSHA256.encode(payload,salt);</span><br><span class="line"></span><br><span class="line">String token = payload+<span class="string">"."</span>+signature;</span><br><span class="line">System.out.println(<span class="string">"payload:"</span>+payload);</span><br><span class="line">System.out.println(<span class="string">"signature:"</span>+signature);</span><br><span class="line">System.out.println(<span class="string">"token:"</span>+token);</span><br><span class="line">System.out.println(<span class="string">"redis key: token:"</span>+uid+<span class="string">":"</span>+token);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\n#####token校验算法"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"1.签名校验"</span>);</span><br><span class="line">System.out.println(<span class="string">"token:"</span>+token);</span><br><span class="line">String payload_ = token.split(<span class="string">"\\."</span>)[<span class="number">0</span>];</span><br><span class="line">String signature_ = token.split(<span class="string">"\\."</span>)[<span class="number">1</span>];</span><br><span class="line">System.out.println(<span class="string">"payload密文:"</span>+payload_);</span><br><span class="line">System.out.println(<span class="string">"signature签名:"</span>+signature_);</span><br><span class="line"><span class="keyword">boolean</span> check = HMACSHA256.encode(payload_,salt).equals(signature_);</span><br><span class="line">System.out.println(<span class="string">"签名校验："</span>+check);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\n2.时间戳校验"</span>);</span><br><span class="line">String urldecode = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    urldecode = URLDecoder.decode(payload_, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">    <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">String jsondecode = <span class="keyword">new</span> String(Base64.decodeBase64(urldecode));</span><br><span class="line">System.out.println(<span class="string">"payload解密："</span>+jsondecode);</span><br><span class="line"></span><br><span class="line">JSONObject jsobj = JSONObject.parseObject(jsondecode);</span><br><span class="line">Long ts = jsobj.getLong(<span class="string">"ts"</span>);</span><br><span class="line">System.out.println(System.currentTimeMillis() - ts +<span class="string">" ms"</span>);</span><br><span class="line"><span class="keyword">if</span>(System.currentTimeMillis() - ts &gt; <span class="number">1000</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">2</span>) &#123;</span><br><span class="line">    System.out.println(<span class="string">"超过2小时"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">"有效期内，开始进行redis查询"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>token生成算法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">明文：&#123;&quot;uid&quot;:10010,&quot;ts&quot;:1540912751948&#125;</span><br><span class="line">payload:eyJ1aWQiOjEwMDEwLCJ0cyI6MTU0MDkxMjc1MTk0OH0%3D</span><br><span class="line">signature:0ba40cff2bda8fab9ae61893b43c198e3022a1e8f058ac8054417241d3129d1f</span><br><span class="line">token:eyJ1aWQiOjEwMDEwLCJ0cyI6MTU0MDkxMjc1MTk0OH0%3D.0ba40cff2bda8fab9ae61893b43c198e3022a1e8f058ac8054417241d3129d1f</span><br><span class="line">redis key: token:10010:eyJ1aWQiOjEwMDEwLCJ0cyI6MTU0MDkxMjc1MTk0OH0%3D.0ba40cff2bda8fab9ae61893b43c198e3022a1e8f058ac8054417241d3129d1f</span><br></pre></td></tr></table></figure></p>
+<p><strong>token校验算法</strong></p>
+<ol>
+<li><p>签名校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">token:eyJ1aWQiOjEwMDEwLCJ0cyI6MTU0MDkxMjc1MTk0OH0%3D.0ba40cff2bda8fab9ae61893b43c198e3022a1e8f058ac8054417241d3129d1f</span><br><span class="line">payload密文:eyJ1aWQiOjEwMDEwLCJ0cyI6MTU0MDkxMjc1MTk0OH0%3D</span><br><span class="line">signature签名:0ba40cff2bda8fab9ae61893b43c198e3022a1e8f058ac8054417241d3129d1f</span><br><span class="line">签名校验：true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>时间戳校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload解密：&#123;&quot;uid&quot;:10010,&quot;ts&quot;:1540912751948&#125;</span><br><span class="line">690 ms</span><br><span class="line">有效期内，开始进行redis查询</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>这个也是我经过思考后最终确认下来的token生成算法，也许你也发现既然redis持久化了就直接查库即可，无需搞的这么复杂的算法。实际上我是这样考虑的，因为大量的api请求都会带token参数导致每次请求都会查询库，固然redis的强大的性能足以支持，但还是为了效率过滤一些没有必要的io资源。</p>
+<ol>
+<li>得到请求的时候首先验证signature是否匹配，防止篡改</li>
+<li>再从payload中获取ts以判断时间戳是否失效，access_token 2hr, refresh_token 30days.</li>
+<li>前两者校验完成，则请求一次redis io做最终的判断。当然排除临时被提下线的情况下，大部分情况下这里都是通过的。</li>
+<li><p>redis key 的设计，其中的uid设计主要是为了后期统计使用，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">keys （refresh_token:uid:*）获取当前终端连接数，</span><br><span class="line"></span><br><span class="line">Set&lt;String&gt; setz = jedis.keys(&quot;access_token:*&quot;);</span><br><span class="line">System.out.println(&quot;access_token:* key 的数目:&quot;+setz.size());</span><br><span class="line"></span><br><span class="line">获取当前在线用户数（根据uid排重）</span><br><span class="line">	</span><br><span class="line">Set&lt;String&gt; setzz = new HashSet&lt;String&gt;();</span><br><span class="line">for(String str:setz) &#123;</span><br><span class="line">    setzz.add(str.split(&quot;:&quot;)[1]);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;key uid 去重：&quot;+setzz.size());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>redis ttl 就不用不多说了，access_token 2hr, refresh_token 30days.</p>
+</li>
+<li>redis value：whatever anythings</li>
+</ol>
+<h3 id="Redis-有状态缓存"><a href="#Redis-有状态缓存" class="headerlink" title="Redis 有状态缓存"></a>Redis 有状态缓存</h3><p><strong>access_token</strong></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>ttl</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token:10024:ak_1</td>
+<td>2hr</td>
+<td>username:zhangsan,uid:10024</td>
+</tr>
+<tr>
+<td>access_token:10025:ak_2</td>
+<td>2hr</td>
+<td>username:lisi,uid:10025</td>
+</tr>
+</tbody>
+</table>
+<p><strong>refresh_token</strong></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>ttl</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refresh_token:10024:rk_1</td>
+<td>30days</td>
+<td>access_token:10024:ak_1</td>
+</tr>
+<tr>
+<td>refresh_token:10025:rk_2</td>
+<td>30days</td>
+<td>access_token:10025:ak_2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h2><img src="/uploads/WX20181030-160602.png">
+<h2 id="用户授权获取token"><a href="#用户授权获取token" class="headerlink" title="用户授权获取token"></a>用户授权获取token</h2><h3 id="请求方法："><a href="#请求方法：" class="headerlink" title="请求方法："></a>请求方法：</h3><p><code>https://apihost/oauth2/access_token?username=zhangsan&amp;password=123456</code></p>
+<h3 id="正确的返回："><a href="#正确的返回：" class="headerlink" title="正确的返回："></a>正确的返回：</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"code"</span>:<span class="number">200</span>,   </span><br><span class="line">   <span class="attr">"msg"</span>:<span class="string">"ok"</span>,   </span><br><span class="line">   <span class="attr">"data"</span>:&#123;</span><br><span class="line">      <span class="attr">"access_token"</span>:<span class="string">"ak_1"</span>,</span><br><span class="line">      <span class="attr">"uid"</span>:<span class="number">10024</span>,</span><br><span class="line">      <span class="attr">"refresh_token"</span>:<span class="string">"rk_1"</span>,</span><br><span class="line">      <span class="attr">"expires_in"</span>:<span class="number">7200</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>接口调用凭证</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>用户刷新access_token</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>授权用户唯一标识</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>access_token接口调用凭证超时时间，单位（秒）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="错误返回样例："><a href="#错误返回样例：" class="headerlink" title="错误返回样例："></a>错误返回样例：</h3><p><code>{&quot;code&quot;:400,&quot;msg&quot;:&quot;bad request&quot;}</code></p>
+<h2 id="刷新access-token有效期"><a href="#刷新access-token有效期" class="headerlink" title="刷新access_token有效期"></a>刷新access_token有效期</h2><p>access_token是调用授权关系接口的调用凭证，由于access_token有效期（目前为2个小时）较短，当access_token超时后，可以使用refresh_token进行刷新，用refresh_token仅能使用一次，使用一次后，将被废弃。也就是说refresh_token 更新 access_token 的时候 refresh_token 也会跟着被更新</p>
+<ol>
+<li>通过用refresh_token机制可以确保活跃用户长期不用登录授权。</li>
+<li>refresh_token拥有较长的有效期（30天），当refresh_token失效的后，需要用户重新授权。也就说第一次登录与第二次登录时长间隔30天以上则需要用户重新授权登录。</li>
+</ol>
+<h3 id="请求方法：-1"><a href="#请求方法：-1" class="headerlink" title="请求方法："></a>请求方法：</h3><p><code>https://apihost/oauth2/refresh_token?uid=UID&amp;refresh_token=REFRESH_TOKEN</code></p>
+<h3 id="正确的返回：-1"><a href="#正确的返回：-1" class="headerlink" title="正确的返回："></a>正确的返回：</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"code"</span>:<span class="number">200</span>,   </span><br><span class="line">   <span class="attr">"msg"</span>:<span class="string">"ok"</span>,   </span><br><span class="line">   <span class="attr">"data"</span>:&#123;</span><br><span class="line">      <span class="attr">"access_token"</span>:<span class="string">"ak_1"</span>,</span><br><span class="line">      <span class="attr">"uid"</span>:<span class="number">10024</span>,</span><br><span class="line">      <span class="attr">"refresh_token"</span>:<span class="string">"rk_1"</span>,</span><br><span class="line">      <span class="attr">"expires_in"</span>:<span class="number">7200</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>接口调用凭证</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>用户刷新access_token</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>授权用户唯一标识</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>access_token接口调用凭证超时时间，单位（秒）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="错误返回样例：-1"><a href="#错误返回样例：-1" class="headerlink" title="错误返回样例："></a>错误返回样例：</h3><p><code>{&quot;code&quot;:400,&quot;msg&quot;:&quot;invalid refresh_token&quot;}</code></p>
+<h2 id="通过access-token调用接口"><a href="#通过access-token调用接口" class="headerlink" title="通过access_token调用接口"></a>通过access_token调用接口</h2><p>获取access_token后，进行接口调用，有以下前提：<br>access_token有效且未超时；如果access_token失效，则通过refresh_token重新同步。若refresh_token也失效了则需要用户重新授权登录。</p>
+<h3 id="Eg-通过UID获取用户基本信息"><a href="#Eg-通过UID获取用户基本信息" class="headerlink" title="Eg.通过UID获取用户基本信息"></a>Eg.通过UID获取用户基本信息</h3><h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><p><code>https://apihost/user?access_token=ak_1&amp;uid=10024</code></p>
+<h3 id="正确的返回"><a href="#正确的返回" class="headerlink" title="正确的返回"></a>正确的返回</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"code"</span>:<span class="number">200</span>,   </span><br><span class="line">   <span class="attr">"msg"</span>:<span class="string">"ok"</span>,   </span><br><span class="line">   <span class="attr">"data"</span>:&#123;</span><br><span class="line">       <span class="attr">"username"</span>:<span class="string">"zhangsan"</span>,</span><br><span class="line">       <span class="attr">"age"</span>:<span class="number">28</span>,</span><br><span class="line">       <span class="attr">"address"</span>:<span class="string">"xx路xx号"</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="错误返回样例：-2"><a href="#错误返回样例：-2" class="headerlink" title="错误返回样例："></a>错误返回样例：</h3><p><code>{&quot;code&quot;:400,&quot;msg&quot;:&quot;invalid access_token&quot;}</code></p>
+<h2 id="注意事项RISK-CONTROL"><a href="#注意事项RISK-CONTROL" class="headerlink" title="注意事项RISK CONTROL"></a>注意事项RISK CONTROL</h2><ol>
+<li>access_token 为用户授权客户端发起接口调用的凭证（相当于用户登录态），存储在客户端，可能出现恶意获取access_token 后导致的用户数据泄漏、用户微信相关接口功能被恶意发起等行为；</li>
+<li>refresh_token 为用户授权客户端应用的长效凭证，仅用于刷新access_token，但泄漏后相当于access_token 泄漏，风险同上。</li>
+<li>单点/多点登录。介于我们当前的设计不考虑单点登录的问题，也就是说同一个账号在不同的客户端都可以同时登录，并且生成不同的token以供使用每个客户端程序维护自己的一套token即可。倘若要实现单点登录则在用户授权的时候做排重判断，如果已在其他重点登录则清空该重点的token，并且为当前链接生成新token对即可。具体情况shi</li>
+<li>用户信息跟新，针对我们当前的授权方式一旦用户修改的密码，则要清空该用户所有终端的token，让其重新授权。这也是为什么要设计这套有状态的token机制主要原因</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>猴子交流群，添加好友后拉你进群。接头暗号"猴子"</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>交流群</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/qrcode.jpg" alt="Fred Fan 微信：fangqing_fan">
+        <p>微信：fangqing_fan</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/qq.jpg" alt="Fred Fan QQ群：147660638">
+        <p>QQ群：147660638</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Fred Fan</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.fanfq.com/算法/AccessToken&RefreshToken.html" title="Access Token & Refresh Token">http://blog.fanfq.com/算法/AccessToken&RefreshToken.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/openapi/" rel="tag"># openapi</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/InternalAPIs_encrypt_Method_V1.0.html" rel="next" title="Internal APIs encrypt Method V1.0">
+                <i class="fa fa-chevron-left"></i> Internal APIs encrypt Method V1.0
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/算法/SALT_Encrypt_Best_Practices.html" rel="prev" title="SALT Encrypt Best Practices">
+                SALT Encrypt Best Practices <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/A9808FDB264A02DD004D032FD091DAE2.jpg" alt="Fred Fan">
+            
+              <p class="site-author-name" itemprop="name">Fred Fan</p>
+              <p class="site-description motion-element" itemprop="description">他是一只安静的猴子</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计需求"><span class="nav-number">1.</span> <span class="nav-text">设计需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Token生成方案"><span class="nav-number">2.</span> <span class="nav-text">Token生成方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT（JSON-WEB-TOKEN）的构成"><span class="nav-number">2.1.</span> <span class="nav-text">JWT（JSON WEB TOKEN）的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#access-token生成方案"><span class="nav-number">2.2.</span> <span class="nav-text">access_token生成方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#refresh-token生成方案"><span class="nav-number">2.3.</span> <span class="nav-text">refresh_token生成方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现："><span class="nav-number">2.4.</span> <span class="nav-text">算法实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意："><span class="nav-number">2.5.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-有状态缓存"><span class="nav-number">2.6.</span> <span class="nav-text">Redis 有状态缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓扑结构"><span class="nav-number">3.</span> <span class="nav-text">拓扑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户授权获取token"><span class="nav-number">4.</span> <span class="nav-text">用户授权获取token</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求方法："><span class="nav-number">4.1.</span> <span class="nav-text">请求方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的返回："><span class="nav-number">4.2.</span> <span class="nav-text">正确的返回：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误返回样例："><span class="nav-number">4.3.</span> <span class="nav-text">错误返回样例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷新access-token有效期"><span class="nav-number">5.</span> <span class="nav-text">刷新access_token有效期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求方法：-1"><span class="nav-number">5.1.</span> <span class="nav-text">请求方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的返回：-1"><span class="nav-number">5.2.</span> <span class="nav-text">正确的返回：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误返回样例：-1"><span class="nav-number">5.3.</span> <span class="nav-text">错误返回样例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过access-token调用接口"><span class="nav-number">6.</span> <span class="nav-text">通过access_token调用接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Eg-通过UID获取用户基本信息"><span class="nav-number">6.1.</span> <span class="nav-text">Eg.通过UID获取用户基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求方法"><span class="nav-number">6.2.</span> <span class="nav-text">请求方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的返回"><span class="nav-number">6.3.</span> <span class="nav-text">正确的返回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误返回样例：-2"><span class="nav-number">6.4.</span> <span class="nav-text">错误返回样例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项RISK-CONTROL"><span class="nav-number">7.</span> <span class="nav-text">注意事项RISK CONTROL</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号-1 </a> &copy; 2012 – <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fred Fan</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Pisces</a></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

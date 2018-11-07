@@ -2,8 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2015/12/17/hello-world/</loc>
-    <lastmod>2015-12-17T12:51:07.000Z</lastmod>
+    <loc>http://blog.fanfq.com/hello-wolrd.html</loc>
+    
+    <lastmod>2018-11-07T02:28:06.883Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.fanfq.com/%E7%AE%97%E6%B3%95/SALT_Encrypt_Best_Practices.html</loc>
+    
+    <lastmod>2018-11-07T01:23:19.081Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.fanfq.com/InternalAPIs_encrypt_Method_V1.0.html</loc>
+    
+    <lastmod>2018-11-07T01:11:49.333Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.fanfq.com/%E7%AE%97%E6%B3%95/AccessToken&RefreshToken.html</loc>
+    
+    <lastmod>2018-11-06T15:08:26.900Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.fanfq.com/%E7%AE%97%E6%B3%95/OpenAPIs_encrypt_Method_V1.1.html</loc>
+    
+    <lastmod>2018-11-06T14:17:45.754Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.fanfq.com/404/index.html</loc>
+    
+    <lastmod>2018-11-05T06:40:21.511Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.fanfq.com/categories/index.html</loc>
+    
+    <lastmod>2018-11-05T04:26:19.120Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.fanfq.com/tags/index.html</loc>
+    
+    <lastmod>2018-11-05T04:26:19.107Z</lastmod>
+    
   </url>
   
 </urlset>
