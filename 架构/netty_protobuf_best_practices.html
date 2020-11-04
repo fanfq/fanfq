@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.5.0">
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="环境说明：Cocos Creator : 2.3.0 学习的速度赶不上它更新的速度protobuf3 https://developers.google.com/protocol-buffers/protobufjs @6.8.9 https://github.com/protobufjs/protobuf.js没错，这是目前最新版本。网上一大堆都是老的 v5 版本，对我来说太low。哈哈实际上我">
+<meta name="keywords" content="架构,design,netty,protobuf,creator">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cocos Creator WebSocket Protobuf整合之保姆级全攻略">
+<meta property="og:url" content="https://blog.fanfq.com/架构/netty_protobuf_best_practices.html">
+<meta property="og:site_name" content="Fred&#39;s Blog 📒">
+<meta property="og:description" content="环境说明：Cocos Creator : 2.3.0 学习的速度赶不上它更新的速度protobuf3 https://developers.google.com/protocol-buffers/protobufjs @6.8.9 https://github.com/protobufjs/protobuf.js没错，这是目前最新版本。网上一大堆都是老的 v5 版本，对我来说太low。哈哈实际上我">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.fanfq.com/uploads/google_protobuf.png">
+<meta property="og:image" content="https://blog.fanfq.com/uploads/protobuf_struct.png">
+<meta property="og:image" content="https://blog.fanfq.com/uploads/protobufjs.png">
+<meta property="og:image" content="https://blog.fanfq.com/uploads/ccc.png">
+<meta property="og:updated_time" content="2020-09-08T02:29:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cocos Creator WebSocket Protobuf整合之保姆级全攻略">
+<meta name="twitter:description" content="环境说明：Cocos Creator : 2.3.0 学习的速度赶不上它更新的速度protobuf3 https://developers.google.com/protocol-buffers/protobufjs @6.8.9 https://github.com/protobufjs/protobuf.js没错，这是目前最新版本。网上一大堆都是老的 v5 版本，对我来说太low。哈哈实际上我">
+<meta name="twitter:image" content="https://blog.fanfq.com/uploads/google_protobuf.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://blog.fanfq.com/架构/netty_protobuf_best_practices.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Cocos Creator WebSocket Protobuf整合之保姆级全攻略 | Fred's Blog 📒</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128889454-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128889454-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19da5bbef4829ba1366cde88409a7e0e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fred's Blog 📒</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Quick notes</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">32</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">7</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">17</span></a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/架构/netty_protobuf_best_practices.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog 📒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Cocos Creator WebSocket Protobuf整合之保姆级全攻略
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-18 18:12:50" itemprop="dateCreated datePublished" datetime="2020-03-18T18:12:50+08:00">2020-03-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/架构/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>环境说明：<br>Cocos Creator : 2.3.0 学习的速度赶不上它更新的速度<br>protobuf3 <a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="noopener">https://developers.google.com/protocol-buffers/</a><br>protobufjs @6.8.9 <a href="https://github.com/protobufjs/protobuf.js" target="_blank" rel="noopener">https://github.com/protobufjs/protobuf.js</a><br>没错，这是目前最新版本。网上一大堆都是老的 v5 版本，对我来说太low。哈哈实际上我仅仅是为了用那该死的 pbts 啦！</p>
+<p>服务器端：<br>websocket + protobuf3 这里就不具体展开说明了，因为此时我对服务器端没有什么兴趣。</p>
+<img src="/uploads/google_protobuf.png">
+<h3 id="why-google-protobuf"><a href="#why-google-protobuf" class="headerlink" title="why google protobuf?"></a>why google protobuf?</h3><p>我来告诉你，为什么选择protobuf作为网络的封装协议而为什么不用json？</p>
+<p>1.首先我是google的粉丝<br>2.序列化与反序列化效率高于json，相比而言降低了客户端服务器的资源<br>3.传输体积小，对应的降低的数据流量<br>4.数据类型跨平台，这点很重要。也许你不在乎，等你做多客户端的时候就知道了。<br>5.一定程度脱敏，强调一下protobuf没有加密功能，仅仅是二进制难以阅读而已。本文不涉及加密的操作，先给留个坑如果读者有兴趣我会考虑做篇有关RSA,AES加密封装.</p>
+<a id="more"></a>
+<h3 id="protobuf-结构体定义"><a href="#protobuf-结构体定义" class="headerlink" title="protobuf 结构体定义"></a>protobuf 结构体定义</h3><p>1.通常项目早期的时候已经规定好了通讯协议，下面这个协议属于”<strong>万金油</strong>“适用于绝大多数项目，也是我之前做的项目中所采用的协议。</p>
+<span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/uploads/protobuf_struct.png" class="full-image" alt="消息结构体封装协议" title="消息结构体封装协议"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>2.通常我还会做一份文档出来，以供其他参与开发的小伙伴使用，类似于这样的</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:center">位数</th>
+<th style="text-align:right">字节数</th>
+<th style="text-align:right">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">nHeaderFlag</td>
+<td style="text-align:center">8*4</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">包头起始标志，固定为“FC”</td>
+</tr>
+<tr>
+<td style="text-align:left">nProtoID</td>
+<td style="text-align:center">8*4</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">协议ID</td>
+</tr>
+<tr>
+<td style="text-align:left">nProtoFmtType</td>
+<td style="text-align:center">8*4</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">协议格式类型，0为Protobuf格式，1为Json格式，目前仅支持 0</td>
+</tr>
+<tr>
+<td style="text-align:left">nProtoVer</td>
+<td style="text-align:center">8*4</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">协议版本，用于迭代兼容, 目前填0</td>
+</tr>
+<tr>
+<td style="text-align:left">nSerialNo</td>
+<td style="text-align:center">8*8</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">包序列号，用于对应请求包和回包, 要求递增</td>
+</tr>
+<tr>
+<td style="text-align:left">nBodyLen</td>
+<td style="text-align:center">8*4</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">包体长度</td>
+</tr>
+<tr>
+<td style="text-align:left">arrBodySHA1</td>
+<td style="text-align:center">8*40</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">包体原始数据(解密后)的SHA1哈希值</td>
+</tr>
+<tr>
+<td style="text-align:left">arrReserved</td>
+<td style="text-align:center">8*20</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">保留20字节扩展</td>
+</tr>
+</tbody>
+</table>
+<p>（具体描述封装协议各字段说明）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分类</th>
+<th style="text-align:center">协议ID</th>
+<th style="text-align:right">Protobuf文件</th>
+<th style="text-align:right">C2S</th>
+<th style="text-align:right">S2C</th>
+<th style="text-align:right">说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"> 1</td>
+<td style="text-align:center">1001</td>
+<td style="text-align:right"><a href="https://github.com/fanfq/springboot_netty_websocket_protobuffer/blob/master/common/src/main/java/com/fc/common/socket/protobuf/KeepAliveMsg.proto" target="_blank" rel="noopener">KeepAliveMsg</a></td>
+<td style="text-align:right">ping</td>
+<td style="text-align:right">-</td>
+<td style="text-align:right">心跳</td>
+</tr>
+<tr>
+<td style="text-align:left"> 1</td>
+<td style="text-align:center">1901</td>
+<td style="text-align:right"><a href="https://github.com/fanfq/springboot_netty_websocket_protobuffer/blob/master/common/src/main/java/com/fc/common/socket/protobuf/KeepAliveMsg.proto" target="_blank" rel="noopener">KeepAliveMsg</a></td>
+<td style="text-align:right">-</td>
+<td style="text-align:right">pong</td>
+<td style="text-align:right">心跳</td>
+</tr>
+</tbody>
+</table>
+<p>（原生的.proto 文件说明，以便维护）</p>
+<p>3.以KeepAliveMsg.proto为例说明</p>
+<p>ProtoID.proto 一个公用的枚举类型以便管理协议编号<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">syntax =<span class="string">"proto3"</span>;</span><br><span class="line"><span class="comment">//消息头</span></span><br><span class="line"><span class="keyword">enum</span> MsgType&#123;</span><br><span class="line">    DEF = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//keepalive</span></span><br><span class="line">    PING = <span class="number">1001</span>;</span><br><span class="line">    PONG = <span class="number">1901</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>KeepAliveMsg.proto 心跳包协议体<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">syntax =<span class="string">"proto3"</span>;</span><br><span class="line"></span><br><span class="line">message C2S</span><br><span class="line">&#123;</span><br><span class="line">    int64 timestamp = <span class="number">1</span>; <span class="comment">//时间戳</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message S2C</span><br><span class="line">&#123;</span><br><span class="line">    int64 timestamp = <span class="number">1</span>; <span class="comment">//时间戳</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message C2SMsg  <span class="comment">//Request</span></span><br><span class="line">&#123;</span><br><span class="line">    C2S c2s = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message S2CMsg  <span class="comment">//Response</span></span><br><span class="line">&#123;</span><br><span class="line">    int32 code = <span class="number">1</span>;</span><br><span class="line">    string msg = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    S2C s2c = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="creator-整合-protobufjs"><a href="#creator-整合-protobufjs" class="headerlink" title="creator 整合 protobufjs"></a>creator 整合 protobufjs</h3><p>好了，截止到这里和我们cocos creator 不相关的东西准备结束了。下面我们来说说creator该做哪些骚操作呢。<br><span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/uploads/protobufjs.png" class="full-image" alt="消息结构体封装协议"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span></p>
+<p>上面说了google protobuf这里又来个protobuf.js又是什么鬼？</p>
+<p>这个鬼呢，管他什么鬼，我没耐心写了，先将就的写着吧。总之就是在creator中使用protobuf的一个插件针对js, ts 语言环境.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install protobufjs</span><br></pre></td></tr></table></figure><br>安装完成后在安装目录下找到 <code>/Users/fred/node_modules/protobufjs/dist/protobuf.js</code> 将其复制到creator的工程中，然后选择以控件的方式导入。</p>
+<p>同时它主要的目的呢就是将.proto的文件转换成.js（<strong><span class="label danger">pbjs</span></strong>）,以及将其生成出来的.js转换成.d.ts(<strong><span class="label danger">pbts</span></strong>)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbjs -t <span class="keyword">static</span>-<span class="keyword">module</span> -w commonjs -o compiled.js ProtoID.proto KeepAliveMsg.proto</span><br><span class="line">pbts -o compiled.d.ts compiled.js</span><br></pre></td></tr></table></figure>
+<p>此时我们就生成出了 compiled.d.ts compiled.js 这两个文件，也将其复制到creator工程中，其中修改下compiled.js如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var $protobuf = require("protobufjs/minimal");</span></span><br><span class="line"><span class="keyword">var</span> $protobuf = protobuf;</span><br></pre></td></tr></table></figure></p>
+<span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/uploads/ccc.png" class="full-image" alt="消息结构体封装协议"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>好，截止到这里。基本上就完成了protobuf的支持的，剩下的工作就是开始怼代码了！</p>
+<p>写到这里，我有点不想写了，以后再更新吧！</p>
+<p>//todo: creator 中如何通过protobuf.js 进行序列化与反序列化，以及自定义头的解析。</p>
+<p>2020-03-18更新</p>
+<p>1.开始各种封装以及代码的调用与实现，大概的介绍下代码清单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-script (项目工程的脚本目录)</span><br><span class="line">    |_ protobuf (存放protobuf相关目录)</span><br><span class="line">        |_compiled.js (pbjs 编译出来的 .js 文件)</span><br><span class="line">        |_compiled.d.ts (pbts 编译出来的 .d.ts 文件)</span><br><span class="line">        |_protobuf.js (导入的插件)</span><br><span class="line">        |_bean (存放封装类相关目录)</span><br><span class="line">            |_FCDecoder.ts  （arraybuf 消息头解码）</span><br><span class="line">            |_FCEncoder.ts  （arraybuf 消息头编码）</span><br><span class="line">            |_FCHeader.ts （封装的消息头对象）</span><br><span class="line">            |_FCMsg.ts （封装的消息对象）</span><br></pre></td></tr></table></figure></p>
+<h3 id="工程示例源码"><a href="#工程示例源码" class="headerlink" title="工程示例源码"></a>工程示例源码</h3><p>以下是工程示例，代码我就不帖了，具体的看工程源码<br><code>https://github.com/fanfq/springboot_netty_websocket_protobuffer</code></p>
+<h3 id="大概的总结一下"><a href="#大概的总结一下" class="headerlink" title="大概的总结一下"></a>大概的总结一下</h3><p>作为初学creator的人来说，creator的生态并没有我想的那么好，总体而言还处于初级阶段，相当一部分大佬是从cocos2dx转过来的，相对而言他们的学习门槛更低更易于上手，就我个人而言特别针对ts语法可能有些地方用不太恰当，不过暂时没有关系，先这么滴。后续慢慢改善，加油！</p>
+<p>有关网络相关的今天是我学习的第三天，基本的网络通讯http,websocket都已经整明白了，而且在native上测试也是通过的。后期再稍微看下有关证书的配置，应该问题不大。</p>
+<p>下面的计划我准备开始学习下UI相关的控件了，之前写了个demo大概的了解下layout，button，label，widget …等基本的控件使用。可能游戏开发中会用到很多的自定义的控件，暂时还没有接触到。</p>
+<p>还有就是基本的物理引擎做个大概的了解，我估计用不到，如果是网游的话碰撞大概率我会写在服务器端。其他的相关的先做个了解的！</p>
+<p>我们又可以愉快的玩耍了！</p>
+<p>一天到晚的，别老想着白嫖！</p>
+<p>老铁要不要关注一下呢？</p>
+<p>写在最后，本人不提供疑难杂症的检查，岁数有点大了，人有点懒了！谢谢！！</p>
+<p>peace&amp;love</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/qrcode_wechat_159.jpg" alt="Fred范方青 wechat" style="width: 200px; max-width: 100%;">
+    <div>如果有技术问题和我交流请加我私人微信</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Fred范方青</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.fanfq.com/架构/netty_protobuf_best_practices.html" title="Cocos Creator WebSocket Protobuf整合之保姆级全攻略">https://blog.fanfq.com/架构/netty_protobuf_best_practices.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/架构/" rel="tag"># 架构</a>
+          
+            <a href="/tags/design/" rel="tag"># design</a>
+          
+            <a href="/tags/netty/" rel="tag"># netty</a>
+          
+            <a href="/tags/protobuf/" rel="tag"># protobuf</a>
+          
+            <a href="/tags/creator/" rel="tag"># creator</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mongodb/基于mongodb信息流数据存储设计.html" rel="next" title="基于mongodb信息流数据存储设计">
+                <i class="fa fa-chevron-left"></i> 基于mongodb信息流数据存储设计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/架构/websocket_network_encryption_security_protocol_the_best_practices.html" rel="prev" title="网络游戏通讯(WebSocket/Socket)数据加密最佳实践">
+                网络游戏通讯(WebSocket/Socket)数据加密最佳实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/A9808FDB264A02DD004D032FD091DAE2.jpg" alt="Fred范方青">
+            
+              <p class="site-author-name" itemprop="name">Fred范方青</p>
+              <p class="site-description motion-element" itemprop="description">那时候年少轻狂!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://fm.fanfq.com" target="_blank" title="Podcast" rel="external nofollow"><i class="fa fa-fw fa-podcast"></i>Podcast</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#why-google-protobuf"><span class="nav-number">1.</span> <span class="nav-text">why google protobuf?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#protobuf-结构体定义"><span class="nav-number">2.</span> <span class="nav-text">protobuf 结构体定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creator-整合-protobufjs"><span class="nav-number">3.</span> <span class="nav-text">creator 整合 protobufjs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程示例源码"><span class="nav-number">4.</span> <span class="nav-text">工程示例源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大概的总结一下"><span class="nav-number">5.</span> <span class="nav-text">大概的总结一下</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号 </a> &copy; 2012 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fred范方青</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Pisces</a></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
