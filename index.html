@@ -162,6 +162,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Fred's Blog 📒" type="application/atom+xml">
+
 
 
 
@@ -293,9 +295,17 @@
         
         
           
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">32</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
   </li>
         
         
@@ -303,7 +313,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">7</span></a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
   </li>
         
         
@@ -311,7 +321,15 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">17</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
   </li>
 
       
@@ -375,6 +393,173 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/podcast/花了两天的时间终于把Podcast发布站搭建好了.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog 📒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/podcast/花了两天的时间终于把Podcast发布站搭建好了.html" itemprop="url">
+                  花了两天的时间终于把Podcast发布站搭建好了
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-11-04 16:25:28" itemprop="dateCreated datePublished" datetime="2020-11-04T16:25:28+08:00">2020-11-04</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/podcast/" itemprop="url" rel="index"><span itemprop="name">podcast</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章主要是要将的我工作流给记录下来，以免以后时间长了忘记了。</p>
+<p><a href="http://fm.fanfq.com" target="_blank" rel="noopener">http://fm.fanfq.com</a> 这个站实际上是我的podcast发布站，采用<code>hexo</code>+<code>next主题</code>+<code>podcasts插件</code>,放在<code>github</code>上托管，mp3等资源文件放在CDN上托管。</p>
+<p>实际上没有什么，主要是说下这个podcasts插件并不好用，我自己根据实际需求做了修改，以及增加了一个脚本获取mp3文件的数据。</p>
+<p>podcasts插件主要是为了生成符合apple podcast rss feed 文件，貌似国外的主流的都是以rss订阅的方式发布的，这很好，不需要作者每个平台手动的发布，我这里的发布站也是为了解决这个问题。</p>
+<p>有关podcasts插件修改内容看这个链接：(这要比较重要，一定要验证成功才有用)<br><a href="https://github.com/fanfq/hexo-generator-podcasts" target="_blank" rel="noopener">https://github.com/fanfq/hexo-generator-podcasts</a></p>
+<p>还写了python脚本为了获取mp3的参数：<br><a href="https://github.com/fanfq/python-learning/blob/master/src/util/file/mp3_file_rename.py" target="_blank" rel="noopener">https://github.com/fanfq/python-learning/blob/master/src/util/file/mp3_file_rename.py</a></p>
+<p><code>mp3_file_name.py</code>这个脚本，目的是为了重命名文件。如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用于podcast音频文件整理</span><br><span class="line">源文件：003.mp3</span><br><span class="line">重命名后的文件：fm003_8776581_2192.mp3</span><br><span class="line">文件命名规范：fm|003|_length_duration</span><br><span class="line">prefix:文件前缀</span><br><span class="line">003：文件原名</span><br><span class="line">length：文件体积单位byte</span><br><span class="line">duration：文件播放时长单位s</span><br></pre></td></tr></table></figure>
+<p>然后就是写文章了，目前这个文章的结构是需要手动维护的，文章结构示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;#4.整装待发扬帆起航，拒绝消费主义&quot;  #文章标题</span><br><span class="line">category: podcast #固定值</span><br><span class="line">media: https://dl.fanfq.com/fm.fanfq.com/fm004_11922309_496.mp3 #固定值，建议放CDN </span><br><span class="line">image: https://dl.fanfq.com/fm.fanfq.com/fred_1024x1024_fm.jpg   #固定值，建议放CDN </span><br><span class="line">duration: 496  #mp3文件播放时长，这里单位是秒</span><br><span class="line">type: audio/mpeg #固定值</span><br><span class="line">length: 11922309  #mp3文件的字节数，右键文件查看所占磁盘空间</span><br><span class="line">layout: podcast  #固定值</span><br><span class="line">date: 2020-11-03 21:21:57 #创建时间</span><br><span class="line">tags: [播客,消费主义] #文章标签</span><br><span class="line">urlname: vol4 #比如我这里最终文章的链接是 https://fm.fanfq.com/vol4.html</span><br><span class="line">description: 轻奢，小资，精致，这些词是不是听起来有点耳熟?在我看来这些词都是消费主义的簇拥者自己创造出来的文化，通过这种方式给消费者洗脑最终促使消费者买单。 #这个描述，为了填充feed用而不是正文</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&#123;% podplayer %&#125; #播放器</span><br><span class="line"></span><br><span class="line">文章正文...</span><br></pre></td></tr></table></figure>
+<p>编辑好后直接发布到github上就可以了，然后等苹果的服务器自动同步。</p>
+<h2 id="总结一下的，流程是"><a href="#总结一下的，流程是" class="headerlink" title="总结一下的，流程是"></a>总结一下的，流程是</h2><p>1.编辑好的mp3文件发到mp3目录下<br>2.执行mp3目录下的 <code>mp3_file_name.py</code> 脚本<br>3.上传CDN（目前这步是手动做的，以后再做跟新）<br>4.创建新的文档 <code>hexo new episode NAME</code><br>5.编辑 <code>NAME.md</code> 文件信息<br>6.<code>hexo s</code> 本地预览一下，看是否都正常，只要mp3能正常播放那问题不大<br>7.<code>hexo clean</code>, <code>hexo g</code>,<code>hexo deploy</code> 全套。</p>
+<h2 id="工程目录大概是这样子的"><a href="#工程目录大概是这样子的" class="headerlink" title="工程目录大概是这样子的"></a>工程目录大概是这样子的</h2><span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="https://cdn.fanfq.com/picgo/20201105123817.png?imageslim" class="full-image" alt="工程目录大概是这样子的"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>优化的空间很大，我也想到的，比如<code>new post</code>这个操作自动完成等等，cdn自动同步什么的，没关系目前主要的是要持续的创作，工具够用就好，以后再慢慢优化的。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1395,7 +1580,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/算法/AccessToken&RefreshToken.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/算法/AccessToken_RefreshToken.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fred范方青">
@@ -1414,8 +1599,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/算法/AccessToken&RefreshToken.html" itemprop="url">
-                  Access Token & Refresh Token
+                <a class="post-title-link" href="/算法/AccessToken_RefreshToken.html" itemprop="url">
+                  Access Token vs Refresh Token
                 </a>
               
             
@@ -1502,7 +1687,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/算法/AccessToken&RefreshToken.html#more" rel="contents">
+              <a class="btn" href="/算法/AccessToken_RefreshToken.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1943,169 +2128,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/算法/OpenAPIs_encrypt_Method_V1.1.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Fred范方青">
-      <meta itemprop="description" content="那时候年少轻狂!">
-      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fred's Blog 📒">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/算法/OpenAPIs_encrypt_Method_V1.1.html" itemprop="url">
-                  Open APIs encrypt Method V1.1
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-29 14:57:41" itemprop="dateCreated datePublished" datetime="2018-10-29T14:57:41+08:00">2018-10-29</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="非对称密码加密解密-amp-签名机制-amp-重放攻击"><a href="#非对称密码加密解密-amp-签名机制-amp-重放攻击" class="headerlink" title="非对称密码加密解密&amp;签名机制&amp;重放攻击"></a>非对称密码加密解密&amp;签名机制&amp;重放攻击</h2><p>《Internal APIs encrypt Method V1.0》 文章中已经描述了我们正在线上产品所用的加密算法，实际上他不仅仅是解决防参数篡改的问题，同时也解决了数据隐私保护的问题。即便如此这套算法还是有漏洞的，也是做所以定义为 Internal APIs的主要原因了，由于只提供给内部使用所以安全性暂且得到保障，一旦提供给外部使用则全盘”露馅”了,这也是我为什么要编辑此篇《Open APIs encrypt Method V1.1》文章了。</p>
-<p>其中最为致命的问题是要在客户端代码中公开自己的密钥以及算法，一旦黑客从客户端程序中反编译源码，这样就会导致整个加密体系的崩盘，而且连补救的措施都没有。</p>
-<p>同时第二个比较严重的问题就是黑客从放攻击的问题，黑客在抓取到包体后，直接再次提交请求导致服务器端不断受到重复请求。</p>
-<p>所以基于以上两点，我们了解到《Internal APIs encrypt Method V1.0》所存在的问题如下表所示</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/算法/OpenAPIs_encrypt_Method_V1.1.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2155,7 +2177,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2182,7 +2204,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2259,7 +2285,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2268,12 +2300,24 @@
           
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
           
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://fm.fanfq.com" target="_blank" title="Podcast" rel="external nofollow"><i class="fa fa-fw fa-podcast"></i>Podcast</a>
+                  <a href="https://github.com/fanfq" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:fangqing.fan@hotmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
                 </span>
               
@@ -2284,6 +2328,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-fa fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://fm.fanfq.com" title="fm.fanfq.com" target="_blank">fm.fanfq.com</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
