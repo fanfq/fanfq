@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.fanfq.com/blog_/%E4%BC%BC%E4%B9%8E%E5%BA%94%E8%AF%A5%E8%B0%83%E6%95%B4%E4%B8%80%E4%B8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%AE%A9%E6%97%B6%E9%97%B4%E6%9B%B4%E6%9C%89%E6%95%88%E7%8E%87.html</loc>
+    <loc>https://blog.fanfq.com/about/index.html</loc>
     
-    <lastmod>2020-11-25T03:01:54.549Z</lastmod>
+    <lastmod>2020-12-25T01:36:33.330Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.fanfq.com/null.html</loc>
+    <loc>https://blog.fanfq.com/dev/Telegram_bot_dev_thinking.html</loc>
     
-    <lastmod>2020-11-25T02:39:55.062Z</lastmod>
+    <lastmod>2020-12-25T00:56:07.743Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fanfq.com/blog_/%E4%BC%BC%E4%B9%8E%E5%BA%94%E8%AF%A5%E8%B0%83%E6%95%B4%E4%B8%80%E4%B8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%AE%A9%E6%97%B6%E9%97%B4%E6%9B%B4%E6%9C%89%E6%95%88%E7%8E%87.html</loc>
+    
+    <lastmod>2020-11-25T03:01:54.549Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>https://blog.fanfq.com/%E7%AE%97%E6%B3%95/AccessToken_RefreshToken.html</loc>
     
     <lastmod>2020-11-04T08:36:36.121Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fanfq.com/about/index.html</loc>
-    
-    <lastmod>2020-11-03T04:54:25.881Z</lastmod>
     
   </url>
   

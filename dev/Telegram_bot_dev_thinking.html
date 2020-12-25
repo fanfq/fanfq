@@ -148,17 +148,24 @@
 
 
 
-  <meta name="description" content="那时候年少轻狂!">
-<meta name="keywords" content="程序员,技术宅,软件开发,开源软件,IT,IT男,金融,互联网金融,理财,货币基金">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fred&#39;s Blog">
-<meta property="og:url" content="https://blog.fanfq.com/archives/2018/10/index.html">
+  <meta name="description" content="前言原本是打算用钉钉实现该功能的，一看要做企业认证就放弃的。不得不说这种所谓的认证就拒绝了相当多的独立开发者，这一点绝对是受诟病的。 前端时间研究下Telegram相关的开发，总体来说实现了想要得所有功能，但是在测试的过程中发现很多问题。主要是因为早期Tg的开放接口被滥用的问题导致的，从而想要实现一些功能是受限的以免接口滥用。 Telegram Bot 和绝大多数的IM通讯软件中的机器人是一样的">
+<meta name="keywords" content="dev,Telegram">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Telegram Bot 开发初体验,抖音去水印下载机器人实践">
+<meta property="og:url" content="https://blog.fanfq.com/dev/Telegram_bot_dev_thinking.html">
 <meta property="og:site_name" content="Fred&#39;s Blog">
-<meta property="og:description" content="那时候年少轻狂!">
+<meta property="og:description" content="前言原本是打算用钉钉实现该功能的，一看要做企业认证就放弃的。不得不说这种所谓的认证就拒绝了相当多的独立开发者，这一点绝对是受诟病的。 前端时间研究下Telegram相关的开发，总体来说实现了想要得所有功能，但是在测试的过程中发现很多问题。主要是因为早期Tg的开放接口被滥用的问题导致的，从而想要实现一些功能是受限的以免接口滥用。 Telegram Bot 和绝大多数的IM通讯软件中的机器人是一样的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cdn.fanfq.com/picgo/20201225083005.jpg?imageslim">
+<meta property="og:image" content="https://cdn.fanfq.com/picgo/20201225082418.jpg?imageslim">
+<meta property="og:image" content="https://cdn.fanfq.com/picgo/20201225083459.png?imageslim">
+<meta property="og:image" content="https://cdn.fanfq.com/picgo/20201225083829.png?imageslim">
+<meta property="og:image" content="https://cdn.fanfq.com/picgo/20201225083828.png?imageslim">
+<meta property="og:updated_time" content="2020-12-25T00:56:07.743Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fred&#39;s Blog">
-<meta name="twitter:description" content="那时候年少轻狂!">
+<meta name="twitter:title" content="Telegram Bot 开发初体验,抖音去水印下载机器人实践">
+<meta name="twitter:description" content="前言原本是打算用钉钉实现该功能的，一看要做企业认证就放弃的。不得不说这种所谓的认证就拒绝了相当多的独立开发者，这一点绝对是受诟病的。 前端时间研究下Telegram相关的开发，总体来说实现了想要得所有功能，但是在测试的过程中发现很多问题。主要是因为早期Tg的开放接口被滥用的问题导致的，从而想要实现一些功能是受限的以免接口滥用。 Telegram Bot 和绝大多数的IM通讯软件中的机器人是一样的">
+<meta name="twitter:image" content="https://cdn.fanfq.com/picgo/20201225083005.jpg?imageslim">
 
 
 
@@ -167,7 +174,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.fanfq.com/archives/2018/10/">
+  <link rel="canonical" href="https://blog.fanfq.com/dev/Telegram_bot_dev_thinking.html">
 
 
 
@@ -177,7 +184,7 @@
   };
 </script>
 
-  <title>归档 | Fred's Blog</title>
+  <title>Telegram Bot 开发初体验,抖音去水印下载机器人实践 | Fred's Blog</title>
   
 
 
@@ -245,7 +252,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -318,7 +325,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
   </li>
@@ -388,247 +395,232 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/Telegram_bot_dev_thinking.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">Telegram Bot 开发初体验,抖音去水印下载机器人实践
+              
+            
+          </h2>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-24 13:56:34" itemprop="dateCreated datePublished" datetime="2020-12-24T13:56:34+08:00">2020-12-24</time>
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 20 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/算法/SALT_Encrypt_Best_Practices.html" itemprop="url">
-              
-                <span itemprop="name">SALT Encrypt Best Practices</span>
-              
-            </a>
-        
-      </h3>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-31T09:14:33+08:00" content="2018-10-31">
-          10-31
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/算法/AccessToken_RefreshToken.html" itemprop="url">
-              
-                <span itemprop="name">Access Token vs Refresh Token</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-30T22:26:57+08:00" content="2018-10-30">
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/api/RESTful_API_Best_Practices.html" itemprop="url">
-              
-                <span itemprop="name">RESTful API Best Practices</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-30T09:14:33+08:00" content="2018-10-30">
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <img src="https://cdn.fanfq.com/picgo/20201225083005.jpg?imageslim">
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>原本是打算用<code>钉钉</code>实现该功能的，一看要做企业认证就放弃的。不得不说这种所谓的认证就拒绝了相当多的独立开发者，这一点绝对是受诟病的。</p>
+<p>前端时间研究下<code>Telegram</code>相关的开发，总体来说实现了想要得所有功能，但是在测试的过程中发现很多问题。主要是因为早期Tg的开放接口被滥用的问题导致的，从而想要实现一些功能是受限的以免接口滥用。</p>
+<p>Telegram Bot 和绝大多数的IM通讯软件中的机器人是一样的，</p>
+<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><h4 id="注册一个机器人，获取token"><a href="#注册一个机器人，获取token" class="headerlink" title="注册一个机器人，获取token"></a>注册一个机器人，获取token</h4><p>直接在Tg中与@BotFather对话即可创建bot,比较有趣的是在Tg很多的交互式体验都是通过类似对话的方式。</p>
+<img src="https://cdn.fanfq.com/picgo/20201225082418.jpg?imageslim">
+<h4 id="测试token"><a href="#测试token" class="headerlink" title="测试token"></a>测试token</h4><p>将下面的链接的<code>{TOKEN}</code>替换成所获取的token然后浏览器访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.telegram.org/bot&#123;TOKEN&#125;/getUpdates</span><br></pre></td></tr></table></figure>
+<p>返回数据，此时与机器人对话的内容均会在此显示出来</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">ok: true,</span><br><span class="line">result: [ ... ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三方sdk集成"><a href="#三方sdk集成" class="headerlink" title="三方sdk集成"></a>三方sdk集成</h4><p>为了方便开发，已经有很成熟的三方sdk了。这里推荐 <a href="https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started" target="_blank" rel="noopener">TelegramBots</a></p>
+<h3 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h3><p>趁此机会和大家介绍一下我做的机器人，其主要功能就是通过抖音的分享链接下载其不带水印版本的视频。</p>
+<p>机器人体验地址 <a href="https://t.me/fast_dl_bot" target="_blank" rel="noopener">https://t.me/fast_dl_bot</a></p>
+<img src="https://cdn.fanfq.com/picgo/20201225083459.png?imageslim">
+<h4 id="抖音去水印原理"><a href="#抖音去水印原理" class="headerlink" title="抖音去水印原理"></a>抖音去水印原理</h4><h5 id="选择想要下载的视频，获取分享链接如下"><a href="#选择想要下载的视频，获取分享链接如下" class="headerlink" title="选择想要下载的视频，获取分享链接如下"></a>选择想要下载的视频，获取分享链接如下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">今天是国际篮球日，你能#接住姚明的传球  吗？  https://v.douyin.com/JbUn9qr/ 复制此链接，打开抖音搜索，直接观看视频！</span><br></pre></td></tr></table></figure>
+<h5 id="访问链接，解析出视频源地址，如下"><a href="#访问链接，解析出视频源地址，如下" class="headerlink" title="访问链接，解析出视频源地址，如下"></a>访问链接，解析出视频源地址，如下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">https://v.douyin.com/JbUn9qr/ </span><br><span class="line"></span><br><span class="line">跳转 -&gt; </span><br><span class="line"></span><br><span class="line">https://www.iesdouyin.com/share/video/6908508376079109390/?region=CN&amp;mid=6908508442169133832&amp;u_code=11ijh199a&amp;titleType=title&amp;did=68226817704&amp;iid=668150976480124&amp;utm_source=copy_link&amp;utm_campaign=client_share&amp;utm_medium=android&amp;app=aweme</span><br><span class="line"></span><br><span class="line">获取视频源地址 -&gt;</span><br><span class="line"></span><br><span class="line">https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0300f010000bvfv7l99jbbabl28o260&amp;ratio=720p&amp;line=0</span><br></pre></td></tr></table></figure>
+<img src="https://cdn.fanfq.com/picgo/20201225083829.png?imageslim">
+<h5 id="修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。"><a href="#修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。" class="headerlink" title="修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。"></a>修改视频源地址，去掉视频源地址中的<code>wm</code>即可得到不带水印的地址源。</h5><p>并通 agent 为手机客户端访问改地址，即可获取到不带水印的视频。<br>然后下载视频即可得到不带水印的视频</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://aweme.snssdk.com/aweme/v1/play/?video_id=v0300f010000bvfv7l99jbbabl28o260&amp;ratio=720p&amp;line=0</span><br></pre></td></tr></table></figure>
+<img src="https://cdn.fanfq.com/picgo/20201225083828.png?imageslim">
+<h4 id="Telegram-Bot-实现"><a href="#Telegram-Bot-实现" class="headerlink" title="Telegram Bot 实现"></a>Telegram Bot 实现</h4><p>采用 <code>TelegramBots</code> 实现，涉及三方软件可能会有争议，既不提供代码实现，本文仅分析原理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAmazingBot</span> <span class="keyword">extends</span> <span class="title">TelegramLongPollingBot</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpdateReceived</span><span class="params">(Update update)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">//1.基础数据获取与处理</span></span><br><span class="line">       String username = update.getMessage().getChat().getUserName();</span><br><span class="line">       String text = update.getMessage().getText(); </span><br><span class="line"></span><br><span class="line">       <span class="comment">//2.通过正则判断text是否包含url等等其它验证</span></span><br><span class="line">       <span class="comment">//3.通过url获取不带水印的下载链接</span></span><br><span class="line">       <span class="comment">//4.通过下载链接获取输入流</span></span><br><span class="line">       <span class="comment">//以上2，3，4涉及三方软件可能会有争议，既不提供代码实现，本文仅分析原理。</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">//4.将输入流直接返回给发送者</span></span><br><span class="line">       InputFile inputFile = <span class="keyword">new</span> InputFile(inputStream,System.currentTimeMillis()+<span class="string">".mp4"</span>);</span><br><span class="line">       SendVideo video = <span class="keyword">new</span> SendVideo();</span><br><span class="line">       video.setVideo(inputFile);</span><br><span class="line">       video.setChatId(update.getMessage().getChatId().toString());</span><br><span class="line">       execute(video);</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBotUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"fast_dl_bot"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBotToken</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"1434***IaQ4w5iJTGCRDtMSUVY"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/InternalAPIs_encrypt_Method_V1.0.html" itemprop="url">
-              
-                <span itemprop="name">Internal APIs encrypt Method V1.0</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-29T21:56:43+08:00" content="2018-10-29">
-          10-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/算法/OpenAPIs_encrypt_Method_V1.1.html" itemprop="url">
-              
-                <span itemprop="name">Open APIs encrypt Method V1.1</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-29T14:57:41+08:00" content="2018-10-29">
-          10-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/qrcode_wechat_159.jpg" alt="Fred范方青 wechat" style="width: 200px; max-width: 100%;">
+    <div>如果有技术问题和我交流请加我私人微信</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Fred范方青</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.fanfq.com/dev/Telegram_bot_dev_thinking.html" title="Telegram Bot 开发初体验,抖音去水印下载机器人实践">https://blog.fanfq.com/dev/Telegram_bot_dev_thinking.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dev/" rel="tag"># dev</a>
+          
+            <a href="/tags/Telegram/" rel="tag"># Telegram</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog_/似乎应该调整一下工作流让时间更有效率.html" rel="next" title="似乎应该调整一下工作流，让时间更有效率">
+                <i class="fa fa-chevron-left"></i> 似乎应该调整一下工作流，让时间更有效率
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -649,8 +641,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -853,6 +854,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速入门"><span class="nav-number">2.</span> <span class="nav-text">快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册一个机器人，获取token"><span class="nav-number">2.1.</span> <span class="nav-text">注册一个机器人，获取token</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试token"><span class="nav-number">2.2.</span> <span class="nav-text">测试token</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三方sdk集成"><span class="nav-number">2.3.</span> <span class="nav-text">三方sdk集成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战案例"><span class="nav-number">3.</span> <span class="nav-text">实战案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抖音去水印原理"><span class="nav-number">3.1.</span> <span class="nav-text">抖音去水印原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#选择想要下载的视频，获取分享链接如下"><span class="nav-number">3.1.1.</span> <span class="nav-text">选择想要下载的视频，获取分享链接如下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问链接，解析出视频源地址，如下"><span class="nav-number">3.1.2.</span> <span class="nav-text">访问链接，解析出视频源地址，如下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。"><span class="nav-number">3.1.3.</span> <span class="nav-text">修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Telegram-Bot-实现"><span class="nav-number">3.2.</span> <span class="nav-text">Telegram Bot 实现</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1004,6 +1021,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
 
   
 
