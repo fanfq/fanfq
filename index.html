@@ -409,6 +409,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/js获取浏览器语言.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/js获取浏览器语言.html" itemprop="url">
+                  js获取浏览器语言
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-02-04 10:25:38" itemprop="dateCreated datePublished" datetime="2021-02-04T10:25:38+08:00">2021-02-04</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var type = navigator.appName;</span><br><span class="line">if (type == &quot;Netscape&quot;)&#123;</span><br><span class="line">  var lang = navigator.language;//获取浏览器配置语言，支持非IE浏览器</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  var lang = navigator.userLanguage;//获取浏览器配置语言，支持IE5+ == navigator.systemLanguage</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">lang = lang.toLowerCase();</span><br><span class="line">console.log(lang);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var lang_short = lang.substr(0, 2);//获取浏览器配置语言前两位</span><br><span class="line"></span><br><span class="line">if (lang == &quot;zh-cn&quot;)&#123;</span><br><span class="line">  console.log(&quot;简体中文&quot;);</span><br><span class="line">  //alert(lang);</span><br><span class="line">  //window.location.replace(&apos;url&apos;);//中文编码时打开链接</span><br><span class="line">&#125;else if (lang_short == &quot;zh&quot;)&#123;</span><br><span class="line">  console.log(&quot;繁体中文&quot;);</span><br><span class="line">  //window.location.replace(&apos;url&apos;);</span><br><span class="line">&#125;else&#123;//其他语言编码时打开以下链接</span><br><span class="line">  //window.location.replace(&apos;url&apos;);</span><br><span class="line">  console.log(&quot;英语&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>文中截取lang的前2位字符，是因为浏览器语言返回值可能是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">lang</th>
+<th style="text-align:right">name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">zh-cn</td>
+<td style="text-align:right">Chinese(PRC)</td>
+</tr>
+<tr>
+<td style="text-align:right">zh-tw</td>
+<td style="text-align:right">Chinese(Taiwan Region)</td>
+</tr>
+<tr>
+<td style="text-align:right">zh-hk</td>
+<td style="text-align:right">Chinese(Hong Kong SAR, PRC)</td>
+</tr>
+<tr>
+<td style="text-align:right">zh-sg</td>
+<td style="text-align:right">Chinese(Singapore)</td>
+</tr>
+<tr>
+<td style="text-align:right">en-us</td>
+<td style="text-align:right">English(United States)</td>
+</tr>
+<tr>
+<td style="text-align:right">en</td>
+<td style="text-align:right">English</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/宝塔面板常用配置纪要.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1753,7 +1942,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/算法/手机APP大数据归因精准匹配之研发摘要.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/架构/rabbitmq_quick_setup.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fred范方青">
@@ -1772,8 +1961,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/算法/手机APP大数据归因精准匹配之研发摘要.html" itemprop="url">
-                  手机APP大数据归因精准匹配之研发摘要
+                <a class="post-title-link" href="/架构/rabbitmq_quick_setup.html" itemprop="url">
+                  rabbitmq quick setup for ubuntu
                 </a>
               
             
@@ -1799,7 +1988,7 @@
                 
               
 
-              <time title="创建时间：2018-11-13 10:55:49" itemprop="dateCreated datePublished" datetime="2018-11-13T10:55:49+08:00">2018-11-13</time>
+              <time title="创建时间：2018-11-16 12:13:43" itemprop="dateCreated datePublished" datetime="2018-11-16T12:13:43+08:00">2018-11-16</time>
             
 
             
@@ -1817,7 +2006,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/架构/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
 
                 
                 
@@ -1852,214 +2041,11 @@
 
       
         
-          <blockquote><p>透过覆盖我的黑夜,<br>我看见层层无底的黑暗。<br>感谢上帝赐我,<br>不可征服的灵魂。<br>就算被地狱紧紧攫住,<br>我不会畏缩，也不惊叫。<br>经受过一浪 又一浪的打击，<br>我满头鲜血不低头。<br>在这满是愤怒和眼泪的世界之外,<br>恐怖的阴影在游荡,<br>还有，未来的威胁,<br>可是我毫不畏惧。<br>无论我将穿过的那扇门有多窄，<br>无论我将肩承怎样的责罚。<br>我是命运的主宰,<br>我是灵魂的统帅。</p>
-<footer><strong>19世纪英国诗人威廉亨利《不可征服》</strong></footer></blockquote>
-<p><br></p>
-<p>2016年我从外企到一家创业公司接手的第一个工作任务，从此之后我就与他展开了不解之缘。我们为了提高1%的准确率要花费100%的努力，直到现在为止我们都在为了哪怕只能提高0.1%的准确率而不懈努力。</p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/算法/手机APP大数据归因精准匹配之研发摘要.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/算法/SALT_Encrypt_Best_Practices.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Fred范方青">
-      <meta itemprop="description" content="那时候年少轻狂!">
-      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fred's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/算法/SALT_Encrypt_Best_Practices.html" itemprop="url">
-                  SALT Encrypt Best Practices
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-31 09:14:33" itemprop="dateCreated datePublished" datetime="2018-10-31T09:14:33+08:00">2018-10-31</time>
-            
-
-            
-          </span>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#install</span><br><span class="line">echo &quot;deb https://dl.bintray.com/rabbitmq/debian xenial main&quot; | sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list</span><br><span class="line">wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -</span><br><span class="line">sudo apt-get install rabbitmq-server</span><br><span class="line"></span><br><span class="line">#service start</span><br><span class="line">service rabbitmq-server start</span><br><span class="line">sudo service rabbitmq-server status</span><br><span class="line"></span><br><span class="line">#web admin</span><br><span class="line">sudo rabbitmq-plugins enable rabbitmq_management</span><br><span class="line">#login by guest</span><br><span class="line">127.0.0.1:15672 guest guest</span><br><span class="line"></span><br><span class="line">#new user</span><br><span class="line">sudo rabbitmqctl add_user fanfq fanfq</span><br><span class="line">sudo rabbitmqctl set_user_tags fanfq administrator</span><br></pre></td></tr></table></figure>
+<p>如果是服务器安装，客户端是没法通过guest用户登录的，则需要创建一个新的用户并赋予admin权限，后续的操作均可通过网页管理。</p>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="发现问题："><a href="#发现问题：" class="headerlink" title="发现问题："></a>发现问题：</h2><p>这里展示一个简易的用户表：</p>
-<table>
-<thead>
-<tr>
-<th>uid</th>
-<th>username</th>
-<th>password</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>zhangsan</td>
-<td>e10adc3949ba59abbe56e057f20f883e</td>
-</tr>
-<tr>
-<td>2</td>
-<td>lisi</td>
-<td>e10adc3949ba59abbe56e057f20f883e</td>
-</tr>
-<tr>
-<td>3</td>
-<td>wangwu</td>
-<td>9bd5ee6fe55aaeb673025dbcb8f939c1</td>
-</tr>
-<tr>
-<td>4</td>
-<td>laoz</td>
-<td>f8a8d7997e870968f92748f3cc41cf90</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>我们发现 UID 1,2 对应的 password 是一样的，如果我是zhangsan，那岂不是同样我也知道lisi的密码明文是什么了？</li>
-<li>通过MD5密码破解网站，轻易的得到 <code>e10adc3949ba59abbe56e057f20f883e</code> 对应的明文是 <code>123456</code></li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/算法/SALT_Encrypt_Best_Practices.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
         
       
     </div>
@@ -2145,7 +2131,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2267,7 +2253,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2342,7 +2332,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号 </a> &copy; 2012 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号 </a> &copy; 2012 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

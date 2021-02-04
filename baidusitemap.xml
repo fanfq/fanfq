@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.fanfq.com/%E6%9E%B6%E6%9E%84/rabbitmq_quick_setup.html</loc>
+    <lastmod>2021-02-04</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.fanfq.com/dev/js%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%AD%E8%A8%80.html</loc>
+    <lastmod>2021-02-04</lastmod>
+  </url>
+  <url>
     <loc>https://blog.fanfq.com/dev/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E7%BA%AA%E8%A6%81.html</loc>
     <lastmod>2020-12-31</lastmod>
   </url>
