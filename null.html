@@ -148,19 +148,24 @@
 
 
 
-  <meta name="keywords" content="staf">
+  <meta name="description" content="前言近期项目需要研究了下京东SDK，发现其提供了SDK jar包。自从用了mvn进行包管理，应该是这几年都很少去引用jar了。 为此整理一下如何在maven工程引用jar包。 将jar包加入本地仓库1234567891011121314mvn install:install-file \-Dfile=open-api-sdk-2.0-2021-02-06.jar \-DgroupId=com.jd">
+<meta name="keywords" content="mvn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20201125">
+<meta property="og:title" content="Maven工程引用jar包">
 <meta property="og:url" content="https://blog.fanfq.com/null.html">
-<meta property="og:site_name" content="Fred&#39;s Blog 📒">
+<meta property="og:site_name" content="Fred&#39;s Blog">
+<meta property="og:description" content="前言近期项目需要研究了下京东SDK，发现其提供了SDK jar包。自从用了mvn进行包管理，应该是这几年都很少去引用jar了。 为此整理一下如何在maven工程引用jar包。 将jar包加入本地仓库1234567891011121314mvn install:install-file \-Dfile=open-api-sdk-2.0-2021-02-06.jar \-DgroupId=com.jd">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-25T02:39:55.062Z">
+<meta property="og:image" content="https://cdn.fanfq.com/picgo/20210207141200.jpg?imageslim">
+<meta property="og:updated_time" content="2021-02-07T06:12:27.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20201125">
+<meta name="twitter:title" content="Maven工程引用jar包">
+<meta name="twitter:description" content="前言近期项目需要研究了下京东SDK，发现其提供了SDK jar包。自从用了mvn进行包管理，应该是这几年都很少去引用jar了。 为此整理一下如何在maven工程引用jar包。 将jar包加入本地仓库1234567891011121314mvn install:install-file \-Dfile=open-api-sdk-2.0-2021-02-06.jar \-DgroupId=com.jd">
+<meta name="twitter:image" content="https://cdn.fanfq.com/picgo/20210207141200.jpg?imageslim">
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Fred's Blog 📒" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Fred's Blog" type="application/atom+xml">
 
 
 
@@ -175,7 +180,7 @@
   };
 </script>
 
-  <title>20201125 | Fred's Blog 📒</title>
+  <title>Maven工程引用jar包 | Fred's Blog</title>
   
 
 
@@ -254,7 +259,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Fred's Blog 📒</span>
+        <span class="site-title">Fred's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -415,7 +420,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fred's Blog 📒">
+      <meta itemprop="name" content="Fred's Blog">
     </span>
 
     
@@ -423,7 +428,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">20201125
+          <h2 class="post-title" itemprop="name headline">Maven工程引用jar包
               
             
           </h2>
@@ -448,7 +453,7 @@
                 
               
 
-              <time title="创建时间：2020-11-25 10:39:55" itemprop="dateCreated datePublished" datetime="2020-11-25T10:39:55+08:00">2020-11-25</time>
+              <time title="创建时间：2021-02-07 11:54:54" itemprop="dateCreated datePublished" datetime="2021-02-07T11:54:54+08:00">2021-02-07</time>
             
 
             
@@ -466,7 +471,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/staf/" itemprop="url" rel="index"><span itemprop="name">staf</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
 
                 
                 
@@ -500,7 +505,13 @@
       
 
       
-        
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>近期项目需要研究了下京东SDK，发现其提供了SDK jar包。自从用了mvn进行包管理，应该是这几年都很少去引用jar了。</p>
+<p>为此整理一下如何在maven工程引用jar包。</p>
+<h3 id="将jar包加入本地仓库"><a href="#将jar包加入本地仓库" class="headerlink" title="将jar包加入本地仓库"></a>将jar包加入本地仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file \</span><br><span class="line">-Dfile=open-api-sdk-2.0-2021-02-06.jar \</span><br><span class="line">-DgroupId=com.jd.open.api \</span><br><span class="line">-DartifactId=jd-open-api \</span><br><span class="line">-Dversion=2.0 \</span><br><span class="line">-Dpackaging=jar</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">其中：</span><br><span class="line">`-DgroupId`，`-DartifactId`的作用是指定了这个jar包在repository的安装路径，只是用来告诉项目去这个路径下寻找这个名称的jar包。</span><br><span class="line"></span><br><span class="line">如果本地仓库被清楚或者部署到新的机器上都需要安装一下。</span><br><span class="line"></span><br><span class="line">安装结果如下：</span><br></pre></td></tr></table></figure>
+<p>[INFO] Scanning for projects…<br>[INFO]<br>[INFO] ——————&lt; org.apache.maven:standalone-pom &gt;——————-<br>[INFO] Building Maven Stub Project (No POM) 1<br>[INFO] ——————————–[ pom ]———————————<br>[INFO]<br>[INFO] — maven-install-plugin:2.4:install-file (default-cli) @ standalone-pom —<br>[INFO] Installing /../app/src/main/resources/libs/open-api-sdk-2.0-2021-02-06.jar to /Users/fred/.m2/repository/com/jd/open/api/jd-open-api/2.0/jd-open-api-2.0.jar<br>[INFO] Installing /var/folders/m5/n09g6tjx30510drtjpc405m40000gn/T/mvninstall7006216312529085370.pom to /Users/fred/.m2/repository/com/jd/open/api/jd-open-api/2.0/jd-open-api-2.0.pom<br>[INFO] ————————————————————————<br>[INFO] BUILD SUCCESS<br>[INFO] ————————————————————————<br>[INFO] Total time:  0.410 s<br>[INFO] Finished at: 2021-02-07T10:55:00+08:00<br>[INFO] ————————————————————————<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 跟新pom.xml文件</span><br><span class="line">然后再在项目工程中引用即可</span><br></pre></td></tr></table></figure></p>
+<p><dependency><br>   <groupid>com.jd.open.api</groupid><br>   <artifactid>jd-open-api</artifactid><br>   <version>2.0</version><br></dependency><br><code>`</code></p>
+<p><strong>注</strong>为了方便起见，我都会将需要三方jar包都会放在工程目录中以免丢失或者忘记。<br><img src="https://cdn.fanfq.com/picgo/20210207141200.jpg?imageslim"></p>
+
       
     </div>
 
@@ -529,7 +540,7 @@
     <strong>本文作者： </strong>Fred范方青</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.fanfq.com/null.html" title="20201125">https://blog.fanfq.com/null.html</a>
+    <a href="https://blog.fanfq.com/null.html" title="Maven工程引用jar包">https://blog.fanfq.com/null.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -542,7 +553,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/staf/" rel="tag"># staf</a>
+            <a href="/tags/mvn/" rel="tag"># mvn</a>
           
         </div>
       
@@ -555,8 +566,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog_/似乎应该调整一下工作流让时间更有效率.html" rel="next" title="似乎应该调整一下工作流，让时间更有效率">
-                <i class="fa fa-chevron-left"></i> 似乎应该调整一下工作流，让时间更有效率
+              <a href="/dev/js获取浏览器语言.html" rel="next" title="js获取浏览器语言">
+                <i class="fa fa-chevron-left"></i> js获取浏览器语言
               </a>
             
           </div>
@@ -608,8 +619,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -626,7 +646,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -744,7 +764,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -790,7 +820,7 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://fm.fanfq.com" title="fm.fanfq.com" target="_blank">fm.fanfq.com</a>
+                    <a href="https://www.elselook.com" title="www.elselook.com" target="_blank">www.elselook.com</a>
                   </li>
                 
               </ul>
@@ -806,6 +836,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将jar包加入本地仓库"><span class="nav-number">2.</span> <span class="nav-text">将jar包加入本地仓库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -819,7 +865,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号 </a> &copy; 2012 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号 </a> &copy; 2012 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

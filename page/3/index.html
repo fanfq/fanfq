@@ -411,7 +411,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/blog/Hexo快速入门.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/java/log4j2.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fred范方青">
@@ -430,8 +430,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/Hexo快速入门.html" itemprop="url">
-                  Hexo快速入门
+                <a class="post-title-link" href="/java/log4j2.html" itemprop="url">
+                  log4j2 Best Practices
                 </a>
               
             
@@ -457,7 +457,7 @@
                 
               
 
-              <time title="创建时间：2015-11-08 10:26:44" itemprop="dateCreated datePublished" datetime="2015-11-08T10:26:44+08:00">2015-11-08</time>
+              <time title="创建时间：2015-11-12 09:16:44" itemprop="dateCreated datePublished" datetime="2015-11-12T09:16:44+08:00">2015-11-12</time>
             
 
             
@@ -475,7 +475,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
 
                 
                 
@@ -510,11 +510,18 @@
 
       
         
-          <p>本站采用 <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a> 引擎</p>
+          <p>原理我就不讲述了，我就简单的说说我的配置以及知识要点</p>
+<ol>
+<li>过滤日志级别，对应的级别存档相应的文件。如<code>info</code>只存<code>info</code>级别的信息，比其高的级别直接过滤。</li>
+<li>单个log文件体积控制在100mb，超过则自动增加新的文件。日志文件名序号自增起始位以1开始，当日总数超过100自动替换较早的文件.</li>
+<li>日志压缩存档，按月归档，</li>
+<li>自定义日志级别</li>
+<li>日志持久化，将日志信息存储到mongodb</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/blog/Hexo快速入门.html#more" rel="contents">
+              <a class="btn" href="/java/log4j2.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -731,6 +738,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/blog/Hexo快速入门.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/Hexo快速入门.html" itemprop="url">
+                  Hexo快速入门
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-11-08 10:26:44" itemprop="dateCreated datePublished" datetime="2015-11-08T10:26:44+08:00">2015-11-08</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本站采用 <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a> 引擎</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/Hexo快速入门.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/blog/Markdown常用标签.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -872,10 +1039,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-tag-aplayer</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayerlist %&#125;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;autoplay&quot;: false,</span><br><span class="line">    &quot;mutex&quot;: true,</span><br><span class="line">    &quot;music&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;title&quot;: &quot;에필로그 (Epilogue)&quot;,</span><br><span class="line">            &quot;author&quot;: &quot;이동준&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;https://molier-1256056152.cos.ap-guangzhou.myqcloud.com/%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3.mp3&quot;,</span><br><span class="line">            &quot;pic&quot;: &quot;https://y.gtimg.cn/music/photo_new/T002R300x300M000000RmZHf3qhLUL.jpg&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endaplayerlist %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-YpCufjtV" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+        <div id="aplayer-cwUQmwPy" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
 			  <script>
 				  var options = {"narrow":false,"autoplay":false,"showlrc":0,"mutex":true,"music":[{"title":"에필로그 (Epilogue)","author":"이동준","url":"https://molier-1256056152.cos.ap-guangzhou.myqcloud.com/%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3.mp3","pic":"https://y.gtimg.cn/music/photo_new/T002R300x300M000000RmZHf3qhLUL.jpg"}]};
-				  options.element = document.getElementById("aplayer-YpCufjtV");
+				  options.element = document.getElementById("aplayer-cwUQmwPy");
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
@@ -972,7 +1139,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1098,7 +1265,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
