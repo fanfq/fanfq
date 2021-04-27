@@ -159,7 +159,7 @@
 <meta property="og:image" content="https://cdn.fanfq.com/picgo/20210301154148.png?imageslim">
 <meta property="og:image" content="https://cdn.fanfq.com/picgo/20210301155815.png?imageslim">
 <meta property="og:image" content="https://cdn.fanfq.com/picgo/20210301153505.png?imageslim">
-<meta property="og:updated_time" content="2021-03-01T08:07:09.250Z">
+<meta property="og:updated_time" content="2021-03-02T06:27:42.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox安装Ubuntu Linux常用配置">
 <meta name="twitter:description" content="网络配置个人习惯使用桥接模式也推荐这个模式，DHCP会独立分发一个IP给虚拟机LAN中可当做独立主机使用，缺点就是会占用一个IP不过这点在本地开发中可以忽略毕竟内网通常是不会缺IP资源的。 注意 这里需要注意下，我这里 en0:以太网 是指通过网线来模拟虚拟机的网卡端口，也就是说宿主机需要连接网线。如果是无线网卡的话则是 en1:Wi-Fi(AirPort) 这里需要注意一下，特别是针对基于RJ4">
@@ -523,8 +523,12 @@
 </ol>
 <img src="https://cdn.fanfq.com/picgo/20210301153505.png?imageslim">
 <ol start="4">
-<li>重启测试，此时在进入系统就会看在根目录看到 <code>/macshare</code> 目录，此时在此目录下写入文件，在宿主机 <code>/User/fanfq/VirtualBox VMs/macshare</code> 会实时同步，反之亦可。</li>
+<li><p>重启测试，此时在进入系统就会看在根目录看到 <code>/macshare</code> 目录，此时在此目录下写入文件，在宿主机 <code>/User/fanfq/VirtualBox VMs/macshare</code> 会实时同步，反之亦可。</p>
+</li>
+<li><p>手动挂载共享目录，如果第4步不成功可能需要手动挂载</p>
+</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf macshare /macshare</span><br></pre></td></tr></table></figure>
 <h3 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h3><p>默认情况下ubuntu是没有安装 <code>ssh</code> 服务器端的，为了方便客户端的连接需要自己手动安装一下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
       
@@ -882,7 +886,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号 </a> &copy; 2012 – <span itemprop="copyrightYear">2021</span>
+        <div class="copyright"><a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"> 苏ICP备15056794号-1 </a> &copy; 2012 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
