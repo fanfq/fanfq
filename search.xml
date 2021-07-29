@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[播客录制技巧软件篇audacity基础配置]]></title>
     <url>%2Fpodcast%2F%E6%92%AD%E5%AE%A2%E5%BD%95%E5%88%B6%E6%8A%80%E5%B7%A7%E8%BD%AF%E4%BB%B6%E7%AF%87audacity%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html</url>
-    <content type="text"><![CDATA[以我的经验，尽量在录制前就做好准备，尽可能的确保录制出来的音频质量的可靠的，避免过多的后期处理。 个人感受电容麦克风更加适合录制唱歌，或者对声音真的有特别的细腻的要求的。否则选择动圈麦克风是比较明智的选择，家庭环境避免不了环境底噪的如电脑的风扇，空调的声音等，而动圈麦克风比较有效的屏蔽这种底噪。 如果想要监听人声以及后期做编辑，推荐使用监听耳机，而一般的hifi耳机并不能真实的还原声音原本的面貌。 audacity 是一款免费的开源软件，对比下来这款软件特别适合新手。以下是我经常用到的几个配置。 1.降噪录制的技巧，首先录制一段环境音然后再开始真正的录制，这段环境音可以作为我们后期降噪时所需采样的素材。通过采样素材对比算法后，软件会自动将段落中类似的波段的音频给消除掉，这也就是降噪所产生的作用。 2.压缩这个比较重要，特别录制音频质量不好的情况下，比如说话离话筒忽远忽近个波形形成一个个山峰的时候，这个步骤是一定会使用到的。他的作用主要是将高于指定阈值的音量进行压缩通常情况下阈值会设定为-15db（也可以根据波形的实际情况进行调整），比率为2:1那么0db的音量会被压缩成 -15+（15-0）* 1/2 = -7.5 db , 这里要注意一下只有音量大于-15db的时候才会被压缩。 3.图形化均衡器这个比较个性化的调整，主要用于调整声音的频率的。通常我不调。 4.标准化这个是很重要的一件事，一定要做的。因为经过以上的操作，声音的音量必然会受到影响，我知道的是很多平台会二次压缩的统一响度的，但绝大多数平台是直出的。出现的症状就是别人听你的节目会觉得声音小或者大，听感很不舒服。]]></content>
+    <content type="text"><![CDATA[以我的经验，尽量在录制前就做好准备，尽可能的确保录制出来的音频质量的可靠的，避免过多的后期处理。个人感受电容麦克风更加适合录制唱歌，或者对声音真的有特别的细腻的要求的。否则选择动圈麦克风是比较明智的选择，家庭环境避免不了环境底噪的如电脑的风扇，空调的声音等，而动圈麦克风比较有效的屏蔽这种底噪。如果想要监听人声以及后期做编辑，推荐使用监听耳机，而一般的hifi耳机并不能真实的还原声音原本的面貌。这里说明一下，如果条件允许尽可能买好一点的音频设备，音频设备相比相机来说是比较保值的而且不容易坏。买好点的设备目的就是为了少走冤枉路 我的设备清单 audacity 是一款免费的开源软件，对比下来这款软件特别适合新手。以下是我经常用到的几个配置。 降噪录制的技巧，首先录制一段环境音然后再开始真正的录制，这段环境音可以作为我们后期降噪时所需采样的素材。通过采样素材对比算法后，软件会自动将段落中类似的波段的音频给消除掉，这也就是降噪所产生的作用。 压缩这个比较重要，特别录制音频质量不好的情况下，比如说话离话筒忽远忽近个波形形成一个个山峰的时候，这个步骤是一定会使用到的。他的作用主要是将高于指定阈值的音量进行压缩通常情况下阈值会设定为-15db（也可以根据波形的实际情况进行调整），比率为2:1那么0db的音量会被压缩成 -15+（15-0）* 1/2 = -7.5 db , 这里要注意一下只有音量大于-15db的时候才会被压缩。 图形化均衡器这个比较个性化的调整，主要用于调整声音的频率的。通常我不调。 标准化这个是很重要的一件事，一定要做的。因为经过以上的操作，声音的音量必然会受到影响，我知道的是很多平台会二次压缩的统一响度的，但绝大多数平台是直出的。出现的症状就是别人听你的节目会觉得声音小或者大，听感很不舒服。]]></content>
       <categories>
         <category>podcast</category>
       </categories>
@@ -102,8 +102,8 @@
         <category>架构</category>
       </categories>
       <tags>
-        <tag>design</tag>
         <tag>架构</tag>
+        <tag>design</tag>
         <tag>netty</tag>
         <tag>protobuf</tag>
         <tag>creator</tag>
@@ -117,8 +117,8 @@
         <category>架构</category>
       </categories>
       <tags>
-        <tag>design</tag>
         <tag>架构</tag>
+        <tag>design</tag>
         <tag>netty</tag>
         <tag>protobuf</tag>
         <tag>creator</tag>
@@ -132,9 +132,9 @@
         <category>架构</category>
       </categories>
       <tags>
-        <tag>design</tag>
         <tag>架构</tag>
         <tag>mongodb</tag>
+        <tag>design</tag>
       </tags>
   </entry>
   <entry>
@@ -145,9 +145,9 @@
         <category>架构</category>
       </categories>
       <tags>
-        <tag>design</tag>
         <tag>架构</tag>
         <tag>mongodb</tag>
+        <tag>design</tag>
       </tags>
   </entry>
   <entry>
@@ -160,8 +160,8 @@
       <tags>
         <tag>架构</tag>
         <tag>服务器</tag>
-        <tag>rabbitmq</tag>
         <tag>集群</tag>
+        <tag>rabbitmq</tag>
       </tags>
   </entry>
   <entry>
@@ -210,8 +210,8 @@
         <category>api</category>
       </categories>
       <tags>
-        <tag>api</tag>
         <tag>design</tag>
+        <tag>api</tag>
       </tags>
   </entry>
   <entry>
@@ -313,7 +313,7 @@
   <entry>
     <title><![CDATA[Markdown常用标签]]></title>
     <url>%2Fblog%2FMarkdown%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE.html</url>
-    <content type="text"><![CDATA[文本1`文本` 文本 12345Lorem &#123;% label @ipsum %&#125; &#123;% label primary@dolor sit %&#125; amet, consectetur &#123;% label success@adipiscing elit, %&#125; sed &#123;% label info@do eiusmod %&#125; tempor incididunt ut labore et dolore magna aliqua.Ut enim *&#123;% label warning @ad %&#125;* minim veniam, quis **&#123;% label danger @nostrud %&#125;** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate ~~&#123;% label default @velit %&#125;~~ &lt;mark&gt;esse&lt;/mark&gt; cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 链接1More info: [Writing](https://hexo.io/docs/writing.html) More info: Writing 表格1234| 一个普通标题 | 一个普通标题 | 一个普通标题 || ------ | ------ | ------ || 短文本 | 中等文本 | 稍微长一点的文本 || 稍微长一点的文本 | 短文本 | 中等文本 | 一个普通标题 一个普通标题 一个普通标题 短文本 中等文本 稍微长一点的文本 稍微长一点的文本 短文本 中等文本 目录树12345678.├── _config.yml├── package.json├── scaffolds├── source| ├── _drafts| └── _posts└── themes 代码123``` javapublic static void main(String[] args)&#123;&#125; 12public static void main(String[] args)&#123;&#125; 图片1&#123;% img /uploads/brand-new.png %&#125; 1&#123;% fi /uploads/stanlee.jpeg, R.I.P Stan Lee 1922-2018, R.I.P Stan Lee 1922-2018 %&#125; 音频hexo-tag-aplayer 1npm install --save hexo-tag-aplayer 1234567891011121314&#123;% aplayerlist %&#125;&#123; &quot;autoplay&quot;: false, &quot;mutex&quot;: true, &quot;music&quot;: [ &#123; &quot;title&quot;: &quot;에필로그 (Epilogue)&quot;, &quot;author&quot;: &quot;이동준&quot;, &quot;url&quot;: &quot;https://molier-1256056152.cos.ap-guangzhou.myqcloud.com/%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3.mp3&quot;, &quot;pic&quot;: &quot;https://y.gtimg.cn/music/photo_new/T002R300x300M000000RmZHf3qhLUL.jpg&quot; &#125; ]&#125;&#123;% endaplayerlist %&#125; var options = {"narrow":false,"autoplay":false,"showlrc":0,"mutex":true,"music":[{"title":"에필로그 (Epilogue)","author":"이동준","url":"https://molier-1256056152.cos.ap-guangzhou.myqcloud.com/%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3.mp3","pic":"https://y.gtimg.cn/music/photo_new/T002R300x300M000000RmZHf3qhLUL.jpg"}]}; options.element = document.getElementById("aplayer-XzSnYvDG"); var ap = new APlayer(options); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 视频hexo-tag-dplayer 1npm install hexo-tag-dplayer --save 1&#123;% dplayer &quot;url=https://moeplayer.b0.upaiyun.com/dplayer/hikarunara.mp4&quot; &quot;loop=yes&quot; &quot;theme=#FADFA3&quot; &quot;autoplay=false&quot; &quot;token=tokendemo&quot; %&#125; (function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://moeplayer.b0.upaiyun.com/dplayer/hikarunara.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})() 其他nexthexo]]></content>
+    <content type="text"><![CDATA[文本1`文本` 文本 12345Lorem &#123;% label @ipsum %&#125; &#123;% label primary@dolor sit %&#125; amet, consectetur &#123;% label success@adipiscing elit, %&#125; sed &#123;% label info@do eiusmod %&#125; tempor incididunt ut labore et dolore magna aliqua.Ut enim *&#123;% label warning @ad %&#125;* minim veniam, quis **&#123;% label danger @nostrud %&#125;** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate ~~&#123;% label default @velit %&#125;~~ &lt;mark&gt;esse&lt;/mark&gt; cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 链接1More info: [Writing](https://hexo.io/docs/writing.html) More info: Writing 表格1234| 一个普通标题 | 一个普通标题 | 一个普通标题 || ------ | ------ | ------ || 短文本 | 中等文本 | 稍微长一点的文本 || 稍微长一点的文本 | 短文本 | 中等文本 | 一个普通标题 一个普通标题 一个普通标题 短文本 中等文本 稍微长一点的文本 稍微长一点的文本 短文本 中等文本 目录树12345678.├── _config.yml├── package.json├── scaffolds├── source| ├── _drafts| └── _posts└── themes 代码123``` javapublic static void main(String[] args)&#123;&#125; 12public static void main(String[] args)&#123;&#125; 图片1&#123;% img /uploads/brand-new.png %&#125; 1&#123;% fi /uploads/stanlee.jpeg, R.I.P Stan Lee 1922-2018, R.I.P Stan Lee 1922-2018 %&#125; 音频hexo-tag-aplayer 1npm install --save hexo-tag-aplayer 1234567891011121314&#123;% aplayerlist %&#125;&#123; &quot;autoplay&quot;: false, &quot;mutex&quot;: true, &quot;music&quot;: [ &#123; &quot;title&quot;: &quot;에필로그 (Epilogue)&quot;, &quot;author&quot;: &quot;이동준&quot;, &quot;url&quot;: &quot;https://molier-1256056152.cos.ap-guangzhou.myqcloud.com/%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3.mp3&quot;, &quot;pic&quot;: &quot;https://y.gtimg.cn/music/photo_new/T002R300x300M000000RmZHf3qhLUL.jpg&quot; &#125; ]&#125;&#123;% endaplayerlist %&#125; var options = {"narrow":false,"autoplay":false,"showlrc":0,"mutex":true,"music":[{"title":"에필로그 (Epilogue)","author":"이동준","url":"https://molier-1256056152.cos.ap-guangzhou.myqcloud.com/%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3.mp3","pic":"https://y.gtimg.cn/music/photo_new/T002R300x300M000000RmZHf3qhLUL.jpg"}]}; options.element = document.getElementById("aplayer-jpbTUsKX"); var ap = new APlayer(options); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 视频hexo-tag-dplayer 1npm install hexo-tag-dplayer --save 1&#123;% dplayer &quot;url=https://moeplayer.b0.upaiyun.com/dplayer/hikarunara.mp4&quot; &quot;loop=yes&quot; &quot;theme=#FADFA3&quot; &quot;autoplay=false&quot; &quot;token=tokendemo&quot; %&#125; (function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://moeplayer.b0.upaiyun.com/dplayer/hikarunara.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})() 其他nexthexo]]></content>
       <categories>
         <category>blog</category>
       </categories>
