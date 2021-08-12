@@ -409,6 +409,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/架构/netty_protobuf_best_practices.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/架构/netty_protobuf_best_practices.html" itemprop="url">
+                  Cocos Creator WebSocket Protobuf整合之保姆级全攻略
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-18 18:12:50" itemprop="dateCreated datePublished" datetime="2020-03-18T18:12:50+08:00">2020-03-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/架构/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>环境说明：<br>Cocos Creator : 2.3.0 学习的速度赶不上它更新的速度<br>protobuf3 <a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="noopener">https://developers.google.com/protocol-buffers/</a><br>protobufjs @6.8.9 <a href="https://github.com/protobufjs/protobuf.js" target="_blank" rel="noopener">https://github.com/protobufjs/protobuf.js</a><br>没错，这是目前最新版本。网上一大堆都是老的 v5 版本，对我来说太low。哈哈实际上我仅仅是为了用那该死的 pbts 啦！</p>
+<p>服务器端：<br>websocket + protobuf3 这里就不具体展开说明了，因为此时我对服务器端没有什么兴趣。</p>
+<img src="/uploads/google_protobuf.png">
+<h3 id="why-google-protobuf"><a href="#why-google-protobuf" class="headerlink" title="why google protobuf?"></a>why google protobuf?</h3><p>我来告诉你，为什么选择protobuf作为网络的封装协议而为什么不用json？</p>
+<p>1.首先我是google的粉丝<br>2.序列化与反序列化效率高于json，相比而言降低了客户端服务器的资源<br>3.传输体积小，对应的降低的数据流量<br>4.数据类型跨平台，这点很重要。也许你不在乎，等你做多客户端的时候就知道了。<br>5.一定程度脱敏，强调一下protobuf没有加密功能，仅仅是二进制难以阅读而已。本文不涉及加密的操作，先给留个坑如果读者有兴趣我会考虑做篇有关RSA,AES加密封装.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/架构/netty_protobuf_best_practices.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/mongodb/基于mongodb信息流数据存储设计.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1953,169 +2117,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/policy/关于欧盟GDPR你需要知道的事.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Fred范方青">
-      <meta itemprop="description" content="那时候年少轻狂!">
-      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fred's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/policy/关于欧盟GDPR你需要知道的事.html" itemprop="url">
-                  关于欧盟GDPR，你需要知道的事！
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-26 09:14:33" itemprop="dateCreated datePublished" datetime="2018-05-26T09:14:33+08:00">2018-05-26</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/policy/" itemprop="url" rel="index"><span itemprop="name">policy</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <img src="/uploads/20180526_GDRP.jpg">
-<p>欧盟《一般数据保护条例》（GDPR）将于2018年5月25日起正式施行，该条例是近三十年来数据保护立法的最大变动，旨在加强对欧盟境内居民的个人数据和隐私保护。此外，它还将通过统一数据和隐私条例来简化对跨国企业的监管框架。它将取代1995年颁布的《数据保护指令》。</p>
-<p>1995年的《数据保护指令》95/46/EC是欧盟版的隐私保护条例。其主要目标包括协调数据保护立法，以及规范将个人数据转移到欧盟以外的“第三国”的情形。除了其它一系列措施，各个盟国还各自成立独立的公共机构，监督该指令的实施，并作为与企业和公民互动的监管机构。整体而言，该指令符合经济合作与发展协会（OECD）的最初建议以及隐私权是基本人权的核心概念。</p>
-<p>虽然《数据保护指令》旨在团结不同盟国的立法，但这只是一项指令，当置换到各国独立的法律时仍有一定的解释空间。加上当今数据格局的快速变化，尤其是Facebook、LinkedIn等社交平台以及云技术的兴起，势必要升级欧盟地区的监管环境。即将到来的GDPR是一项更大的立法，并且在各个成员国即刻可执行。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/policy/关于欧盟GDPR你需要知道的事.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2165,7 +2166,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2177,6 +2178,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -2210,6 +2213,8 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
+                    
+                      
                     
                       
                     
