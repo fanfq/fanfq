@@ -1,23 +1,2944 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ title }}{% if theme.index_with_subtitle and subtitle %} – {{ subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.5.0">
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="那时候年少轻狂!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fred&#39;s Blog">
+<meta property="og:url" content="https://blog.fanfq.com/page/2/index.html">
+<meta property="og:site_name" content="Fred&#39;s Blog">
+<meta property="og:description" content="那时候年少轻狂!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fred范方青">
+<meta property="article:tag" content="程序员,技术宅,软件开发,开源软件,IT,IT男,金融,互联网金融,理财,货币基金">
+<meta name="twitter:card" content="summary">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fred's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://blog.fanfq.com/page/2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Fred's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128889454-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128889454-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19da5bbef4829ba1366cde88409a7e0e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fred's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Quick notes</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/js%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%AD%E8%A8%80.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/js%E8%8E%B7%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%AD%E8%A8%80.html" itemprop="url">
+                  js获取浏览器语言
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-02-04 10:25:38" itemprop="dateCreated datePublished" datetime="2021-02-04T10:25:38+08:00">2021-02-04</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var type = navigator.appName;</span><br><span class="line">if (type == &quot;Netscape&quot;)&#123;</span><br><span class="line">  var lang = navigator.language;//获取浏览器配置语言，支持非IE浏览器</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  var lang = navigator.userLanguage;//获取浏览器配置语言，支持IE5+ == navigator.systemLanguage</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">lang = lang.toLowerCase();</span><br><span class="line">console.log(lang);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var lang_short = lang.substr(0, 2);//获取浏览器配置语言前两位</span><br><span class="line"></span><br><span class="line">if (lang == &quot;zh-cn&quot;)&#123;</span><br><span class="line">  console.log(&quot;简体中文&quot;);</span><br><span class="line">  //alert(lang);</span><br><span class="line">  //window.location.replace(&#x27;url&#x27;);//中文编码时打开链接</span><br><span class="line">&#125;else if (lang_short == &quot;zh&quot;)&#123;</span><br><span class="line">  console.log(&quot;繁体中文&quot;);</span><br><span class="line">  //window.location.replace(&#x27;url&#x27;);</span><br><span class="line">&#125;else&#123;//其他语言编码时打开以下链接</span><br><span class="line">  //window.location.replace(&#x27;url&#x27;);</span><br><span class="line">  console.log(&quot;英语&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>文中截取lang的前2位字符，是因为浏览器语言返回值可能是：</p>
+<table>
+<thead>
+<tr>
+<th align="right">lang</th>
+<th align="right">name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">zh-cn</td>
+<td align="right">Chinese(PRC)</td>
+</tr>
+<tr>
+<td align="right">zh-tw</td>
+<td align="right">Chinese(Taiwan Region)</td>
+</tr>
+<tr>
+<td align="right">zh-hk</td>
+<td align="right">Chinese(Hong Kong SAR, PRC)</td>
+</tr>
+<tr>
+<td align="right">zh-sg</td>
+<td align="right">Chinese(Singapore)</td>
+</tr>
+<tr>
+<td align="right">en-us</td>
+<td align="right">English(United States)</td>
+</tr>
+<tr>
+<td align="right">en</td>
+<td align="right">English</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E7%BA%AA%E8%A6%81.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E7%BA%AA%E8%A6%81.html" itemprop="url">
+                  宝塔面板常用配置纪要
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-25 16:54:37" itemprop="dateCreated datePublished" datetime="2020-12-25T16:54:37+08:00">2020-12-25</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>我个人是使用习惯是使用阿里云自带的 <code>负载均衡SLB</code> 服务，完成 <code>反向代理</code>，<code>负责均衡</code>，<code>SSL证书</code>,<code>域名解析</code> 等操作，同时也推荐在Pord环境中使用，这样在后期在跟新的过程中更加灵活。<br>而在开发测试环境中，单机部署宝塔面板，可通过<code>Ngix</code>的配置完成以上配置。</p>
+<h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4><p><code>eg.以java项目为例，我们部署的到服务器上确保指定端口可访问，如 SERVER_IP:8080</code><br>但实际情况是，我们希望 <code>api.xxx.com</code> 这种域名的情况的下去访问该网站或者接口时，具体操作步骤如下。</p>
+<ol>
+<li><p>域名解析，将 <code>api.xxx.com</code> cname 指向到 SERVER_IP 上，注意这里在没有配置端口号的情况下默认端口为80，通过<code>ping  api.xxx.com </code>验证是否解析成功。</p>
+</li>
+<li><p>在宝塔面包中创建一个静态网站,如下图所示。</p>
+</li>
+</ol>
+<img src="https://cdn.fanfq.com/picgo/20201228093523.png?imageslim" class="">
+
+<p>因为我们是java工程，只需要宝塔给我们做一个反向代理的功能，所以并不关注其他的有关php的配置,选择静态部署。</p>
+<ol start="3">
+<li>反向代理</li>
+</ol>
+<p>配置反向代理将服务请求转发至 <code>SERVER_IP:8080</code></p>
+<img src="https://cdn.fanfq.com/picgo/20201228094451.png?imageslim" class="">
+
+<p>好，截止到目前为止，即可通过 <code>api.xxx.com</code> 访问到 <code>SERVER_IP:8080</code> 网站，反向代理的主要功能就是如此，说白了就是做了个端口映射。在此解决一台服务器通过不同的域名解决同一端口的地址映射关系。</p>
+<h4 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a>解决跨域问题</h4><p>如果是API服务，并且工程中并没有处理跨域的问题时，又不想通过代码的方式去解决，此时可以通过配置ngix解决此问题。</p>
+<img src="https://cdn.fanfq.com/picgo/20201228095218.png?imageslim" class="">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#解决跨域问题</span><br><span class="line">add_header Access-Control-Allow-Origin *;</span><br><span class="line">add_header Access-Control-Allow-Headers X-Requested-With;</span><br><span class="line">add_header Access-Control-Allow-Methods GET,POST,OPTIONS;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="应用管理器"><a href="#应用管理器" class="headerlink" title="应用管理器"></a>应用管理器</h3><p>这个是宝塔官方出的一个管理工具，具体功能类似的pm2提供守护进程确保服务的稳定性，这也是我最近才开始用的。我使用其的目的主要是为了解决应用程序跟随服务器自启动。</p>
+<ol>
+<li>应用管理器中首先在<code>环境池</code>中创建想要的启动命令，比如下面的java命令</li>
+</ol>
+<img src="https://cdn.fanfq.com/picgo/20201228095757.png?imageslim" class="">
+
+<ol start="2">
+<li>然后再在<code>应用列表</code>中<code>添加应用</code></li>
+</ol>
+<img src="https://cdn.fanfq.com/picgo/20201228100154.png?imageslim" class="">
+
+<p>最终其完整的启动命令如下：<br><code>/usr/bin/java -jar /home/fanfq/apps/x.jar --server.port=8180 --downloadPath=/macshare</code></p>
+<p><em><strong>注意</strong></em> 中文乱码问题</p>
+<img src="https://cdn.fanfq.com/picgo/20201231113202.png?imageslim" class="">
+<p><code>/usr/bin/java -Dfile.encoding=UTF-8 -jar /home/fanfq/apps/x.jar --server.port=8180 --downloadPath=/macshare</code></p>
+<p>如果启用了<code>进程守护</code>那么此时可以通过各种方式停止服务，然后再观察该服务是否正常重启。这就是<code>进程守护</code>的意义，btw我们经常所见的mysqld实际上就是mysql服务的守护进程，通常用后缀d命名。</p>
+<h3 id="webhook"><a href="#webhook" class="headerlink" title="webhook"></a>webhook</h3><p>这个功能也是常规用的比较多的应用，我的应用场景是当git仓库有新的push时会发送一个http请求给服务器，此时服务器会自动pull到最新版本，并自动完成编译，重启等操作。<br>此功能是比较简易话的完成自动构建的操作，在开发测试环境中特别适用。</p>
+<ol>
+<li>创建webhook，编辑执行脚本<img src="https://cdn.fanfq.com/picgo/20201228101333.png?imageslim" class=""></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">sh /root/xxx/bin/autobuild.sh</span><br><span class="line"></span><br><span class="line">time=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)</span><br><span class="line">echo &quot;----latest build time $&#123;time&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>通过查看秘钥获取请求的地址<img src="https://cdn.fanfq.com/picgo/20201228101431.png?imageslim" class=""></li>
+</ol>
+<p>后续只要接口地址获取到请求，即触发脚本执行。</p>
+<p><em><strong>注意</strong></em> </p>
+<ol>
+<li>请求接口要求外网可访问，所以说这台服务器要有公网ip，确保可访问。</li>
+<li>脚本执行的权限问题，通过日志的方式查看脚本的执行是否成功。如果出现日志不如预期则可能是执行过程中出现权限等问题。需要自己测试排查如权限，环境变量等。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/Telegram_bot_dev_thinking.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/Telegram_bot_dev_thinking.html" itemprop="url">
+                  Telegram Bot 开发初体验,抖音去水印下载机器人实践
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-24 13:56:34" itemprop="dateCreated datePublished" datetime="2020-12-24T13:56:34+08:00">2020-12-24</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <img src="https://cdn.fanfq.com/picgo/20201225083005.jpg?imageslim" class="">
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>原本是打算用<code>钉钉</code>实现该功能的，一看要做企业认证就放弃的。不得不说这种所谓的认证就拒绝了相当多的独立开发者，这一点绝对是受诟病的。</p>
+<p>前端时间研究下<code>Telegram</code>相关的开发，总体来说实现了想要得所有功能，但是在测试的过程中发现很多问题。主要是因为早期Tg的开放接口被滥用的问题导致的，从而想要实现一些功能是受限的以免接口滥用。</p>
+<p>Telegram Bot 和绝大多数的IM通讯软件中的机器人是一样的，</p>
+<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><h4 id="注册一个机器人，获取token"><a href="#注册一个机器人，获取token" class="headerlink" title="注册一个机器人，获取token"></a>注册一个机器人，获取token</h4><p>直接在Tg中与@BotFather对话即可创建bot,比较有趣的是在Tg很多的交互式体验都是通过类似对话的方式。</p>
+<img src="https://cdn.fanfq.com/picgo/20201225082418.jpg?imageslim" class="">
+
+<h4 id="测试token"><a href="#测试token" class="headerlink" title="测试token"></a>测试token</h4><p>将下面的链接的<code>&#123;TOKEN&#125;</code>替换成所获取的token然后浏览器访问</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.telegram.org/bot&#123;TOKEN&#125;/getUpdates</span><br></pre></td></tr></table></figure>
+
+<p>返回数据，此时与机器人对话的内容均会在此显示出来</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">ok: <span class="literal">true</span>,</span><br><span class="line">result: [ ... ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="三方sdk集成"><a href="#三方sdk集成" class="headerlink" title="三方sdk集成"></a>三方sdk集成</h4><p>为了方便开发，已经有很成熟的三方sdk了。这里推荐 <a target="_blank" rel="noopener" href="https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started">TelegramBots</a></p>
+<h3 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h3><p>趁此机会和大家介绍一下我做的机器人，其主要功能就是通过抖音的分享链接下载其不带水印版本的视频。</p>
+<p>机器人体验地址 <a target="_blank" rel="noopener" href="https://t.me/fast_dl_bot">https://t.me/fast_dl_bot</a></p>
+<img src="https://cdn.fanfq.com/picgo/20201225083459.png?imageslim" class="">
+
+<h4 id="抖音去水印原理"><a href="#抖音去水印原理" class="headerlink" title="抖音去水印原理"></a>抖音去水印原理</h4><h5 id="选择想要下载的视频，获取分享链接如下"><a href="#选择想要下载的视频，获取分享链接如下" class="headerlink" title="选择想要下载的视频，获取分享链接如下"></a>选择想要下载的视频，获取分享链接如下</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">今天是国际篮球日，你能#接住姚明的传球  吗？  https://v.douyin.com/JbUn9qr/ 复制此链接，打开抖音搜索，直接观看视频！</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="访问链接，解析出视频源地址，如下"><a href="#访问链接，解析出视频源地址，如下" class="headerlink" title="访问链接，解析出视频源地址，如下"></a>访问链接，解析出视频源地址，如下</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">https://v.douyin.com/JbUn9qr/ </span><br><span class="line"></span><br><span class="line">跳转 -&gt; </span><br><span class="line"></span><br><span class="line">https://www.iesdouyin.com/share/video/6908508376079109390/?region=CN&amp;mid=6908508442169133832&amp;u_code=11ijh199a&amp;titleType=title&amp;did=68226817704&amp;iid=668150976480124&amp;utm_source=copy_link&amp;utm_campaign=client_share&amp;utm_medium=android&amp;app=aweme</span><br><span class="line"></span><br><span class="line">获取视频源地址 -&gt;</span><br><span class="line"></span><br><span class="line">https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0300f010000bvfv7l99jbbabl28o260&amp;ratio=720p&amp;line=0</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.fanfq.com/picgo/20201225083829.png?imageslim" class="">
+
+<h5 id="修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。"><a href="#修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。" class="headerlink" title="修改视频源地址，去掉视频源地址中的wm即可得到不带水印的地址源。"></a>修改视频源地址，去掉视频源地址中的<code>wm</code>即可得到不带水印的地址源。</h5><p>并通 agent 为手机客户端访问改地址，即可获取到不带水印的视频。<br>然后下载视频即可得到不带水印的视频</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://aweme.snssdk.com/aweme/v1/play/?video_id=v0300f010000bvfv7l99jbbabl28o260&amp;ratio=720p&amp;line=0</span><br></pre></td></tr></table></figure>
+<img src="https://cdn.fanfq.com/picgo/20201225083828.png?imageslim" class="">
+
+<h4 id="Telegram-Bot-实现"><a href="#Telegram-Bot-实现" class="headerlink" title="Telegram Bot 实现"></a>Telegram Bot 实现</h4><p>采用 <code>TelegramBots</code> 实现，涉及三方软件可能会有争议，既不提供代码实现，本文仅分析原理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAmazingBot</span> <span class="keyword">extends</span> <span class="title">TelegramLongPollingBot</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpdateReceived</span><span class="params">(Update update)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">//1.基础数据获取与处理</span></span><br><span class="line">       String username = update.getMessage().getChat().getUserName();</span><br><span class="line">       String text = update.getMessage().getText(); </span><br><span class="line"></span><br><span class="line">       <span class="comment">//2.通过正则判断text是否包含url等等其它验证</span></span><br><span class="line">       <span class="comment">//3.通过url获取不带水印的下载链接</span></span><br><span class="line">       <span class="comment">//4.通过下载链接获取输入流</span></span><br><span class="line">       <span class="comment">//以上2，3，4涉及三方软件可能会有争议，既不提供代码实现，本文仅分析原理。</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">//4.将输入流直接返回给发送者</span></span><br><span class="line">       InputFile inputFile = <span class="keyword">new</span> InputFile(inputStream,System.currentTimeMillis()+<span class="string">&quot;.mp4&quot;</span>);</span><br><span class="line">       SendVideo video = <span class="keyword">new</span> SendVideo();</span><br><span class="line">       video.setVideo(inputFile);</span><br><span class="line">       video.setChatId(update.getMessage().getChatId().toString());</span><br><span class="line">       execute(video);</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBotUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;fast_dl_bot&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBotToken</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;1434***IaQ4w5iJTGCRDtMSUVY&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/blog_/%E4%BC%BC%E4%B9%8E%E5%BA%94%E8%AF%A5%E8%B0%83%E6%95%B4%E4%B8%80%E4%B8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%AE%A9%E6%97%B6%E9%97%B4%E6%9B%B4%E6%9C%89%E6%95%88%E7%8E%87.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog_/%E4%BC%BC%E4%B9%8E%E5%BA%94%E8%AF%A5%E8%B0%83%E6%95%B4%E4%B8%80%E4%B8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%AE%A9%E6%97%B6%E9%97%B4%E6%9B%B4%E6%9C%89%E6%95%88%E7%8E%87.html" itemprop="url">
+                  似乎应该调整一下工作流，让时间更有效率
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-11-16 11:58:57" itemprop="dateCreated datePublished" datetime="2020-11-16T11:58:57+08:00">2020-11-16</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog_</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原本我以为我可以在周末的时间写出稿件，但实践证明这个太难了，我计算了一下仅仅周六上午半天的时间我给小朋友擦屁股累积超过10次以上，更多是中途的捣乱，姐姐有点粘我总是习惯性的试图在我工作的过程中坐到我的腿上，和我一起看着电脑屏幕，我和妻子都一致的观念在我们的家庭教育中尽可能的让小朋友减少对显示器的依赖。所以此时我不得不放下手头上的工作去陪伴她们。</p>
+<p>我们家是绝对杜绝小朋友玩手机，平板电脑的，即便是电视每周只可以限制性的看一个小时，而我现在逐步的下载一些优质的动画电影陪伴她们一起收看。妹妹更喜欢“天猫精灵”因为更方便通过语音交互的方式切换她想收听的内容，常常早晨起来她独自一人坐在客厅听着天猫精灵里播放出来的故事。而姐姐视乎缺乏耐心基本不会长时间做在那里收听节目，即便是看电视她也会因为其他的事情中断她的观看兴趣。</p>
+<p>这两人的性格，差别太大了。</p>
+<p>所以，我可能要尝试调整一下我的工作流，让时间更加的效率。周末的时间更多的是陪伴小朋友，见证他们成长更多的是陪伴。实际上养娃的过程中琐碎的事情特别多，每当看到她们睡着的样子就特别的温馨。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/podcast/%E8%8A%B1%E4%BA%86%E4%B8%A4%E5%A4%A9%E7%9A%84%E6%97%B6%E9%97%B4%E7%BB%88%E4%BA%8E%E6%8A%8APodcast%E5%8F%91%E5%B8%83%E7%AB%99%E6%90%AD%E5%BB%BA%E5%A5%BD%E4%BA%86.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/podcast/%E8%8A%B1%E4%BA%86%E4%B8%A4%E5%A4%A9%E7%9A%84%E6%97%B6%E9%97%B4%E7%BB%88%E4%BA%8E%E6%8A%8APodcast%E5%8F%91%E5%B8%83%E7%AB%99%E6%90%AD%E5%BB%BA%E5%A5%BD%E4%BA%86.html" itemprop="url">
+                  花了两天的时间终于把Podcast发布站搭建好了
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-11-04 16:25:28" itemprop="dateCreated datePublished" datetime="2020-11-04T16:25:28+08:00">2020-11-04</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/podcast/" itemprop="url" rel="index"><span itemprop="name">podcast</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章主要是要将的我工作流给记录下来，以免以后时间长了忘记了。</p>
+<p><a target="_blank" rel="noopener" href="http://fm.fanfq.com/">http://fm.fanfq.com</a> 这个站实际上是我的podcast发布站，采用<code>hexo</code>+<code>next主题</code>+<code>podcasts插件</code>,放在<code>github</code>上托管，mp3等资源文件放在<a href="!https://portal.qiniu.com/signup?code=1h449nnsixj6a">七牛CDN</a>上托管。</p>
+<p>实际上没有什么，主要是说下这个podcasts插件并不好用，我自己根据实际需求做了修改，以及增加了一个脚本获取mp3文件的数据。</p>
+<p>podcasts插件主要是为了生成符合apple podcast rss feed 文件，貌似国外的主流的都是以rss订阅的方式发布的，这很好，不需要作者每个平台手动的发布，我这里的发布站也是为了解决这个问题。</p>
+<p>有关podcasts插件修改内容看这个链接：(这要比较重要，一定要验证成功才有用)<br><a target="_blank" rel="noopener" href="https://github.com/fanfq/hexo-generator-podcasts">https://github.com/fanfq/hexo-generator-podcasts</a></p>
+<p>还写了python脚本为了获取mp3的参数：<br><a target="_blank" rel="noopener" href="https://github.com/fanfq/python-learning/blob/master/src/util/file/mp3_file_rename.py">https://github.com/fanfq/python-learning/blob/master/src/util/file/mp3_file_rename.py</a></p>
+<p><code>mp3_file_name.py</code>这个脚本，目的是为了重命名文件。如下所示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用于podcast音频文件整理</span><br><span class="line">源文件：003.mp3</span><br><span class="line">重命名后的文件：fm003_8776581_2192.mp3</span><br><span class="line">文件命名规范：fm|003|_length_duration</span><br><span class="line">prefix:文件前缀</span><br><span class="line">003：文件原名</span><br><span class="line">length：文件体积单位byte</span><br><span class="line">duration：文件播放时长单位s</span><br></pre></td></tr></table></figure>
+
+
+<p>然后就是写文章了，目前这个文章的结构是需要手动维护的，文章结构示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;#4.整装待发扬帆起航，拒绝消费主义&quot;  #文章标题</span><br><span class="line">category: podcast #固定值</span><br><span class="line">media: https://dl.fanfq.com/fm.fanfq.com/fm004_11922309_496.mp3 #固定值，建议放CDN </span><br><span class="line">image: https://dl.fanfq.com/fm.fanfq.com/fred_1024x1024_fm.jpg   #固定值，建议放CDN </span><br><span class="line">duration: 496  #mp3文件播放时长，这里单位是秒</span><br><span class="line">type: audio/mpeg #固定值</span><br><span class="line">length: 11922309  #mp3文件的字节数，右键文件查看所占磁盘空间</span><br><span class="line">layout: podcast  #固定值</span><br><span class="line">date: 2020-11-03 21:21:57 #创建时间</span><br><span class="line">tags: [播客,消费主义] #文章标签</span><br><span class="line">urlname: vol4 #比如我这里最终文章的链接是 https://fm.fanfq.com/vol4.html</span><br><span class="line">description: 轻奢，小资，精致，这些词是不是听起来有点耳熟?在我看来这些词都是消费主义的簇拥者自己创造出来的文化，通过这种方式给消费者洗脑最终促使消费者买单。 #这个描述，为了填充feed用而不是正文</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文章正文...</span><br></pre></td></tr></table></figure>
+
+
+<p>编辑好后直接发布到github上就可以了，然后等苹果的服务器自动同步。</p>
+<h2 id="总结一下的，流程是"><a href="#总结一下的，流程是" class="headerlink" title="总结一下的，流程是"></a>总结一下的，流程是</h2><p>1.编辑好的mp3文件发到mp3目录下<br>2.执行mp3目录下的 <code>mp3_file_name.py</code> 脚本，自动重命名以及上传到CDN<br>4.创建新的文档 <code>hexo new post NAME</code><br>5.编辑 <code>NAME.md</code> 文件信息<br>6.<code>hexo s</code> 本地预览一下，看是否都正常，只要mp3能正常播放那问题不大<br>7.<code>hexo clean</code>, <code>hexo g</code>,<code>hexo deploy</code> 全套。</p>
+<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="https://cdn.fanfq.com/picgo/20201119151421.png?imageslim" class="full-image" alt="工作流" /><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/%E6%9E%B6%E6%9E%84/websocket_network_encryption_security_protocol_the_best_practices.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%9E%B6%E6%9E%84/websocket_network_encryption_security_protocol_the_best_practices.html" itemprop="url">
+                  网络游戏通讯(WebSocket/Socket)数据加密最佳实践
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-08-04 18:12:50" itemprop="dateCreated datePublished" datetime="2020-08-04T18:12:50+08:00">2020-08-04</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话:"></a>写在前面的话:</h3><p>之前一篇文章<a href="https://blog.fanfq.com/%E6%9E%B6%E6%9E%84/netty_protobuf_best_practices">《Creator WebSocket Protobuf整合之保姆级全攻略》</a>大概的介绍了下有关protobuf的整合，首先我们认清一点protobuf仅仅是数据封装的模式，并没有加密功能，简单的来说将其理解成增强型json，以便于理解。</p>
+<p>近期也看了一些服务器端的源码，总的来说protobuf算是比较主流的，老点的项目有用json的或者是body是json然后用LengthField加头的。不管如何我个人还是建议使用protobuf，其优势不再赘述了。</p>
+<p>在阅读源码期间，偶然发现baidu的开源项目 [jprotobuf] (<a target="_blank" rel="noopener" href="https://github.com/jhunters/jprotobuf">https://github.com/jhunters/jprotobuf</a>) ，其主要的优势就是不需要再编写.proto的文件的直接在pojo类上加上注解即可，一定程度的简化了我们开发的流程提高的开发效率。但我个人观点还是需要.proto文件的，即便没有此文件也需要通过文档的形式列出所有通讯消息的结构体。随时时间的推移项目的迭代以及各种跨平台的客户端的开发，有一份清晰的文档往往事半功倍，这也算是我个人的偏执吧。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/%E6%9E%B6%E6%9E%84/websocket_network_encryption_security_protocol_the_best_practices.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/%E6%9E%B6%E6%9E%84/netty_protobuf_best_practices.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%9E%B6%E6%9E%84/netty_protobuf_best_practices.html" itemprop="url">
+                  Cocos Creator WebSocket Protobuf整合之保姆级全攻略
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-18 18:12:50" itemprop="dateCreated datePublished" datetime="2020-03-18T18:12:50+08:00">2020-03-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>环境说明：<br>Cocos Creator : 2.3.0 学习的速度赶不上它更新的速度<br>protobuf3 <a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers/">https://developers.google.com/protocol-buffers/</a><br>protobufjs @6.8.9 <a target="_blank" rel="noopener" href="https://github.com/protobufjs/protobuf.js">https://github.com/protobufjs/protobuf.js</a><br>没错，这是目前最新版本。网上一大堆都是老的 v5 版本，对我来说太low。哈哈实际上我仅仅是为了用那该死的 pbts 啦！</p>
+<p>服务器端：<br>websocket + protobuf3 这里就不具体展开说明了，因为此时我对服务器端没有什么兴趣。</p>
+<img src="/uploads/google_protobuf.png" class="">
+
+<h3 id="why-google-protobuf"><a href="#why-google-protobuf" class="headerlink" title="why google protobuf?"></a>why google protobuf?</h3><p>我来告诉你，为什么选择protobuf作为网络的封装协议而为什么不用json？</p>
+<p>1.首先我是google的粉丝<br>2.序列化与反序列化效率高于json，相比而言降低了客户端服务器的资源<br>3.传输体积小，对应的降低的数据流量<br>4.数据类型跨平台，这点很重要。也许你不在乎，等你做多客户端的时候就知道了。<br>5.一定程度脱敏，强调一下protobuf没有加密功能，仅仅是二进制难以阅读而已。本文不涉及加密的操作，先给留个坑如果读者有兴趣我会考虑做篇有关RSA,AES加密封装.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/%E6%9E%B6%E6%9E%84/netty_protobuf_best_practices.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/mongodb/%E5%9F%BA%E4%BA%8Emongodb%E4%BF%A1%E6%81%AF%E6%B5%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mongodb/%E5%9F%BA%E4%BA%8Emongodb%E4%BF%A1%E6%81%AF%E6%B5%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1.html" itemprop="url">
+                  基于mongodb信息流数据存储设计
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-27 12:13:43" itemprop="dateCreated datePublished" datetime="2018-11-27T12:13:43+08:00">2018-11-27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>以微信朋友圈为例，当打开朋友圈的时候默认刷新最新的数据，数据流以时间倒序排序。那么这样的数据表现形式我们称之为<code>时间线</code>。需要注意的是<br>我们定义时间线的起始时间为账户的创建的时间，例如，A是B的粉丝，B账号创建时间为2018年10月1日，而A账户的创建时间为2018年11月1日则在A的时间线只可以看到2018年11月1日以后的数据。而B的时间线则是2018年10月1日开始往后的数据。也就是说我们以账号的创建时间为锚点。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/mongodb/%E5%9F%BA%E4%BA%8Emongodb%E4%BF%A1%E6%81%AF%E6%B5%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/mongodb/%E5%9F%BA%E4%BA%8Emongodb%E7%94%A8%E6%88%B7%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mongodb/%E5%9F%BA%E4%BA%8Emongodb%E7%94%A8%E6%88%B7%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1.html" itemprop="url">
+                  基于mongodb用户评论系统数据结构设计
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-27 12:13:43" itemprop="dateCreated datePublished" datetime="2018-11-27T12:13:43+08:00">2018-11-27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>以微信朋友圈为例，但又与微信不同是微信是以强社交为主，只有好友之间才可以查阅对方的朋友圈内容，而我们当前的设计类似的微博以弱社交的表现形式，其显著特点就是即便互相没有关注也可以访问对方的朋友圈数据。所以设计之初首先要确认应用场景是<code>强社交</code>，还是<code>弱社交</code>关系。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/mongodb/%E5%9F%BA%E4%BA%8Emongodb%E7%94%A8%E6%88%B7%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/%E6%9E%B6%E6%9E%84/rabbitmq_quick_setup.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%9E%B6%E6%9E%84/rabbitmq_quick_setup.html" itemprop="url">
+                  rabbitmq quick setup for ubuntu
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-16 12:13:43" itemprop="dateCreated datePublished" datetime="2018-11-16T12:13:43+08:00">2018-11-16</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#install</span><br><span class="line">echo &quot;deb https://dl.bintray.com/rabbitmq/debian xenial main&quot; | sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list</span><br><span class="line">wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -</span><br><span class="line">sudo apt-get install rabbitmq-server</span><br><span class="line"></span><br><span class="line">#service start</span><br><span class="line">service rabbitmq-server start</span><br><span class="line">sudo service rabbitmq-server status</span><br><span class="line"></span><br><span class="line">#web admin</span><br><span class="line">sudo rabbitmq-plugins enable rabbitmq_management</span><br><span class="line">#login by guest</span><br><span class="line">127.0.0.1:15672 guest guest</span><br><span class="line"></span><br><span class="line">#new user</span><br><span class="line">sudo rabbitmqctl add_user fanfq fanfq</span><br><span class="line">sudo rabbitmqctl set_user_tags fanfq administrator</span><br></pre></td></tr></table></figure>
+
+<p>如果是服务器安装，客户端是没法通过guest用户登录的，则需要创建一个新的用户并赋予admin权限，后续的操作均可通过网页管理。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/">&lt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/A9808FDB264A02DD004D032FD091DAE2.jpg"
+                alt="Fred范方青" />
+            
+              <p class="site-author-name" itemprop="name">Fred范方青</p>
+              <p class="site-description motion-element" itemprop="description">那时候年少轻狂!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fanfq" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:fangqing.fan@hotmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-fa fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.elselook.com" title="www.elselook.com" target="_blank">www.elselook.com</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"><a target="_blank" rel="external nofollow" href="https://beian.miit.gov.cn/"> 苏ICP备15056794号-1 </a> &copy; 2012 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fred范方青</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Pisces</a></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

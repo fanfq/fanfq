@@ -1,23 +1,3071 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ title }}{% if theme.index_with_subtitle and subtitle %} – {{ subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.5.0">
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="那时候年少轻狂!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fred&#39;s Blog">
+<meta property="og:url" content="https://blog.fanfq.com/index.html">
+<meta property="og:site_name" content="Fred&#39;s Blog">
+<meta property="og:description" content="那时候年少轻狂!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Fred范方青">
+<meta property="article:tag" content="程序员,技术宅,软件开发,开源软件,IT,IT男,金融,互联网金融,理财,货币基金">
+<meta name="twitter:card" content="summary">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fred's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://blog.fanfq.com/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Fred's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128889454-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128889454-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19da5bbef4829ba1366cde88409a7e0e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fred's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Quick notes</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/frp_setup_guideline.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/frp_setup_guideline.html" itemprop="url">
+                  使用frp进行内网穿透
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-04-09 15:09:08" itemprop="dateCreated datePublished" datetime="2022-04-09T15:09:08+08:00">2022-04-09</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>去年有整理过《jenkins自动化构建最佳实践》，其中提到内网穿透的方案，那是阿里出的一个临时工具，实际上并不好用。因为他仅仅是个临时方案，超过一定时长会掉线。</p>
+<p>由于特定的场景，我有台闲置的 MacBook Pro 处于长期开机中，主要用于编译的任务。</p>
+<p>今天大致的介绍下我是如何使用frp的，frp可以理解整一个代理软件，分为服务器端和客户端。像我这个需求就必须需要一台带外网IP的服务器，在这台服务器进行 frps 的相关配置，而在macbook上进行 frpc 相关配置。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fatedier/frp">frp</a></p>
+<h3 id="服务器端配置-frps-ini"><a href="#服务器端配置-frps-ini" class="headerlink" title="服务器端配置 frps.ini"></a>服务器端配置 frps.ini</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># frps.ini</span><br><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">vhost_http_port = 8000</span><br><span class="line">max_pool_count = 20</span><br><span class="line">allow_ports = 2000-3000,6081,4000-50000</span><br><span class="line">dashboard_port = 7500</span><br><span class="line">dashboard_user = admin</span><br><span class="line">dashboard_pwd = 123456</span><br><span class="line">token = 123456</span><br><span class="line">authentication_timeout = 90000</span><br></pre></td></tr></table></figure>
+
+<p>启动方式：<code>frps -c ./frps.ini</code></p>
+<ol>
+<li><code>token = 123456</code> 这个参数比较重要，要与客户端一致，用于验证。</li>
+<li>几个开启服务器端的 <code>7000</code>，<code>8000</code>，<code>7500</code> 以及客户端需要用到的端口。</li>
+</ol>
+<h3 id="客户端配置-frc-ini"><a href="#客户端配置-frc-ini" class="headerlink" title="客户端配置 frc.ini"></a>客户端配置 frc.ini</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#frc.ini</span><br><span class="line">[common]</span><br><span class="line">server_addr = 服务器端IP</span><br><span class="line">server_port = 7000</span><br><span class="line">token = 123456</span><br><span class="line">#tls_enable = true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#公网访问内部web服务器以http方式</span><br><span class="line">[web00]</span><br><span class="line">type = http</span><br><span class="line">local_port = 8000</span><br><span class="line">custom_domains = xxx.fanfq.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>启动方式：<code>frpc -c ./frpc.ini</code></p>
+<ol>
+<li>通过 <code>http://服务器端IP:7500</code> 即可访问daskbord 查阅当前端口使用情况。</li>
+<li>配置DNS将指定域名指向服务器端的,随后外网就可以通过 <code>http://xxx.fanfq.com:8000</code>，访问客户端 <code>8000</code> 端口。</li>
+</ol>
+<h3 id="多客户端，多端口配置"><a href="#多客户端，多端口配置" class="headerlink" title="多客户端，多端口配置"></a>多客户端，多端口配置</h3><p>如果此时有另外一台客户端也需要做内网穿透，那么如下配置新的客户端即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#frc.ini</span><br><span class="line">[common]</span><br><span class="line">server_addr = 服务器IP</span><br><span class="line">server_port = 7000</span><br><span class="line">token = 123456</span><br><span class="line">#tls_enable = true</span><br><span class="line"></span><br><span class="line">#公网访问内部web服务器以http方式</span><br><span class="line">[web01]</span><br><span class="line">type = tcp</span><br><span class="line">local_port = 8083</span><br><span class="line">custom_domains = xxx.fanfq.com</span><br><span class="line">remote_port = 8083</span><br><span class="line"></span><br><span class="line">[web02]</span><br><span class="line">type = tcp</span><br><span class="line">local_port = 8084</span><br><span class="line">custom_domains = xxx.fanfq.com</span><br><span class="line">remote_port = 8084</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中通讯协议采用 <code>type = tcp</code>，而 <code>remote_port = 8083</code>是指告诉服务器端通过此端口访问。<br>那么此时通过  <code>http://xxx.fanfq.com:8083</code>，<code>http://xxx.fanfq.com:8084</code> 即可访问此客户端了。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ol>
+<li><p><code>https</code>，<code>反向代理</code>支持。比如通过 <code>https://xxx.fanfq.com</code> - &gt;<code>http://xxx.fanfq.com:8083</code> 在服务器端通过 <code>nginx</code>配置证书以及反向代理即可</p>
+</li>
+<li><p>开机自启动，这个方式太多了就不多介绍了。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/blog_/home_network_upgrade.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog_/home_network_upgrade.html" itemprop="url">
+                  当居家办公成为常态，我是如何升级家庭网络的，低成本5G网络全屋覆盖
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-04-08 13:22:47" itemprop="dateCreated datePublished" datetime="2022-04-08T13:22:47+08:00">2022-04-08</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog_</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我家升级宽带了，我家原本是300mb的入户光纤，到今年刚好合约到期。在没有追加成本的情况下，居然免费升级到1000mb了…</p>
+<p>还记得吗？去年8月份，我升级了家里的主路由器，是一颗搭载J4125 CPU的软路由，其性能完全能够胜任我的日常需求，最重要它还是一颗低功耗的CPU日常待机也就10w左右。</p>
+<p>比较可惜的是J4125作为Intel家的mobil级别的芯片，其并不支持AVX指令集，导致我不能部署一些深度学习的框架。这也算是一个小小的遗憾，不过综合考虑这款CPU仍旧是比较符合我的需求的。</p>
+<p>下面这篇文章是我详细讲述我是如何压榨J4125这款软路由性能的：</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI3NzM1MDgxNA==&mid=2247483937&idx=1&sn=3193f09787894a5c104ad7cd99eecef7&chksm=eb66d2d0dc115bc6b90fe3db8860cfd2e4807e194680ab0b2b6543c6929fe6e2cb66e3c8e3bc&token=957463482&lang=zh_CN#rd">《伪极客家庭组网方案，什么叫 all in one 路由器》</a></p>
+<p>此篇文章中，有些错误的观点纠正一下。</p>
+<p>其中提到 “虚拟网口与直通性能区别不大”，实际上并非如此。经过测试非直通状态下，网口的带宽只有100mb，直通后可达到1000mb。</p>
+<p>同时还要补充一下，一次偶然发现掉速的问题。网线插上软路由后网速是1000mb但过几天后就掉到100mb了，此时重新插拔一下网线又会变成1000mb，如此反复。后来换了新的跳线之后就没有发生过此现象。所以线材也是比较重要的，跳线的选择最好是购买接口已经封装好的那种成品，如果内网不是万兆的带宽超5类双绞线足够了。</p>
+<p>不得不提，我看到很多自媒体鼓励大家升级到超6，甚至7类双绞线。在我看来完全没有必要，超5类双绞线再打10年完全没有问题。还记得10多年前我还在上大学的时候，当时提出的口号是百兆进桌面，10多年过去了我们的内网带宽普遍在100/1000mb的带宽。而万兆带宽想要普及至少还需要个10年以上。</p>
+<p>就像今天我想和大家分享的我家WIFI6 AP升级一样，WIFI 6路由器至少面世3年以上了，现在貌似都有WIFI 6E,WIFI 7等标准出来了。可我们大部分都在使用WIFI 5的路由器，甚至100mb带宽的老款路由器。其中也包括我，像我这种伪极客自居的也是刚刚才升级到WIFI 6路由器。</p>
+<img src="https://cdn.fanfq.com/picgo/20220408132824.png?imageslim," class="" title="升级之前的网络拓扑">
+
+
+
+
+
+
+<p>在升级wifi6前我家网络拓扑大概是这样的，比较有趣的是仅仅书房的AP2是一个千兆的路由器的，其余的都是百兆的。因为他们的采购时间各不相同，只能最大程度的满足我个人的需求，确保的我的空间网络的最优化。</p>
+<p>虽然这三个路由器采用中继的模式，但每次进入不同的区域都要手动的切换，这点我实在受不了，手动切换网络对其他家庭成员来说特别困惑，所以趁此宽带升级的机会顺便将家里的网络都做一次升级。</p>
+<img src="https://cdn.fanfq.com/picgo/20220408132744.png?imageslim," class="" title="升级之后的网络拓扑">
+
+
+
+
+<p>我的需求很明确，“具有较强的WIFI性能，支持1000mb的带宽，以及支持ap mesh组网”，所以其他的功能对我来说不是很重要，比如路由功能，因为在DHCP服务是由我的上级软路由完成的，而wifi6路由器仅仅当做AP使用提供wifi信号而已，这也是为什么我采用的是AP Mesh组网模式。</p>
+<p>综上需求我大致看了下市面上单价比较符合我需求的wifi6路由器，后来定位小米的AX3200 和 TPLink AX5400，从价格和性能相比后我最终选择了 TPLink AX5400​。</p>
+<img src="https://cdn.fanfq.com/picgo/20220408132652.jpeg?imageslim," class="" title="TPLink AX5400">
+
+<p>在此之前我从未用过TPLink的路由器，也不知道其到底怎么样。</p>
+<p>截止到现在已经使用了一个月的TPLink AX5400，总体感觉还不错，mesh组网特点我就不多做介绍了，就”无线漫游”对我来说简直爽的起飞，比如我回家入户进入客厅此时连接的是客厅的路由器，当我走到主卧的时候，此时的信号已经衰减的很厉害了，此时会自动切换到主卧的路由器。所以现在我所有的设备只连接5G信号，目前基本满足5G信号全屋覆盖，即便在信号稍弱的房间带宽也能跑到300mb以上，信号好的区域能跑到700mb以上，160mhz的客户端应该能够跑满1000mb带宽。</p>
+<p>总结：</p>
+<ol>
+<li>只要在同一个局域网内就能mesh组网，当然是有线局域网最好。</li>
+<li>推荐通过交换机分发网络，这样内网传输的效率更高效。</li>
+<li>如果你家的网络拓扑和我家类似，强烈推荐ap mesh组网，入门级wifi6路由器即可。</li>
+<li>现在路由器体积越来越大，放置在某个地方真的很突兀，不方便也不美观。以后再装修我一定会在天花板里面布线，将路由器等其他智能家居的产品藏在天花板里面。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/flutter_restful_apis_the_best_practices.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/flutter_restful_apis_the_best_practices.html" itemprop="url">
+                  Flutter网络请求数据封装最佳实践
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-11-19 11:12:01" itemprop="dateCreated datePublished" datetime="2021-11-19T11:12:01+08:00">2021-11-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>实在学不动了，现在主流的java jdk版本应该是11以上了，可我仍旧使用jdk8。做为从jdk 1.5也就是jdk5一直走过来的老javaer真的不想学了，拖欠的太多了，很多新特性都不太清楚。</p>
+<p>springboot大礼包也逐渐放弃java8的支持，已经官宣springboot3，java 17 将成为未来主流版本。</p>
+<p>实际上版本的升级对我这种独立开发者也还好，成本并不是很高，只是我不想动。我只追求代码能跑，运行稳定即可。</p>
+<p>从2021年开始，我逐渐将我的手机客户端程序尽可能的采用flutter开发，跨平台开发对来我来说尤其的重要，特别是针对UI层面的。</p>
+<p>你很难想象我的代码版本库到底有都少个分支，特别是安卓版本早期一个渠道一个分支，每个渠道都要对接本渠道的sdk。我不得不维护一个自己整合个渠道的sdk，从而面对不同的渠道，从而减少分支版本期减轻代码的维护成本。直到现在我基本放弃了国内的应用市场，更多的经历只维护googleplay的版本。</p>
+<p>之所以采用flutter开发客户端项目，一方面其跨平台的能力之外，另外就是新的开发语言 Dart，你想想看安卓目前有java 和 Kotlin，iOS 有 Object-C， swift，代码维护起来有点烦杂，特别是我这种单兵作战的独立开发者而言。所以这也是我为什么会逐渐采用flutter开发的主要原因。</p>
+<p>未来的日子里，我会逐步整理我在开发过程中所使用的代码片段。</p>
+<h3 id="base-req-params-dart"><a href="#base-req-params-dart" class="headerlink" title="base_req_params.dart"></a><code>base_req_params.dart</code></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">abstract class BaseReqParams &#123;</span><br><span class="line"></span><br><span class="line">  String method = &quot;POST&quot;; //default method</span><br><span class="line"></span><br><span class="line">  String getUrl(); //baseUrl+&quot;/sdk/init&quot;,here is &quot;/sdk/init&quot; without host</span><br><span class="line"></span><br><span class="line">  Map&lt;String, dynamic&gt; getBody();//post json body</span><br><span class="line"></span><br><span class="line">  String getMethod()&#123;</span><br><span class="line">    return method;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="base-resp-params-dart"><a href="#base-resp-params-dart" class="headerlink" title="base_resp_params.dart"></a><code>base_resp_params.dart</code></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">abstract class BaseRespHandler &#123;</span><br><span class="line">  BaseRespHandler fromJson(Map&lt;String, dynamic&gt; json);</span><br><span class="line">  Map&lt;String, dynamic&gt;? toJson();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="base-service-dar"><a href="#base-service-dar" class="headerlink" title="base_service.dar"></a><code>base_service.dar</code></h3><p>主网络请求类，所有的网络请求都是从这里类发出，并完成回调。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &#x27;dart:convert&#x27;;</span><br><span class="line">import &#x27;package:dio/dio.dart&#x27;;</span><br><span class="line">import &#x27;package:flutter/material.dart&#x27;;</span><br><span class="line">import &#x27;package:flutter_demo_v1/base/base_header_params.dart&#x27;;</span><br><span class="line">import &#x27;package:flutter_demo_v1/utils/flog.dart&#x27;;</span><br><span class="line">import &#x27;base_req_params.dart&#x27;;</span><br><span class="line"></span><br><span class="line">// class Session &#123;</span><br><span class="line">//   static Map&lt;String, dynamic&gt; headers = &#123;&#125;;</span><br><span class="line">//   static RespSignParams signParams;</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">abstract class BaseService&lt;T&gt;&#123;</span><br><span class="line"></span><br><span class="line">  static const String domainName = &quot;http://192.168.3.167:8880&quot;;</span><br><span class="line">  final String baseUrl = domainName;</span><br><span class="line"></span><br><span class="line">  final int success = 200;</span><br><span class="line">  Dio dio = Dio();</span><br><span class="line"></span><br><span class="line">  BaseService(BuildContext context, &#123;bool isShowLoading = true&#125;) &#123;</span><br><span class="line">    if (isShowLoading) &#123;</span><br><span class="line">      //loading = new Loading();</span><br><span class="line">      //loading.init(context);</span><br><span class="line">    &#125;</span><br><span class="line">    // dio.interceptors.add(CookieManager(cookieJar));</span><br><span class="line">    dio.options.baseUrl = baseUrl;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Options getOptions() &#123;</span><br><span class="line">    return Options(</span><br><span class="line">        headers: getHeaders(),</span><br><span class="line">        followRedirects: false,</span><br><span class="line">        responseType: ResponseType.json,</span><br><span class="line">        contentType: Headers.jsonContentType,</span><br><span class="line">        validateStatus: (status) &#123;</span><br><span class="line">          return status &lt; 500;</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  ///http请求的头的封装，根据实际业务进行扩展</span><br><span class="line">  Map&lt;String, dynamic&gt; getHeaders() &#123;</span><br><span class="line">    HeaderParams params = HeaderParams(3, &quot;eyJ1aWQiOjMsInRzIjoxLjYzNzIyNjc4ODU0MTkyNjVFMTJ9.1f3d833c8782ab26d62aeb19abce67e0&quot;);</span><br><span class="line">    Map&lt;String, dynamic&gt; newHeaders = params.toData();</span><br><span class="line">    return newHeaders;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ///post json</span><br><span class="line">  void postByJson(&#123;required BaseReqParams params, required Function(Map&lt;String, dynamic&gt; data) onSuccess, required Function(int code, String msg) onFailed&#125;) async &#123;</span><br><span class="line">    // if (loading != null) &#123;</span><br><span class="line">    //   loading.show();</span><br><span class="line">    // &#125;</span><br><span class="line">    try &#123;</span><br><span class="line"></span><br><span class="line">      dlog(&quot;请求: $&#123;dio.options.baseUrl&#125;$&#123;params.getUrl()&#125;&quot;);</span><br><span class="line">      dlog(&quot;body: $&#123;params.getBody()&#125;&quot;);</span><br><span class="line">      dlog(&quot;请求头: $&#123;getOptions().headers&#125;&quot;);</span><br><span class="line"></span><br><span class="line">      var response = await dio.post(</span><br><span class="line">          params.getUrl(),</span><br><span class="line">          data:params.getBody(),</span><br><span class="line">          options: getOptions());</span><br><span class="line"></span><br><span class="line">      //http response statuscode=200 代表服务器正常响应</span><br><span class="line">      if (response.statusCode == 200) &#123;</span><br><span class="line">          var printString = json.encode(response.data);</span><br><span class="line">          dlog(&quot;返回: $printString&quot;);</span><br><span class="line"></span><br><span class="line">          Map&lt;String, dynamic&gt; rest = json.decode(printString);</span><br><span class="line"></span><br><span class="line">          var code = rest[&#x27;code&#x27;];</span><br><span class="line">          var msg = rest[&#x27;msg&#x27;];</span><br><span class="line"></span><br><span class="line">          dlog(&#x27;[code]: $&#123;rest[&#x27;code&#x27;]&#125;&#x27;);</span><br><span class="line">          dlog(&#x27;[msg]: $&#123;rest[&#x27;msg&#x27;]&#125;&#x27;);</span><br><span class="line">          dlog(&#x27;[data]: $&#123;rest[&#x27;data&#x27;]&#125;&#x27;);</span><br><span class="line"></span><br><span class="line">          if(code == 200)&#123;</span><br><span class="line">            //服务器返回json 结构体code=200 代表业务逻辑正常</span><br><span class="line">            onSuccess(rest);</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">            //服务器返回json 结构体code!=200 代表业务不正常，需要单独处理</span><br><span class="line">            onFailed(code,msg);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        ///MORE INFO</span><br><span class="line">        //http response statuscode=200 代表服务器响应不正常，如服务器宕机，网络波段等，比较常见的如 400:badreq，404:notfund，500:internal server err</span><br><span class="line">        //只要业务逻辑正常，通常都是200；返回statuscode是比较标准的做法，也是restful apis践行的做法，但是在我们的开发过程中除特殊情况，通常都是返回200.</span><br><span class="line">        //这里已经捕获，并通过`onFailed`回调，可能比较规范的做法需要增加一个 `onError`回调，单独处理 statuscode！=200 的异常情况</span><br><span class="line">        elog(&quot;response.statusCode!=200, is $&#123;response.statusCode&#125;, $&#123;response.toString()&#125;&quot;);</span><br><span class="line">        onFailed(response.statusCode, json.decode(response.toString())[&#x27;msg&#x27;]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; on DioError catch(e) &#123;</span><br><span class="line">      printError(e);</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">      // if (loading != null) &#123;</span><br><span class="line">      //   loading.dismiss();</span><br><span class="line">      // &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  void printError(DioError e) &#123;</span><br><span class="line">    // The request was made and the server responded with a status code</span><br><span class="line">    // that falls out of the range of 2xx and is also not 304.</span><br><span class="line">    if(e.response != null) &#123;</span><br><span class="line">      elog(e.response.data);</span><br><span class="line">      elog(e.response.headers);</span><br><span class="line">      elog(e.response.request);</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">      // Something happened in setting up or sending the request that triggered an Error</span><br><span class="line">      elog(e.request);</span><br><span class="line">      elog(e.message);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="sdk-model-dart"><a href="#sdk-model-dart" class="headerlink" title="sdk_model.dart"></a><code>sdk_model.dart</code></h3><p>请求消息数据封装，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &#x27;package:flutter_demo_v1/base/base_req_params.dart&#x27;;</span><br><span class="line">import &#x27;package:flutter_demo_v1/base/base_resp_params.dart&#x27;;</span><br><span class="line"></span><br><span class="line">/// req json data</span><br><span class="line">// &#123;&quot;packageName&quot;:&quot;包名&quot;,&quot;channelName&quot;:&quot;渠道名&quot;,&quot;versionCode&quot;:1,&quot;versionName&quot;:&quot;版本名&quot;&#125;</span><br><span class="line">class SDKInitReqData extends BaseReqParams&#123;</span><br><span class="line"></span><br><span class="line">  String packageName;</span><br><span class="line">  String channelName;</span><br><span class="line">  int versionCode;</span><br><span class="line">  String versionName;</span><br><span class="line"></span><br><span class="line">  SDKInitReqData(&#123;required this.packageName,required this.channelName,required this.versionCode,required this.versionName&#125;);</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Map&lt;String, dynamic&gt; getBody() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      &quot;packageName&quot;:packageName,</span><br><span class="line">      &quot;channelName&quot;:channelName,</span><br><span class="line">      &quot;versionCode&quot;:versionCode,</span><br><span class="line">      &quot;versionName&quot;:versionName,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  String getUrl() &#123;</span><br><span class="line">    return &quot;/test/reqHeadCheck&quot;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// resp json data</span><br><span class="line">// &#123;</span><br><span class="line">//   &quot;code&quot;: 200,</span><br><span class="line">//   &quot;msg&quot;: &quot;ok&quot;,</span><br><span class="line">//   &quot;data&quot;: &#123;</span><br><span class="line">//     &quot;versionCode&quot;: 1,</span><br><span class="line">//     &quot;versionName&quot;: &quot;版本名&quot;,</span><br><span class="line">//     &quot;packageName&quot;: &quot;包名&quot;,</span><br><span class="line">//     &quot;channelName&quot;: &quot;渠道名&quot;,</span><br><span class="line">//     &quot;id&quot;: 5,</span><br><span class="line">//     &quot;upd&quot;: &#123;</span><br><span class="line">//       &quot;status&quot;: 0,</span><br><span class="line">//       &quot;versionCode&quot;: 0,</span><br><span class="line">//       &quot;apkSize&quot;: 0</span><br><span class="line">//     &#125;,</span><br><span class="line">//     &quot;cfg&quot;: &#123;&quot;ad&quot;:false,&quot;login&quot;:true,&quot;agree&quot;:true,&quot;wx&quot;:&quot;xxx&quot;&#125;</span><br><span class="line">//   &#125;</span><br><span class="line">// &#125;</span><br><span class="line">class SDKInitRespData extends BaseRespHandler&#123;</span><br><span class="line">  late int versionCode;</span><br><span class="line">  late String versionName;</span><br><span class="line">  late String packageName;</span><br><span class="line">  late String channelName;</span><br><span class="line"></span><br><span class="line">  late Upd upd;</span><br><span class="line">  late Cfg cfg;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  SDKInitRespData fromJson(Map&lt;String, dynamic&gt; json) &#123;</span><br><span class="line">    versionCode = json[&#x27;versionCode&#x27;];</span><br><span class="line">    versionName = json[&#x27;versionName&#x27;];</span><br><span class="line">    packageName = json[&#x27;packageName&#x27;];</span><br><span class="line">    channelName = json[&#x27;channelName&#x27;];</span><br><span class="line"></span><br><span class="line">    upd = Upd().fromJson(json[&#x27;upd&#x27;]);</span><br><span class="line">    cfg = Cfg().fromJson(json[&#x27;cfg&#x27;]);</span><br><span class="line"></span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Map&lt;String, dynamic&gt;? toJson() &#123;</span><br><span class="line">    return null;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Upd extends BaseRespHandler&#123;</span><br><span class="line">  late int status;</span><br><span class="line">  late int versionCode;</span><br><span class="line">  late int apkSize;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Upd fromJson(Map&lt;String, dynamic&gt; json) &#123;</span><br><span class="line">    status = json[&#x27;status&#x27;];</span><br><span class="line">    versionCode = json[&#x27;versionCode&#x27;];</span><br><span class="line">    apkSize = json[&#x27;apkSize&#x27;];</span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Map&lt;String, dynamic&gt;? toJson() &#123;</span><br><span class="line">    return null;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cfg extends BaseRespHandler&#123;</span><br><span class="line">  late bool ad;</span><br><span class="line">  late bool login;</span><br><span class="line">  late bool agree;</span><br><span class="line">  late String wx;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Cfg fromJson(Map&lt;String, dynamic&gt; json) &#123;</span><br><span class="line">    ad = json[&#x27;ad&#x27;];</span><br><span class="line">    login = json[&#x27;login&#x27;];</span><br><span class="line">    agree = json[&#x27;agree&#x27;];</span><br><span class="line">    wx = json[&#x27;wx&#x27;];</span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Map&lt;String, dynamic&gt;? toJson() &#123;</span><br><span class="line">    return null;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/flutter_logs_utils.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/flutter_logs_utils.html" itemprop="url">
+                  Flutter日志工具类
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-11-17 11:12:01" itemprop="dateCreated datePublished" datetime="2021-11-17T11:12:01+08:00">2021-11-17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// flog.dart</span><br><span class="line">// ilog(&quot;msg info&quot;); 调用方式</span><br><span class="line"></span><br><span class="line">import &#x27;package:flutter/foundation.dart&#x27;;</span><br><span class="line">import &#x27;package:stack_trace/stack_trace.dart&#x27;;</span><br><span class="line"></span><br><span class="line">const String _tag = &quot;fred_&quot;;</span><br><span class="line">const bool _logOpen = true;</span><br><span class="line"></span><br><span class="line">enum FLogMode &#123;</span><br><span class="line">  debug,    // 💚 DEBUG</span><br><span class="line">  warning,  // 💛 WARNING</span><br><span class="line">  info,     // 💙 INFO</span><br><span class="line">  error,    // ❤️ ERROR</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void _log(dynamic msg, FLogMode mode)&#123;</span><br><span class="line">  if (kReleaseMode || _logOpen == false) &#123; // release 模式不打印</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  var chain = Chain.current(); // Chain.forTrace(StackTrace.current);</span><br><span class="line">  // 将 core 和 flutter 包的堆栈合起来（即相关数据只剩其中一条）</span><br><span class="line">  chain = chain.foldFrames((frame) =&gt; frame.isCore || frame.package == &quot;flutter&quot;);</span><br><span class="line">  // 取出所有信息帧</span><br><span class="line">  final frames = chain.toTrace().frames;</span><br><span class="line"></span><br><span class="line">  // 找到当前函数的信息帧</span><br><span class="line">  final idx;</span><br><span class="line"></span><br><span class="line">  var modeStr = &quot;&quot;;</span><br><span class="line">  switch(mode) &#123;</span><br><span class="line">    case FLogMode.debug:</span><br><span class="line">      modeStr = &quot;💚 DEBUG&quot;;</span><br><span class="line">      idx = frames.indexWhere((element) =&gt; element.member == &quot;dlog&quot;);</span><br><span class="line">      break;</span><br><span class="line">    case FLogMode.warning:</span><br><span class="line">      modeStr = &quot;💛 WARNING&quot;;</span><br><span class="line">      idx = frames.indexWhere((element) =&gt; element.member == &quot;wlog&quot;);</span><br><span class="line">      break;</span><br><span class="line">    case FLogMode.info:</span><br><span class="line">      modeStr = &quot;💙 INFO&quot;;</span><br><span class="line">      idx = frames.indexWhere((element) =&gt; element.member == &quot;ilog&quot;);</span><br><span class="line">      break;</span><br><span class="line">    case FLogMode.error:</span><br><span class="line">      modeStr = &quot;❤️ ERROR&quot;;</span><br><span class="line">      idx = frames.indexWhere((element) =&gt; element.member == &quot;elog&quot;);</span><br><span class="line">      break;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (idx == -1 || idx+1 &gt;= frames.length) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  // 调用当前函数的函数信息帧</span><br><span class="line">  final frame = frames[idx+1];</span><br><span class="line"></span><br><span class="line">  print(&quot;$_tag$&#123;frame.uri.toString().split(&quot;/&quot;).last&#125;($&#123;frame.line&#125;) :: $modeStr  - $msg &quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void dlog(dynamic msg, &#123; FLogMode mode = FLogMode.debug &#125;) &#123;</span><br><span class="line">  _log(msg, mode);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void elog(dynamic msg, &#123; FLogMode mode = FLogMode.error &#125;) &#123;</span><br><span class="line">  _log(msg, mode);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ilog(dynamic msg, &#123; FLogMode mode = FLogMode.info &#125;) &#123;</span><br><span class="line">  _log(msg, mode);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void wlog(dynamic msg, &#123; FLogMode mode = FLogMode.warning &#125;) &#123;</span><br><span class="line">  _log(msg, mode);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/%E6%9E%B6%E6%9E%84/jenkins_auto_distribute_for_android_the_best_practices.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%9E%B6%E6%9E%84/jenkins_auto_distribute_for_android_the_best_practices.html" itemprop="url">
+                  jenkins自动化构建最佳实践 for Android
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-11-14 11:12:01" itemprop="dateCreated datePublished" datetime="2021-11-14T11:12:01+08:00">2021-11-14</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="需求"><a href="#需求" class="headerlink" title="需求:"></a>需求:</h3><p>每个人的需求可能不太一样，我的需求比较简单，因为我是一个人前后端全栈开发，目前不涉及到研发团队部分所以工作环境比较简单。</p>
+<p>但是分发的工作不是我去做的，特别是针对国内的各大平台上架事宜，是由我的合作伙伴去做。另外就是外包活接的比较多，给甲方发包也比较频繁。</p>
+<p>曾经我的发包模式，就是将apk打个压缩包，然后发群里，各种项目交叉发包和版本追溯也确实有点烦人。</p>
+<p>因此我不得不花点时间去配置一个自动化构建系统，以解决我当前的混乱的发布流程。</p>
+<h3 id="方案"><a href="#方案" class="headerlink" title="方案:"></a>方案:</h3><p>我使用<code>war</code>的方式部署<code>jenkins</code>以便后期无缝转移其他平台。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jenkins.io/doc/book/installing/war-file/">安装教程</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://ftp-nyc.osuosl.org/pub/jenkins/war-stable/latest/jenkins.war</span><br><span class="line">java -jar jenkins.war --httpPort=8000</span><br></pre></td></tr></table></figure>
+
+<p>注意：默认情况下工作目录在 <code>~/.jenkins</code> ，更改默认工作路径需要配置个环境变量，然后再重启下服务即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JENKINS_HOME=/home/JenkinsWorkspace</span><br></pre></td></tr></table></figure>
+
+<h4 id="需要用到的插件"><a href="#需要用到的插件" class="headerlink" title="需要用到的插件"></a>需要用到的插件</h4><blockquote>
+<p>Maven Integration 构建maven项目用的<br>Email Extension 构建完成发送邮件通知用<br>Post build task 构建完成执行脚本用的<br>Role-based Authorization Strategy 配置用户项目访问权限用的</p>
+</blockquote>
+<p>具体的我找到两篇教程供参考</p>
+<p>Jenkins <a target="_blank" rel="noopener" href="https://wiki.eryajf.net/pages/350.html#editable-email-notification-%E5%90%8D%E7%A7%B0-%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5">邮箱配置</a><br>Jenkins <a target="_blank" rel="noopener" href="https://www.cnblogs.com/mengyu/p/7744293.html">权限配置</a></p>
+<p>*重点说下邮件模板的配置，我的原则是<code>Jenkins</code>的配置不能有侵入性，项目工程既能<code>Jenkins</code>编译同时也兼顾本地编译或者其他编译环境。</p>
+<p>下面解决如何在构建通知邮件中，获取项目的版本信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在gradle脚本中，添加日志输出：</span><br><span class="line"></span><br><span class="line">println(&quot;*****************************************************&quot;)</span><br><span class="line">println(&quot;vSTARTSTART&quot;)</span><br><span class="line">println(&quot;v&quot;+versionName+&quot;(&quot;+versionCode+&quot;)&quot;)</span><br><span class="line">println(&quot;vENDEND&quot;)</span><br><span class="line">println(&quot;STARTSTART&quot;)</span><br><span class="line">println(&quot;appName：xxx&quot;)</span><br><span class="line">println(&quot;packageName：&quot;+applicationId)</span><br><span class="line">println(&quot;versionCode：&quot;+versionCode)</span><br><span class="line">println(&quot;versionName：&quot;+versionName)</span><br><span class="line">println(&quot;gitHash：&quot;+gitHash())</span><br><span class="line">println(&quot;buildTime：&quot;+buildTime())</span><br><span class="line">println(&quot;notes：N/A&quot;)</span><br><span class="line">println(&quot;ENDEND&quot;)</span><br><span class="line">println(&quot;*****************************************************&quot;)</span><br><span class="line"></span><br><span class="line">Jenkins邮件正文中通过正则匹配的方式截取log输出：</span><br><span class="line">$&#123;BUILD_LOG_EXCERPT, start =&quot;^STARTSTART&quot;, end =&quot;^ENDEND&quot;&#125; </span><br></pre></td></tr></table></figure>
+
+<p>邮件模板主题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">构建通知：xxx项目 $&#123;BUILD_LOG_EXCERPT, start =&quot;^vSTARTSTART&quot;, end =&quot;^vENDEND&quot;&#125; - Build # $BUILD_NUMBER - $BUILD_STATUS!</span><br></pre></td></tr></table></figure>
+
+<p>邮件模板正文：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;title&gt;$&#123;ENV, var=&quot;JOB_NAME&quot;&#125;-第$&#123;BUILD_NUMBER&#125;次构建日志&lt;/title&gt;&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body leftmargin=&quot;8&quot; marginwidth=&quot;0&quot; topmargin=&quot;8&quot; marginheight=&quot;4&quot; offset=&quot;0&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;table width=&quot;95%&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;&lt;h2&gt;&lt;font color=&quot;#20B2AA&quot;&gt;构建结果 - $&#123;BUILD_STATUS&#125;&lt;/font&gt;&lt;/h2&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--版本发布:--&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">&lt;td&gt;&lt;b&gt;&lt;font color=&quot;#0B610B&quot;&gt;版本发布:&lt;/font&gt;&lt;/b&gt;</span><br><span class="line">&lt;hr size=&quot;2&quot; width=&quot;100%&quot; align=&quot;center&quot; /&gt;</span><br><span class="line">&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">&lt;td&gt;</span><br><span class="line">&lt;pre&gt;</span><br><span class="line">$&#123;BUILD_LOG_EXCERPT, start =&quot;^STARTSTART&quot;, end =&quot;^ENDEND&quot;&#125; </span><br><span class="line">下载链接(内网)：&lt;a href=&quot;$&#123;BUILD_URL&#125;&quot;&gt;$&#123;BUILD_URL&#125;&lt;/a&gt;</span><br><span class="line">下载链接(外网)：&lt;a href=&quot;http://***/$&#123;BUILD_NUMBER&#125;/&quot;&gt;http://***/$&#123;BUILD_NUMBER&#125;/&lt;/a&gt;</span><br><span class="line">&lt;/pre&gt;          </span><br><span class="line">&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- 构建信息:--&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;</span><br><span class="line">    &lt;b&gt;&lt;font color=&quot;#0B610B&quot;&gt;构建信息:&lt;/font&gt;&lt;/b&gt;</span><br><span class="line">    &lt;hr size=&quot;2&quot; width=&quot;100%&quot; align=&quot;center&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;项目名称&amp;nbsp;：&amp;nbsp;$&#123;PROJECT_NAME&#125;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;构建编号&amp;nbsp;：&amp;nbsp;$&#123;BUILD_NUMBER&#125;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;Git&amp;nbsp;branch：&amp;nbsp;$&#123;GIT_BRANCH&#125;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;Git&amp;nbsp;revision：&amp;nbsp;$&#123;GIT_REVISION, length=7&#125;  &amp;nbsp; full: $&#123;GIT_REVISION&#125;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;发布者：&amp;nbsp;$&#123;CAUSE&#125;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;构建日志：&amp;nbsp;&lt;a href=&quot;$&#123;BUILD_URL&#125;console&quot;&gt;$&#123;BUILD_URL&#125;console&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;构建&amp;nbsp;&amp;nbsp;Url&amp;nbsp;：&amp;nbsp;&lt;a href=&quot;$&#123;BUILD_URL&#125;&quot;&gt;$&#123;BUILD_URL&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;工作目录&amp;nbsp;：&amp;nbsp;&lt;a href=&quot;$&#123;PROJECT_URL&#125;ws&quot;&gt;$&#123;PROJECT_URL&#125;ws&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;项目&amp;nbsp;&amp;nbsp;Url&amp;nbsp;：&amp;nbsp;&lt;a href=&quot;$&#123;PROJECT_URL&#125;&quot;&gt;$&#123;PROJECT_URL&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--提交信息--&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;&lt;b&gt;&lt;font color=&quot;#0B610B&quot;&gt;Changes Since Last Successful Build:&lt;/font&gt;&lt;/b&gt;</span><br><span class="line">    &lt;hr size=&quot;2&quot; width=&quot;100%&quot; align=&quot;center&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;历史变更记录 : &lt;a href=&quot;$&#123;PROJECT_URL&#125;changes&quot;&gt;$&#123;PROJECT_URL&#125;changes&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt; $&#123;CHANGES_SINCE_LAST_SUCCESS,reverse=true, format=&quot;Changes for Build #%n:&lt;br /&gt;%c&lt;br /&gt;&quot;,showPaths=true,changesFormat=&quot;&lt;pre&gt;[%a]&lt;br /&gt;%m&lt;/pre&gt;&quot;,pathFormat=&quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%p&quot;&#125;            &lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--测试信息--&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;&lt;b&gt;&lt;font color=&quot;#0B610B&quot;&gt;Failed Test Results:&lt;/font&gt;&lt;/b&gt;</span><br><span class="line">    &lt;hr size=&quot;2&quot; width=&quot;100%&quot; align=&quot;center&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;&lt;pre style=&quot;font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif&quot;&gt;$FAILED_TESTS&lt;/pre&gt;</span><br><span class="line">        &lt;br /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;(本邮件是Jenkins构建项目完成之后自动下发的，请勿回复！)&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h4 id="构建机的选择"><a href="#构建机的选择" class="headerlink" title="构建机的选择"></a>构建机的选择</h4><p>构建机，这个比较重要，因为我有iOS编译需求，所以这里选择一台闲置的<code>macbook（mbp2012）</code>作为构建机器。这台电脑7*24为我服务，除了作为构建机使用外，还装了虚拟机也是我主要的本地测试环境，因此我升级了16g内存以及ssd，虽然有点老性能也基本够用我的原则就是只要能开机就一直用着。<br>备注：2012款的macbook已经不能当做iOS编译机使用了，因为新版的xcode需要macos11(bigsur)以上的版本才行，而macos11只支持2013款以后的机型。</p>
+<h4 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h4><p><a target="_blank" rel="noopener" href="https://developers.dingtalk.com/document/tutorial/create-a-robot?spm=a2q3p.21071111.0.0.6dd265ee9EUrKU">内网穿透</a> 由于是本地部署需要外网访问。偶然的机会我发现阿里提供了个免费的内网穿透工具，这个可以用于临时测试用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">如果你还没有公网域名，在本部分，你可以使用钉钉内网穿透工具，映射一个本地的公网域名使用。</span><br><span class="line"></span><br><span class="line">1.打开命令行工具，执行以下命令，下载内网穿透工具。</span><br><span class="line"></span><br><span class="line">git clone https://github.com/open-dingtalk/pierced.git</span><br><span class="line"></span><br><span class="line">2.执行以下命令，启动内网穿透。</span><br><span class="line"></span><br><span class="line">Windows执行以下命令：</span><br><span class="line"></span><br><span class="line">cd windows_64</span><br><span class="line">ding -config=ding.cfg -subdomain=abcde 8080</span><br><span class="line"></span><br><span class="line">MAC执行以下命令：</span><br><span class="line"></span><br><span class="line">cd mac_64</span><br><span class="line">chmod 777 ./ding</span><br><span class="line">./ding -config=./ding.cfg -subdomain=abcde 8080</span><br><span class="line"></span><br><span class="line">注意 启动内网穿透时，请不要直接使用abcde字符串，如果需要使用默认端口8080，需确保在同一内网环境下该字符串唯一且未重复使用，如果重复，启动后可能会出现访问端口不一致问题。</span><br><span class="line"></span><br><span class="line">3.启动完客户端后，你访问http://abcde.vaiwan.com/xxxxx都会映射到http://127.0.0.1:8080/xxxxx。</span><br><span class="line"></span><br><span class="line">4.重启后端服务。</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果与发布："><a href="#结果与发布：" class="headerlink" title="结果与发布："></a>结果与发布：</h3><p>发包流程可以根据实际情况去处理，同一个项目可以多拷贝几份构建ITEM以满足不同的需求，</p>
+<p>比如 每日构建， 每次git提交构建，以及正式发包构建。等等。</p>
+<p>由于我是单兵作战，所以只有发部新包的时候手动构建。这样只要在邮件列表的人就会收到以下邮件，然后根据需要再去下载即可。我只关注的我自己的工作流，至于别人的流程我并不关注。</p>
+<img src="https://cdn.fanfq.com/picgo/20211115135623.png?imageslim," class="" title="构建结果邮件通知">
+
+<ul>
+<li>版本命名</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>versionCode</th>
+<th>versionName</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>211112(yyMMDD)</td>
+<td>1.0.1(根据版本情况自定义)</td>
+</tr>
+</tbody></table>
+<p><code>versionCode</code>. 客户端是不可见的，主要用于版本升级，比如热更强更，以及上架的时候也会要求；主要针对研发标识版本的。</p>
+<p><code>versionName</code>. 客户端可见，通常更有意义的版本表述的方式，如 <code>v1.1 beta</code> 等；主要是为了方便传播与表述。我也习惯用 <code>1.0.yy.mmDD</code> 这种方式定义版本名称。 </p>
+<img src="https://cdn.fanfq.com/picgo/20211115135738.png?imageslim," class="" title="设定job只读权限后的账户访问">
+
+<ul>
+<li>包体命名</li>
+</ul>
+<p><code>app-com.xxx-360-release-v1.0.1(211028)-20211115-162621-.apk</code></p>
+<table>
+<thead>
+<tr>
+<th>app</th>
+<th>com.xxx</th>
+<th>360</th>
+<th>release</th>
+<th>v1.0.1(211028)</th>
+<th>20211115-162621</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td>包名</td>
+<td>渠道名</td>
+<td>正式包</td>
+<td>版本名(版本号)</td>
+<td>编译时间(yyyyMMDD-HHMMSS)</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/blog/%E8%A6%81%E4%B9%88%E8%8B%9F_%E8%A6%81%E4%B9%88%E6%BB%9A_%E8%8B%9F%E6%9C%89%E8%8B%9F%E9%81%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/%E8%A6%81%E4%B9%88%E8%8B%9F_%E8%A6%81%E4%B9%88%E6%BB%9A_%E8%8B%9F%E6%9C%89%E8%8B%9F%E9%81%93.html" itemprop="url">
+                  要么苟，要么滚！苟有苟道！
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-11-10 11:23:50" itemprop="dateCreated datePublished" datetime="2021-11-10T11:23:50+08:00">2021-11-10</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog_</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="写在前面的话："><a href="#写在前面的话：" class="headerlink" title="写在前面的话："></a>写在前面的话：</h3><p>要么苟，要么滚！</p>
+<p>和我共事4，5年的同事在和我完成最后一个项目时在今年5月1号之前陆续辞职了，很多事情我不能左右，该争取的我都争取了，希望他们有个好的发展。</p>
+<p>共事这么多年，我对他们的技术能力还是比较认可的，在此之前也招过好几个都不能如意，直到他们的加入。</p>
+<p>他们两个人学习能力很强，战斗力十足，年纪轻又无家庭的牵绊，在职场的竞争力还是比较强的。</p>
+<p>但是我不一样，在这件事情上我苟了，因为该经历的我基本上都经历了，选择换一个环境继续打工可能不是目前的我最优的选择。</p>
+<p>我经常在研发群里看到有人抱怨，抱怨公司要执行大小周，996，OKR，等等。只要看到这种消息我的统一回复是 “要么苟，要么滚！”</p>
+<p><code>苟</code> 是指苟且，<code>滚</code> 是指跳槽换个公司。 </p>
+<p>实际上，不管换到什么样的公司，同样的问题也会在不同的公司发生。历史是惊人的相似，只是他们对象不同而已。</p>
+<h3 id="伊始"><a href="#伊始" class="headerlink" title="伊始"></a>伊始</h3><p>这个电商项目我们整整开发了4个自然月，其中包括春假10天的假期，在项目启动之前我就做好的方案选型。</p>
+<p>我们选用了当前流行的客户端框架 <code>flutter</code> ，也正是选择了这个框架，间接的导致成员的离开。</p>
+<p>我的两个团队成员，分别是<code>iOS</code>，<code>Android</code>原生开发，他们也乐意学习这个框架解锁新技能。而我则负责整个项目的管理以及所有服务器端<code>API</code>开发工作，好在服务器端并非从头开发，而是基于现有的<code>web</code>网站开发客户端接口，<br>而客户端整体<code>UI</code>设计是跟随<code>H5</code>站开发的。所以减轻了我们很多研发压力。</p>
+<p>所有的一切我们进展的都很顺利，在春节放假的前一天，我发布的一个内测版本，此时项目才进行一个多月。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># alpha v1.0 release notes </span><br><span class="line"></span><br><span class="line">本客户端采用flutter开发，支持原生iOS,Android平台，iOS特殊性暂无法提供测试包，先提供Android包以供体验测试。</span><br><span class="line">服务器端基于xxx官网平台（thinkphp  + smarty）mobile模块进行接口开发，主要进行客户端请求拦截服务器跳转逻辑功能重构，以及支付接口对接等，确保逻辑完整性。</span><br><span class="line"></span><br><span class="line">1. 当前版本已发布4大核心模块，80多个子功能模块。</span><br><span class="line">2. 微信授权登录，普通账号注册于登录，修改账号密码，管理收货地址</span><br><span class="line">3. 微信支付，余额支付，账户预充值</span><br><span class="line">4. 购物车管理，订单管理，返修，退货，退款</span><br><span class="line">5. 商品分类，搜索，详情，晒单，评价，收藏</span><br><span class="line">6. 分销状态，推荐二维码，推荐链接。</span><br><span class="line"></span><br><span class="line">**注：**</span><br><span class="line">当前客户端版本基于线上官网开发，官网逻辑结构如果出现跟新会影响客户端的正常使用。</span><br><span class="line">测试过程中欢迎提供建议与意见，以及发现的bug，我们会在年后统一处理。</span><br><span class="line">当前版本未实现功能：客服聊天，红包添加</span><br><span class="line"></span><br><span class="line">**项目组成员：**</span><br><span class="line">Fred范方青，`项目管理与对接，服务器端接口开发`</span><br><span class="line">刘xx，周xx，`客户端开发`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>忘记说了，服务器端是<code>PHP</code>开发的，在此之前我并未开发过PHP项目，也是边学边做的。</p>
+<p>我们项目组正式编制只有三个人而且全都是研发，还有一个美工协助我们做一些图片素材。</p>
+<p>2021年1月我们是公司最忙碌的几个人了，即便如此我从来都不要求他们加班，只要我的计划做的精准并给自己留有足够的buff，效率是第一生产力，进度我是有把握的。</p>
+<blockquote>
+<p>加班做样子，这件事我从来不做，也不削去做。</p>
+</blockquote>
+<p>印象深刻的是，年终尾牙活动，一地鸡毛！那个时候我们已经有了不好的预感了，因为老板派了个新领导担任<code>CEO</code>，我们私下称之 <code>xx</code></p>
+<h3 id="年后"><a href="#年后" class="headerlink" title="年后"></a>年后</h3><p>惯例，年后我分别找项目组成员聊天，他们已经表露出对年终奖的不满之意。</p>
+<p>虽然他们是向我汇报的，但他们的实际薪资，以及奖金情况我是不知道也做不了主的，公司也不会咨询我的意见，完全由老板主观的评断。</p>
+<p>私人老板都是这么个德行，我已习以为常，2020年公司的业绩确有下滑但不至于到如此程度，这些我们都心知肚明。</p>
+<p>老板愿意高薪请个无所事事的<code>ceo</code>都不愿意激励跟随公司多年的员工。（实际上我是知道为什么会出现这个<code>ceo</code>的，写这篇文章的时候他也被赶走了，空降我们这里之前他是华为一名技术研发人员，985高校毕业。我对他的评价就是<code>能力欠缺，德不匹位</code>）</p>
+<p>直言，我对我的年终奖也不满意。我是拿年薪的，同时也是合伙人。</p>
+<p>四月底，我们项目完成了，已经开始步入上架发布的流程了，此时项目组成员也陆续提出辞职。</p>
+<p>了解到他们已经收到新公司的<code>offer</code>，过去做<code>flutter</code>开发，薪资基本上是现在的双倍。</p>
+<p>我想挽留，也争取了，但失败了。</p>
+<p>五月份，我独自一人完成包括iOS在内的多个平台的产品上架。</p>
+<blockquote>
+<p>咱们做技术的，就得耐得住寂寞</p>
+</blockquote>
+<p>这句话，是我的大学老师和我说的。我对我的情绪控制的还好也算是处事不惊了。</p>
+<p>那个月，我感觉到了危机感，也许就是别人说的中年危机。</p>
+<p>35岁了，我不想再管理团队了，一般人我也看不上眼，能力高的我又留不住。</p>
+<p>经历过电商项目后，我对研发又充满的热情，就此又开始了我的独立研发之路。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/blog_/%E6%B8%B8%E6%88%8F%E8%A1%8C%E4%B8%9A%E5%B7%B2%E4%B8%8E%E6%88%91%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%EF%BC%8C%E6%9B%BE%E7%BB%8F%E6%88%91%E4%BB%A5%E4%BB%96%E8%B0%8B%E7%94%9F.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog_/%E6%B8%B8%E6%88%8F%E8%A1%8C%E4%B8%9A%E5%B7%B2%E4%B8%8E%E6%88%91%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%EF%BC%8C%E6%9B%BE%E7%BB%8F%E6%88%91%E4%BB%A5%E4%BB%96%E8%B0%8B%E7%94%9F.html" itemprop="url">
+                  游戏行业已与我渐行渐远，曾经我以他谋生
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-08-12 14:59:44" itemprop="dateCreated datePublished" datetime="2021-08-12T14:59:44+08:00">2021-08-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog_</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>数年游戏行业从业经历，一路过来的心路历程，我不玩手游，不玩网游，今天告诉你我在玩什么？我在怎么玩？</p>
+<p>当时每年都会参加不同的展会，如ChinaJoy，GMGC 等但凡有点规模的我都参加过，也代表公司设立过展台。</p>
+<img src="https://cdn.fanfq.com/picgo/20210812150054.jpg?imageslim," class="" title="GMGC">
+
+
+
+
+
+<img src="https://cdn.fanfq.com/picgo/20210812150129.jpg?imageslim," class="" title="ChinaJoy">
+
+
+
+<p>我找了好久才找到这两张照片，回顾一下这几年我发过的朋友圈，绝大多数都没有我真人出境的照片，基本都是只拍了个展台，或者拍了下工作证。真的蛮可惜的，好在还找到了两张分别代表GMGC 和 ChinaJoy 的。</p>
+<p>写到这里，我似乎觉得我要和游戏行业说再见了。这几年在游戏行业经历了太多的人和事，也见证了游戏行业爆发到萎靡的时代。说实话这几年的从业经历彻底打翻了我对游戏行业的认知，甚至对人性有了更加深刻的领悟。</p>
+<p>以技术专家加入游戏行业，再后来的运营，商务多重角色的转换让我看清了互联网行业本来的面目，也让我看清了整个游戏的行业的生存之道。我感谢这几年的历练，也感谢我自己对陌生领域始终充满了好奇心。即便到现在我仍旧保持一颗敬畏之心去探索未知的领域。</p>
+<p>我们这代人因为游戏经历的太多，你能想到什么历史性的事件是与游戏有关的？</p>
+<p>在此感谢我的父亲，在我7岁的时候送我的礼物居然是一台胜天的游戏机。那个时候连彩色电视机都还没有普及的年代，我居然有了游戏机，毫不夸张的说那时候我才是这条街最亮的仔。</p>
+<img src="https://cdn.fanfq.com/picgo/20210812150155.jpeg?imageslim," class="" title="胜天游戏机">
+
+
+
+
+
+<p>我也感谢我的两位朋友，他们分别送了XBOX,PS4. 这两台主机给我。比较可惜的是我真的没有太多的时间去体验这些游戏机。自从成年之后我未曾在游戏方面花太多的时间，也可以说市面的是绝大多数的游戏都没能成功的吸引我，好的游戏我会称赞他，即便如此想让我长时间的玩这款游戏比较难。</p>
+<img src="https://cdn.fanfq.com/picgo/20210812150213.jpeg?imageslim," class="" title="XBOX 360">
+
+
+
+
+
+<img src="https://cdn.fanfq.com/picgo/20210812150223.jpeg?imageslim," class="" title="Play Station 4">
+
+
+
+
+<p>我总结了一下，我玩游戏不上瘾，这不是我有较强的自控力，而是我了解游戏的逻辑，我仅仅将游戏当做消费品，消遣时间用的。就和你刷短视频一样，都在消费内容，消遣时间而已。</p>
+<p>人到中年，羁绊也越来越多，工作的烦恼，家庭的琐碎，但凡一个成年人如果有固定时间投身自己的爱好，在我看来是极为奢侈的一件事。</p>
+<p>等新款的Switch发售，我准备入手一台，之所以迟迟不入手的主要原因是那块720p的屏幕。新款的Switch虽然升级成OLED屏幕了，可仍旧是720p的。比较可惜，但我不想再等了。我想奢侈一把，挤出固定时间好好玩玩游戏，玩玩Switch。</p>
+<img src="https://cdn.fanfq.com/picgo/20210812150251.jpeg?imageslim,Switch" class="" title="OLED">
+
+
+
+<p>游戏行业背负了本该不该背负的舆论压力，游戏行业的从业者们，且行且珍惜。</p>
+<p>8月3日，新华社旗下经济参考报发表文章，称以《王者荣耀》为代表的网络游戏是“精神鸦片”，会对未成年人的健康成长造成不可估量的影响。不过现在这篇文章也找不到了，你懂的。</p>
+<p>作为曾今的游戏行业从业者来说，目前就全球而言，腾讯是最大的游戏公司，最大游戏发行公司，我甚至连他的财报都不用看，其中游戏的收入占其总收入的50%以上，剩下的就是广告收入。除了广告和游戏收入以外的其他收入基本可以忽略不计。</p>
+<p>我刚入游戏行业的时候，当时最流行的手游是皇室战争，时间不长皇室战争的研发公司supercell就被腾讯收购了。但凡能叫得出来的名字的游戏公司，或多或少的都有腾讯的占股。</p>
+<p>大家是否还记得马云曾今扬言称之“饿死也不做游戏”，但在2017年成立了阿里游戏，游戏行业这块蛋糕太诱惑了。</p>
+<p>做为过来人我只能说游戏行业真的很挣钱，但实际上游戏行业近几年来并不好过。当初我们的合作伙伴还在继续做这行的不多了，都纷纷改行了。游戏版号，类似于图书背面那个条形码的ISBN号。游戏产品想要正式发行现在必须要有版号，以前野蛮生长的时候监管的并不是那么的严格，自从2018年以来能够办到游戏的版号已经不多了，基本都被大厂熔断，就已经卡死了90%的游戏公司。</p>
+<p>这里补充一下，如果游戏是收费的，或者有内购的话现在必须要有版号的。如果是免费的或者是通过广告变现的是不需要版号的。这里是有区别的。</p>
+<p>剩下的就是游戏内容，市面上绝大多数游戏的是换皮游戏。同一款游戏的换一套美术素材，换个名字就是新游戏，类似的情况比比皆是。从苹果App Store历年来整顿可以看出被下架的都是一些换皮的或者违规的游戏类产品。</p>
+<p>作为我而言，是赞成游戏产品监管的。我承认类似 《Addiction by Design》这样的说法，游戏的成瘾性，支付点都是经过精心策划的。我觉得这个也无可厚非，分析用户的心里诱导他们的决策，在从商业行为中无所不在。</p>
+<p>负责任的说市面上任何一款头部的APP，他们的每个按钮，每个颜色，每个字体都是经过精心的设计的。目的就是让用户更多的停留在他们的APP中，更何况市面上不乏那些通过AI分析进行内容精准推荐的APP。</p>
+<p>至于《王者荣耀》是否真的是“精神鸦片”不是简单的一篇文章就能定性的，也不是我所关注的内容。我希望能够提出有效的解决方案，而不是一棍子打死。我们成年人也不希望和自己打游戏的队友是小学生，通过游戏的分级制度，实名认证，支付通道，在线时长等等多维度的疏导，建立一个有序的健康的游戏环境才是出发点。</p>
+<p>一棍子打死了，没有游戏，还有打牌，斗蛐蛐，斗鸡。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/podcast/%E6%92%AD%E5%AE%A2%E5%BD%95%E5%88%B6%E6%8A%80%E5%B7%A7%E8%BD%AF%E4%BB%B6%E7%AF%87audacity%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/podcast/%E6%92%AD%E5%AE%A2%E5%BD%95%E5%88%B6%E6%8A%80%E5%B7%A7%E8%BD%AF%E4%BB%B6%E7%AF%87audacity%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html" itemprop="url">
+                  播客录制技巧软件篇audacity基础配置
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-07-29 14:57:32" itemprop="dateCreated datePublished" datetime="2021-07-29T14:57:32+08:00">2021-07-29</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/podcast/" itemprop="url" rel="index"><span itemprop="name">podcast</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>以我的经验，尽量在录制前就做好准备，尽可能的确保录制出来的音频质量的可靠的，避免过多的后期处理。<br>个人感受电容麦克风更加适合录制唱歌，或者对声音真的有特别的细腻的要求的。<br>否则选择动圈麦克风是比较明智的选择，家庭环境避免不了环境底噪的如电脑的风扇，<br>空调的声音等，而动圈麦克风比较有效的屏蔽这种底噪。<br>如果想要监听人声以及后期做编辑，推荐使用监听耳机，而一般的hifi耳机并不能真实的还原声音原本的面貌。<br>这里说明一下，如果条件允许尽可能买好一点的音频设备，音频设备相比相机来说是比较保值的而且不容易坏。<br>买好点的设备目的就是为了少走冤枉路 <a target="_blank" rel="noopener" href="https://www.elselook.com/about/devices">我的设备清单</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.audacityteam.org/">audacity</a> 是一款免费的开源软件，对比下来这款软件特别适合新手。以下是我经常用到的几个配置。</p>
+<h1 id="降噪"><a href="#降噪" class="headerlink" title="降噪"></a>降噪</h1><p>录制的技巧，首先录制一段环境音然后再开始真正的录制，这段环境音可以作为我们后期降噪时所需采样的素材。<br>通过采样素材对比算法后，软件会自动将段落中类似的波段的音频给消除掉，这也就是降噪所产生的作用。</p>
+<img src="https://cdn.fanfq.com/picgo/20210729154425.png?imageslim" class="">
+
+<h1 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h1><p>这个比较重要，特别录制音频质量不好的情况下，比如说话离话筒忽远忽近个波形形成一个个山峰的时候，这个步骤是一定会使用到的。<br>他的作用主要是将高于指定阈值的音量进行压缩<br>通常情况下阈值会设定为-15db（也可以根据波形的实际情况进行调整），比率为2:1<br>那么0db的音量会被压缩成 -15+（15-0）* 1/2 = -7.5 db , 这里要注意一下只有音量大于-15db的时候才会被压缩。</p>
+<img src="https://cdn.fanfq.com/picgo/20210729154454.png?imageslim" class="">
+
+
+<h1 id="图形化均衡器"><a href="#图形化均衡器" class="headerlink" title="图形化均衡器"></a>图形化均衡器</h1><p>这个比较个性化的调整，主要用于调整声音的频率的。通常我不调。</p>
+<img src="https://cdn.fanfq.com/picgo/20210729154528.png?imageslim" class="">
+
+
+<h1 id="标准化"><a href="#标准化" class="headerlink" title="标准化"></a>标准化</h1><p>这个是很重要的一件事，一定要做的。<br>因为经过以上的操作，声音的音量必然会受到影响，我知道的是很多平台会二次压缩的统一响度的，但绝大多数平台是直出的。出现的症状就是别人听你的节目会觉得声音小或者大，听感很不舒服。</p>
+<img src="https://cdn.fanfq.com/picgo/20210729154620.png?imageslim" class="">
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/VirtualBox%E5%AE%89%E8%A3%85Ubuntu_Linux%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/VirtualBox%E5%AE%89%E8%A3%85Ubuntu_Linux%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html" itemprop="url">
+                  VirtualBox安装Ubuntu Linux常用配置
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-01 15:37:27" itemprop="dateCreated datePublished" datetime="2021-03-01T15:37:27+08:00">2021-03-01</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p>个人习惯使用<code>桥接模式</code>也推荐这个模式，DHCP会独立分发一个IP给虚拟机LAN中可当做独立主机使用，缺点就是会占用一个IP不过这点在本地开发中可以忽略毕竟内网通常是不会缺IP资源的。</p>
+<p><strong>注意</strong> 这里需要注意下，我这里 <code>en0:以太网</code> 是指通过网线来模拟虚拟机的网卡端口，也就是说宿主机需要连接网线。如果是无线网卡的话则是 <code>en1:Wi-Fi(AirPort)</code> 这里需要注意一下，特别是针对基于RJ45接口的笔记本而言。</p>
+<img src="https://cdn.fanfq.com/picgo/20210301154148.png?imageslim" class="">
+
+<h3 id="共享目录"><a href="#共享目录" class="headerlink" title="共享目录"></a>共享目录</h3><p>顾名思义就是在宿主机上创建一个目录，方便于虚拟机随时的访问，以便于宿主机与虚拟机文件之间的拷贝。</p>
+<ol>
+<li><p>在宿主机创建共享的位置，比如我这里是 <code>/User/fanfq/VirtualBox VMs/macshare</code></p>
+</li>
+<li><p>配置共享目录 </p>
+</li>
+</ol>
+<img src="https://cdn.fanfq.com/picgo/20210301155815.png?imageslim" class="">
+
+<ol start="3">
+<li>配置虚拟机，需要注意的一下这里需要安装vbox的增强插件，直接在虚拟机中点击菜单栏的<code>devices</code> &gt; <code>Insert Guest Additions CD image</code> 点击安装即可</li>
+</ol>
+<img src="https://cdn.fanfq.com/picgo/20210301153505.png?imageslim" class="">
+
+<ol start="4">
+<li><p>重启测试，此时在进入系统就会看在根目录看到 <code>/macshare</code> 目录，此时在此目录下写入文件，在宿主机 <code>/User/fanfq/VirtualBox VMs/macshare</code> 会实时同步，反之亦可。</p>
+</li>
+<li><p>手动挂载共享目录，如果第4步不成功可能需要手动挂载</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf macshare /macshare</span><br></pre></td></tr></table></figure>
+
+<h3 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h3><p>默认情况下ubuntu是没有安装 <code>ssh</code> 服务器端的，为了方便客户端的连接需要自己手动安装一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.fanfq.com/dev/Maven%E5%B7%A5%E7%A8%8B%E5%BC%95%E7%94%A8jar%E5%8C%85.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fred范方青">
+      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fred's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dev/Maven%E5%B7%A5%E7%A8%8B%E5%BC%95%E7%94%A8jar%E5%8C%85.html" itemprop="url">
+                  Maven工程引用jar包
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-02-07 11:54:54" itemprop="dateCreated datePublished" datetime="2021-02-07T11:54:54+08:00">2021-02-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>近期项目需要研究了下京东SDK，发现其提供了SDK jar包。自从用了mvn进行包管理，应该是这几年都很少去引用jar了。</p>
+<p>为此整理一下如何在maven工程引用jar包。</p>
+<h3 id="将jar包加入本地仓库"><a href="#将jar包加入本地仓库" class="headerlink" title="将jar包加入本地仓库"></a>将jar包加入本地仓库</h3><p>按照个人习惯先备个shell脚本，方便使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file \</span><br><span class="line">-Dfile=open-api-sdk-2.0-2021-02-06.jar \</span><br><span class="line">-DgroupId=com.jd.open.api \</span><br><span class="line">-DartifactId=jd-open-api \</span><br><span class="line">-Dversion=2.0 \</span><br><span class="line">-Dpackaging=jar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中：<code>-DgroupId</code>，<code>-DartifactId</code> 的作用是指定了这个jar包在repository的安装路径，只是用来告诉项目去这个路径下寻找这个名称的jar包。</p>
+<p>如果本地仓库被清楚或者部署到新的机器上都需要安装一下。</p>
+<p>安装结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[INFO] Scanning for projects...</span><br><span class="line">[INFO] </span><br><span class="line">[INFO] ------------------&lt; org.apache.maven:standalone-pom &gt;-------------------</span><br><span class="line">[INFO] Building Maven Stub Project (No POM) 1</span><br><span class="line">[INFO] --------------------------------[ pom ]---------------------------------</span><br><span class="line">[INFO] </span><br><span class="line">[INFO] --- maven-install-plugin:2.4:install-file (default-cli) @ standalone-pom ---</span><br><span class="line">[INFO] Installing /.../app/src/main/resources/libs/open-api-sdk-2.0-2021-02-06.jar to /Users/fred/.m2/repository/com/jd/open/api/jd-open-api/2.0/jd-open-api-2.0.jar</span><br><span class="line">[INFO] Installing /var/folders/m5/n09g6tjx30510drtjpc405m40000gn/T/mvninstall7006216312529085370.pom to /Users/fred/.m2/repository/com/jd/open/api/jd-open-api/2.0/jd-open-api-2.0.pom</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time:  0.410 s</span><br><span class="line">[INFO] Finished at: 2021-02-07T10:55:00+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<h3 id="跟新pom-xml文件"><a href="#跟新pom-xml文件" class="headerlink" title="跟新pom.xml文件"></a>跟新pom.xml文件</h3><p>然后再在项目工程中引用即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;com.jd.open.api&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;jd-open-api&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;2.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注</strong>为了方便起见，我都会将需要三方jar包都会放在工程目录中以免丢失或者忘记。</p>
+<img src="https://cdn.fanfq.com/picgo/20210207141200.png?imageslim" class="">
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/A9808FDB264A02DD004D032FD091DAE2.jpg"
+                alt="Fred范方青" />
+            
+              <p class="site-author-name" itemprop="name">Fred范方青</p>
+              <p class="site-description motion-element" itemprop="description">那时候年少轻狂!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fanfq" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:fangqing.fan@hotmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-fa fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.elselook.com" title="www.elselook.com" target="_blank">www.elselook.com</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"><a target="_blank" rel="external nofollow" href="https://beian.miit.gov.cn/"> 苏ICP备15056794号-1 </a> &copy; 2012 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fred范方青</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Pisces</a></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
