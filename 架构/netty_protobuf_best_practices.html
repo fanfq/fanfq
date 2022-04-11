@@ -160,7 +160,7 @@
 <meta property="og:image" content="https://blog.fanfq.com/uploads/protobufjs.png">
 <meta property="og:image" content="https://blog.fanfq.com/uploads/ccc.png">
 <meta property="article:published_time" content="2020-03-18T10:12:50.000Z">
-<meta property="article:modified_time" content="2021-09-24T15:59:50.567Z">
+<meta property="article:modified_time" content="2020-09-08T02:29:36.000Z">
 <meta property="article:author" content="Fred范方青">
 <meta property="article:tag" content="架构">
 <meta property="article:tag" content="design">
@@ -246,7 +246,7 @@
   </style>
 </noscript>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -424,7 +424,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fred范方青">
-      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="description" content="播客主播、程序员、创业者">
       <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
     </span>
 
@@ -628,10 +628,10 @@
 </tbody></table>
 <p>3.以KeepAliveMsg.proto为例说明</p>
 <p>ProtoID.proto 一个公用的枚举类型以便管理协议编号</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">syntax =<span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"><span class="comment">//消息头</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">MsgType</span></span>&#123;</span><br><span class="line">    DEF = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//keepalive</span></span><br><span class="line">    PING = <span class="number">1001</span>;</span><br><span class="line">    PONG = <span class="number">1901</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">syntax =<span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"><span class="comment">//消息头</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">MsgType</span>&#123;</span><br><span class="line">    DEF = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//keepalive</span></span><br><span class="line">    PING = <span class="number">1001</span>;</span><br><span class="line">    PONG = <span class="number">1901</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>KeepAliveMsg.proto 心跳包协议体</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">syntax =<span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"></span><br><span class="line">message C2S</span><br><span class="line">&#123;</span><br><span class="line">    int64 timestamp = <span class="number">1</span>; <span class="comment">//时间戳</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message S2C</span><br><span class="line">&#123;</span><br><span class="line">    int64 timestamp = <span class="number">1</span>; <span class="comment">//时间戳</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message C2SMsg  <span class="comment">//Request</span></span><br><span class="line">&#123;</span><br><span class="line">    C2S c2s = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message S2CMsg  <span class="comment">//Response</span></span><br><span class="line">&#123;</span><br><span class="line">    int32 code = <span class="number">1</span>;</span><br><span class="line">    string msg = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    S2C s2c = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">syntax =<span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"></span><br><span class="line">message C2S</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int64</span> <span class="variable">timestamp</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">//时间戳</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message S2C</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int64</span> <span class="variable">timestamp</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">//时间戳</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message C2SMsg  <span class="comment">//Request</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">C2S</span> <span class="variable">c2s</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message S2CMsg  <span class="comment">//Response</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int32</span> <span class="variable">code</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">string</span> <span class="variable">msg</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">S2C</span> <span class="variable">s2c</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="creator-整合-protobufjs"><a href="#creator-整合-protobufjs" class="headerlink" title="creator 整合 protobufjs"></a>creator 整合 protobufjs</h3><p>好了，截止到这里和我们cocos creator 不相关的东西准备结束了。下面我们来说说creator该做哪些骚操作呢。</p>
 <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/uploads/protobufjs.png" class="full-image" alt="消息结构体封装协议" /><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
@@ -644,13 +644,13 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pbjs -t <span class="keyword">static</span>-<span class="keyword">module</span> -w commonjs -o compiled.js ProtoID.proto KeepAliveMsg.proto</span><br><span class="line">pbts -o compiled.d.ts compiled.js</span><br></pre></td></tr></table></figure>
 
 <p>此时我们就生成出了 compiled.d.ts compiled.js 这两个文件，也将其复制到creator工程中，其中修改下compiled.js如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var $protobuf = require(&quot;protobufjs/minimal&quot;);</span></span><br><span class="line"><span class="keyword">var</span> $protobuf = protobuf;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var $protobuf = require(&quot;protobufjs/minimal&quot;);</span></span><br><span class="line"><span class="type">var</span> <span class="variable">$protobuf</span> <span class="operator">=</span> protobuf;</span><br></pre></td></tr></table></figure>
 
 <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/uploads/ccc.png" class="full-image" alt="消息结构体封装协议" /><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
 
 <p>好，截止到这里。基本上就完成了protobuf的支持的，剩下的工作就是开始怼代码了！</p>
 <p>写到这里，我有点不想写了，以后再更新吧！</p>
-<p>//todo: creator 中如何通过protobuf.js 进行序列化与反序列化，以及自定义头的解析。</p>
+<p>&#x2F;&#x2F;todo: creator 中如何通过protobuf.js 进行序列化与反序列化，以及自定义头的解析。</p>
 <p>2020-03-18更新</p>
 <p>1.开始各种封装以及代码的调用与实现，大概的介绍下代码清单</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-script (项目工程的脚本目录)</span><br><span class="line">    |_ protobuf (存放protobuf相关目录)</span><br><span class="line">        |_compiled.js (pbjs 编译出来的 .js 文件)</span><br><span class="line">        |_compiled.d.ts (pbts 编译出来的 .d.ts 文件)</span><br><span class="line">        |_protobuf.js (导入的插件)</span><br><span class="line">        |_bean (存放封装类相关目录)</span><br><span class="line">            |_FCDecoder.ts  （arraybuf 消息头解码）</span><br><span class="line">            |_FCEncoder.ts  （arraybuf 消息头编码）</span><br><span class="line">            |_FCHeader.ts （封装的消息头对象）</span><br><span class="line">            |_FCMsg.ts （封装的消息对象）</span><br></pre></td></tr></table></figure>
@@ -679,7 +679,7 @@
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="https://cdn.fanfq.com/picgo/20210812153029.jpg?imageslim" alt="Fred范方青 wechat" style="width: 200px; max-width: 100%;"/>
-    <div>如果有技术问题和我交流请加我私人微信</div>
+    <div>项目合作请联系我私人微信: fredtv23</div>
 </div>
 
       </div>
@@ -804,7 +804,7 @@
                 alt="Fred范方青" />
             
               <p class="site-author-name" itemprop="name">Fred范方青</p>
-              <p class="site-description motion-element" itemprop="description">那时候年少轻狂!</p>
+              <p class="site-description motion-element" itemprop="description">播客主播、程序员、创业者</p>
           </div>
 
           

@@ -158,7 +158,7 @@
 <meta property="og:image" content="https://blog.fanfq.com/uploads/msg.png">
 <meta property="og:image" content="https://blog.fanfq.com/uploads/times.png">
 <meta property="article:published_time" content="2020-08-04T10:12:50.000Z">
-<meta property="article:modified_time" content="2021-09-24T15:59:50.568Z">
+<meta property="article:modified_time" content="2020-09-08T02:47:17.000Z">
 <meta property="article:author" content="Fred范方青">
 <meta property="article:tag" content="架构">
 <meta property="article:tag" content="design">
@@ -244,7 +244,7 @@
   </style>
 </noscript>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -422,7 +422,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fred范方青">
-      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="description" content="播客主播、程序员、创业者">
       <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
     </span>
 
@@ -520,20 +520,20 @@
 <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/uploads/msg.png" class="full-image" alt="结合本文自定义消息" title="结合本文自定义消息" /><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
 
 
-<h3 id="本文重点："><a href="#本文重点：" class="headerlink" title="本文重点："></a>本文重点：</h3><p>websocket/socket网路通讯主流的加密方式，适用于各种应用包括游戏。<br>数据的加密解密必然会带来额外的开销，至于是否采用加密取决于数据的敏感性，如果涉及用户隐私，如个人信息，交易记录等信息还是有必要的。</p>
+<h3 id="本文重点："><a href="#本文重点：" class="headerlink" title="本文重点："></a>本文重点：</h3><p>websocket&#x2F;socket网路通讯主流的加密方式，适用于各种应用包括游戏。<br>数据的加密解密必然会带来额外的开销，至于是否采用加密取决于数据的敏感性，如果涉及用户隐私，如个人信息，交易记录等信息还是有必要的。</p>
 <h3 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h3><img src="/uploads/times.png" class="">
 
-<h3 id="流程解释"><a href="#流程解释" class="headerlink" title="流程解释"></a>流程解释</h3><p>1.客户端创建连接（建立websocket/socket通讯），申请AES密钥。</p>
+<h3 id="流程解释"><a href="#流程解释" class="headerlink" title="流程解释"></a>流程解释</h3><p>1.客户端创建连接（建立websocket&#x2F;socket通讯），申请AES密钥。</p>
 <p>1).当连接创建成功后客户端所发出去的第一个包是通过RSA公钥加密的，其目的就是为了和服务器端申请后续通讯所使用的AES密钥。</p>
 <p>2.而服务器当收到客户端的请求AES密钥的请求包时</p>
 <p>1).通过RSA私钥解密请求包，并验证消息</p>
 <p>2).为本次连接临时生成一个AES密钥(缓存在服务器端)并返回给客户端。也就是说AES密钥每次都会变的，而不是一个固定的值。</p>
-<p>3.客户端获取AES密钥并缓存，好了此时针对本次的连接,客户端/服务器端均有AES密钥，</p>
+<p>3.客户端获取AES密钥并缓存，好了此时针对本次的连接,客户端&#x2F;服务器端均有AES密钥，</p>
 <p>那么后续的通讯数据均通过这个AES密钥进行加密解密。</p>
 <p>*截止到这里整个通讯的加密解密过程就说完了，整理清楚了通讯流程下面的工作就会轻松许多。上面有一些关键词需要稍微了解一下，如不清楚请自行百度。以下规范一下加密算法的各项参数，具体的视项目情况而定。</p>
 <h3 id="规范约定"><a href="#规范约定" class="headerlink" title="规范约定"></a>规范约定</h3><p>1.RSA,密钥长度1024, 填充方式PKCS1,公钥加密，私钥解密，公钥可通过私钥生成</p>
-<p>2.AES使用AES/ECB/PKCS7Padding</p>
-<h4 id="RSA加密"><a href="#RSA加密" class="headerlink" title="RSA加密"></a>RSA加密</h4><p>RSA加密规则:若密钥位数是key_size, 单次加密串的最大长度为 (key_size)/8 - 11, 目前位数1024, 则最大加密长度为117，为了方便这里我们选择一次加密长度为100</p>
+<p>2.AES使用AES&#x2F;ECB&#x2F;PKCS7Padding</p>
+<h4 id="RSA加密"><a href="#RSA加密" class="headerlink" title="RSA加密"></a>RSA加密</h4><p>RSA加密规则:若密钥位数是key_size, 单次加密串的最大长度为 (key_size)&#x2F;8 - 11, 目前位数1024, 则最大加密长度为117，为了方便这里我们选择一次加密长度为100</p>
 <p>将明文数据分成一个或数个最长100字节的小段进行加密，拼接分段加密数据即为最终的Body加密数据</p>
 <h4 id="RSA解密"><a href="#RSA解密" class="headerlink" title="RSA解密"></a>RSA解密</h4><p>RSA解密同样遵循分段规则，对于1024位密钥, 每小段待解密数据长度为128字节</p>
 <p>将密文数据分成一个或数个128字节长的小段进行解密，拼接分段解密数据即为最终的Body解密数据</p>
@@ -556,7 +556,7 @@
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="https://cdn.fanfq.com/picgo/20210812153029.jpg?imageslim" alt="Fred范方青 wechat" style="width: 200px; max-width: 100%;"/>
-    <div>如果有技术问题和我交流请加我私人微信</div>
+    <div>项目合作请联系我私人微信: fredtv23</div>
 </div>
 
       </div>
@@ -681,7 +681,7 @@
                 alt="Fred范方青" />
             
               <p class="site-author-name" itemprop="name">Fred范方青</p>
-              <p class="site-description motion-element" itemprop="description">那时候年少轻狂!</p>
+              <p class="site-description motion-element" itemprop="description">播客主播、程序员、创业者</p>
           </div>
 
           

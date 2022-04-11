@@ -148,16 +148,16 @@
 
 
 
-  <meta name="description" content="简单对称密码加密解密2018&#x2F;10&#x2F;19 我们发现大量的非法不带参数的Http请求访问我们的 apihost, 请求日志文件如下所示。 12345183.223.44.221 - - [19&#x2F;Oct&#x2F;2018:16:47:32 +0800] &quot;POST &#x2F;api_interface? HTTP&#x2F;1.1&quot; 200 174 &quot;-&quot; &quot;okhttp&#x2F;3.">
+  <meta name="description" content="简单对称密码加密解密2018&#x2F;10&#x2F;19 我们发现大量的非法不带参数的Http请求访问我们的 apihost, 请求日志文件如下所示。 12345183.223.44.221 - - [19&#x2F;Oct&#x2F;2018:16:47:32 +0800] &quot;POST &#x2F;api_interface? HTTP&#x2F;1.1&quot; 200 174 &quot;-&quot; &amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Internal APIs encrypt Method V1.0">
 <meta property="og:url" content="https://blog.fanfq.com/InternalAPIs_encrypt_Method_V1.0.html">
 <meta property="og:site_name" content="Fred&#39;s Blog">
-<meta property="og:description" content="简单对称密码加密解密2018&#x2F;10&#x2F;19 我们发现大量的非法不带参数的Http请求访问我们的 apihost, 请求日志文件如下所示。 12345183.223.44.221 - - [19&#x2F;Oct&#x2F;2018:16:47:32 +0800] &quot;POST &#x2F;api_interface? HTTP&#x2F;1.1&quot; 200 174 &quot;-&quot; &quot;okhttp&#x2F;3.">
+<meta property="og:description" content="简单对称密码加密解密2018&#x2F;10&#x2F;19 我们发现大量的非法不带参数的Http请求访问我们的 apihost, 请求日志文件如下所示。 12345183.223.44.221 - - [19&#x2F;Oct&#x2F;2018:16:47:32 +0800] &quot;POST &#x2F;api_interface? HTTP&#x2F;1.1&quot; 200 174 &quot;-&quot; &amp;quot">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fanfq.com/uploads/WX20181029-223437@2x.png">
 <meta property="article:published_time" content="2018-10-29T13:56:43.000Z">
-<meta property="article:modified_time" content="2021-09-24T15:59:50.564Z">
+<meta property="article:modified_time" content="2018-11-07T01:11:49.000Z">
 <meta property="article:author" content="Fred范方青">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="openapi">
@@ -240,7 +240,7 @@
   </style>
 </noscript>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -418,7 +418,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fred范方青">
-      <meta itemprop="description" content="那时候年少轻狂!">
+      <meta itemprop="description" content="播客主播、程序员、创业者">
       <meta itemprop="image" content="/images/A9808FDB264A02DD004D032FD091DAE2.jpg">
     </span>
 
@@ -508,7 +508,7 @@
       
 
       
-        <h2 id="简单对称密码加密解密"><a href="#简单对称密码加密解密" class="headerlink" title="简单对称密码加密解密"></a>简单对称密码加密解密</h2><p>2018/10/19 我们发现大量的非法不带参数的Http请求访问我们的 apihost, 请求日志文件如下所示。</p>
+        <h2 id="简单对称密码加密解密"><a href="#简单对称密码加密解密" class="headerlink" title="简单对称密码加密解密"></a>简单对称密码加密解密</h2><p>2018&#x2F;10&#x2F;19 我们发现大量的非法不带参数的Http请求访问我们的 apihost, 请求日志文件如下所示。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">183.223.44.221 - - [19/Oct/2018:16:47:32 +0800] &quot;POST /api_interface? HTTP/1.1&quot; 200 174 &quot;-&quot; &quot;okhttp/3.10.0&quot;</span><br><span class="line">请求者IP：183.223.44.221 </span><br><span class="line">请求接口：api_interface</span><br><span class="line">请求方式：POST</span><br><span class="line">请求者UA：okhttp/3.10.0</span><br></pre></td></tr></table></figure>
 
 <p>问题引申：既然是非法请求，为什么黑客没有带参数的请求？<br>实际上这是一个很好的问题，如果接口没有做任何安全处理的话，黑客通过抓包很容易拿到请求参数规则，然后通过模拟请求达到目的。一旦接口做过”特殊工艺”处理了，黑客即将无处是从了。最终他们的心态都是从破解到放弃这样一个过程。</p>
@@ -522,22 +522,22 @@
 
 <h2 id="为什么要数据加密？"><a href="#为什么要数据加密？" class="headerlink" title="为什么要数据加密？"></a>为什么要数据加密？</h2><p>安全，安全，安全。</p>
 <h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>现在通过一个示例完整的描述一下我们的接口设计中加密解密过程。</p>
-<p><strong>公钥</strong><br>上文中说道，我们同时约定了一套公钥给服务器端与客户端，为了配合下面的算法使用所以我们采用Int 类型的数字。现在定义为 KEY = 110; 为了确保安全性这个KEY只有内部知道。</p>
+<p><strong>公钥</strong><br>上文中说道，我们同时约定了一套公钥给服务器端与客户端，为了配合下面的算法使用所以我们采用Int 类型的数字。现在定义为 KEY &#x3D; 110; 为了确保安全性这个KEY只有内部知道。</p>
 <p><strong>算法</strong></p>
 <ul>
 <li>XOR （with KEY）</li>
-<li>BASE64 (encode/decode)</li>
-<li>URLEncode/URLDecode</li>
+<li>BASE64 (encode&#x2F;decode)</li>
+<li>URLEncode&#x2F;URLDecode</li>
 </ul>
 <h2 id="Eg-客户端-zhangsan-执行登录请求"><a href="#Eg-客户端-zhangsan-执行登录请求" class="headerlink" title="Eg.客户端 zhangsan 执行登录请求"></a>Eg.客户端 zhangsan 执行登录请求</h2><p><strong>将要发送的数据:</strong><br><code>&#123;username:zhangsan,password:123456,action:login&#125;</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,String&gt; reqMap = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</span><br><span class="line"><span class="keyword">int</span> key = <span class="number">110</span>;<span class="comment">//客户端与服务器端共同约定的公钥</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">be</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	reqMap.put(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">	reqMap.put(<span class="string">&quot;password&quot;</span>, <span class="string">&quot;123456&quot;</span>);</span><br><span class="line">	reqMap.put(<span class="string">&quot;action&quot;</span>, <span class="string">&quot;login&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,String&gt; reqMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String,String&gt;();</span><br><span class="line"><span class="type">int</span> <span class="variable">key</span> <span class="operator">=</span> <span class="number">110</span>;<span class="comment">//客户端与服务器端共同约定的公钥</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">be</span><span class="params">()</span> &#123;</span><br><span class="line">	reqMap.put(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">	reqMap.put(<span class="string">&quot;password&quot;</span>, <span class="string">&quot;123456&quot;</span>);</span><br><span class="line">	reqMap.put(<span class="string">&quot;action&quot;</span>, <span class="string">&quot;login&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>加密算法 （java实现）</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.xor</span></span><br><span class="line"><span class="keyword">byte</span>[] byteArry = reqMap.toString().getBytes();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteArry.length; i++) &#123;</span><br><span class="line">    byteArry[i] = (<span class="keyword">byte</span>) (byteArry[i] ^ key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.base64.ecode</span></span><br><span class="line">String encode = <span class="keyword">new</span> BASE64Encoder().encode(byteArry);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.url.encode</span></span><br><span class="line">String dist = URLEncoder.encode(encode, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;params=&quot;</span>+dist);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.xor</span></span><br><span class="line"><span class="type">byte</span>[] byteArry = reqMap.toString().getBytes();</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; byteArry.length; i++) &#123;</span><br><span class="line">    byteArry[i] = (<span class="type">byte</span>) (byteArry[i] ^ key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.base64.ecode</span></span><br><span class="line"><span class="type">String</span> <span class="variable">encode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BASE64Encoder</span>().encode(byteArry);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.url.encode</span></span><br><span class="line"><span class="type">String</span> <span class="variable">dist</span> <span class="operator">=</span> URLEncoder.encode(encode, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;params=&quot;</span>+dist);</span><br></pre></td></tr></table></figure>
 
 <p>输出的params为:<br><code>params=FR4PHR0ZARwKU19cXVpbWEJODw0aBwEAUwIBCQcAQk4bHQscAA8DC1MUBg8ACR0PABM%3D</code></p>
 <p><strong>解密算法 （java实现）</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String params = <span class="string">&quot;FR4PHR0ZARwKU19cXVpbWEJODw0aBwEAUwIBCQcAQk4bHQscAA8DC1MUBg8ACR0PABM%3D&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1.url.decode</span></span><br><span class="line">String decode = URLDecoder.decode(params, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.base64.decode</span></span><br><span class="line"><span class="keyword">byte</span>[] byteArry = <span class="keyword">new</span> BASE64Decoder().decodeBuffer(decode);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.xor</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteArry.length; i++) &#123;</span><br><span class="line">    byteArry[i] = (<span class="keyword">byte</span>) (byteArry[i] ^ key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;dist:&quot;</span>+<span class="keyword">new</span> String(byteArry));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">params</span> <span class="operator">=</span> <span class="string">&quot;FR4PHR0ZARwKU19cXVpbWEJODw0aBwEAUwIBCQcAQk4bHQscAA8DC1MUBg8ACR0PABM%3D&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1.url.decode</span></span><br><span class="line"><span class="type">String</span> <span class="variable">decode</span> <span class="operator">=</span> URLDecoder.decode(params, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.base64.decode</span></span><br><span class="line"><span class="type">byte</span>[] byteArry = <span class="keyword">new</span> <span class="title class_">BASE64Decoder</span>().decodeBuffer(decode);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.xor</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; byteArry.length; i++) &#123;</span><br><span class="line">    byteArry[i] = (<span class="type">byte</span>) (byteArry[i] ^ key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;dist:&quot;</span>+<span class="keyword">new</span> <span class="title class_">String</span>(byteArry));</span><br></pre></td></tr></table></figure>
 
 <p>输出的dist为：<br><code>dist=&#123;username:zhangsan,password:123456,action:login&#125;</code></p>
 <h2 id="对称加密优缺点"><a href="#对称加密优缺点" class="headerlink" title="对称加密优缺点"></a>对称加密优缺点</h2><p>对称加密算法的优点是算法公开、计算量小、加密速度快、加密效率高。适用于简单的报文加密，同时也使用用大报文加密。<br>对称加密算法的缺点是在数据传送前，发送方和接收方必须商定好秘钥，然后使双方都能保存好秘钥。其次如果一方的秘钥被泄露，那么加密信息也就不安全了。</p>
@@ -556,7 +556,7 @@
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="https://cdn.fanfq.com/picgo/20210812153029.jpg?imageslim" alt="Fred范方青 wechat" style="width: 200px; max-width: 100%;"/>
-    <div>如果有技术问题和我交流请加我私人微信</div>
+    <div>项目合作请联系我私人微信: fredtv23</div>
 </div>
 
       </div>
@@ -675,7 +675,7 @@
                 alt="Fred范方青" />
             
               <p class="site-author-name" itemprop="name">Fred范方青</p>
-              <p class="site-description motion-element" itemprop="description">那时候年少轻狂!</p>
+              <p class="site-description motion-element" itemprop="description">播客主播、程序员、创业者</p>
           </div>
 
           
